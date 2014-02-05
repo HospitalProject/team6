@@ -1,0 +1,276 @@
+﻿/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+	CSS RESET
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+form, label,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}	
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* - - - - - - - - - end reset - - - - - - - - - */
+@charset "utf-8";
+
+#container{
+    width: 1124px;
+    height: auto;
+    margin: auto;
+}
+
+h1 {
+    padding: 10px;
+    letter-spacing: 3px;
+    font-family: 'Carme', sans-serif;
+    font-size: 35px;
+}
+
+h2 {
+    padding: 10px;
+    letter-spacing: 3px;
+    font-family: 'Carme', sans-serif;
+    font-size: 30px;
+}
+
+h3 {
+    padding: 10px;
+    letter-spacing: 0px;
+    line-height: 30px;
+    font-family: 'Carme', sans-serif;
+    font-size: 25px;
+}
+
+h4 {
+    padding: 5px;
+    letter-spacing: 0px;
+    line-height: 30px;
+    font-family: 'Carme', sans-serif;
+    font-size: 20px;
+}
+
+h5 {
+    padding: 5px;
+    letter-spacing: 0px;
+    line-height: 25px;
+    font-family: 'Carme', sans-serif;
+    font-size: 15px;
+}
+
+h6 {
+    padding: 5px;
+    letter-spacing: 0px;
+    line-height: 5px;
+    font-family: 'Carme', sans-serif;
+    font-size: 12px;
+}
+
+header {
+    width: 912px;
+    height: 65px;
+    margin: 78px 102px 0px 110px;
+    border-bottom: 1px solid #F2ECE8;
+}
+ 
+nav {
+    width: 752px;
+    height: 49px;
+    float: left;
+}
+
+#menu {
+    font-size: 15px;
+    font-family: 'Vidaloka', serif;
+    margin: 25px 0px 0px 37px;
+    float:left;
+    clear: both;
+    
+}
+
+aside {
+    width: 912px;
+    height: 433px;
+    margin: 37px 102px 0px 110px;
+}
+
+
+aside #cph_asideLeft{
+    width: 185px;
+    height: auto;
+    float:left;
+}
+
+#googleSearch {
+    float: left;
+}
+
+#btn_googleSearch{
+    margin: 2px 0px 0px 0px;
+    float: right;
+}
+
+aside #cph_asideRight{
+    width: 700px;
+    height: auto;
+    margin: 0px 0px 0px 23px;
+    float:right;
+}
+
+#home_slideshow {
+    width: auto;
+    height: 260px;
+    border: 1px solid #808080;
+}
+
+#home_welcome {
+    width: auto;
+    height: auto;
+    margin: 32px 0px 0px 0px;
+    color: black;
+}
+
+section {
+    border: 1px solid #808080;
+    width: 912px;
+    height: 100px;
+    margin: 60px 102px 0px 110px;
+}
+
+footer {
+    width: 1124px;
+    height: 140px;
+    border: 1px solid #82C2A9;
+    background-color: #82C2A9;
+    margin: 30px 0px 0px 0px;
+}
+
+#requiredNav_left {
+    margin: 42px 26px 0px 110px;
+    width: 430px;
+    height:79px;
+    color: white;
+    float: left;
+}
+
+#requiredNav_right {
+    margin: 42px 0px 0px 0px;
+    width: 430px;
+    height:79px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #61625B;
+    float: left;
+}
+
+#studentTag {
+    margin: 10px 250px;
+    color: #749887;
+    clear: both;
+}
+
+
+.img_logo {
+    float: left;
+}
+
+.img_quickLink {
+    float: left;
+    margin: 2px 0px 0px 10px;
+}
+
+.q_link1 {
+    padding: 8px 5px;
+    border-bottom: 1px solid #F2ECE8;
+    clear: both;
+}
+
+.lbl_quickLink {
+    padding: 0px 0px 15px 5px;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    color: #96C2AA;
+    font-size: 18px;
+}
+
+.q_link2 {
+    padding: 9px 15px;
+    border-bottom: 1px dashed #F2ECE8;
+    clear:both;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 15px;
+}
+
+.q_link2 a {
+    color: black;
+    text-decoration: none;
+}
+
+.q_link2 a:hover {
+    color: #00ADEF;
+}
+
+.q_link3 {
+    padding: 12px 12px;
+    border-bottom: 1px solid #F2ECE8;
+    clear:both;
+}
+
+.q_link4 {
+    padding: 8px 2px;
+    border-bottom: 1px solid #F2ECE8;
+    clear: both;
+}
+
+.q_link5 {
+    padding: 6px 10px;
+}
+
+.bottomNav a {
+    margin: 0px 10px 0px 35px;
+    text-decoration: none;
+    color: #5B514D;
+}
+
+.bottomNav a:hover {
+    margin: 0px 10px 0px 35px;
+    text-decoration: none;
+    color: white;
+}
+
+
+

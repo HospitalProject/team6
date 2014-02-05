@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title="VISITORS"  description="" >
+    <siteMapNode url="~/visitors/donate.aspx" title="Donate"  description="" />
+    <siteMapNode url="~/visitors/event_calendar.aspx" title="Eevent Calendar"  description="" />
+    <siteMapNode url="~/visitors/message_board.aspx" title="Message Board" description="" />
+  </siteMapNode>
+</siteMap>
