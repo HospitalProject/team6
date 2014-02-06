@@ -79,3 +79,24 @@ font-family: Georgia;
 	border-top: 0;
 	overflow: auto;
 }
+
+.accordion_news_detail {
+width: 700px;
+padding: 10px;
+}
+
+    .accordion_news_detail h1 {
+        margin-bottom: 5px;
+        color: #000;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1.25;
+    }
+
+    .accordion_news_detail .an_posttime {
+        font-size: 10px;
+        line-height: 18px;
+        margin-bottom: 16px;
+        margin-top: 0;
+        border-bottom: 2px solid;
+    }

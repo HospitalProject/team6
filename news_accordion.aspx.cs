@@ -20,7 +20,8 @@ public partial class news_accordion : System.Web.UI.Page
             strAnTitle = objNews.an_title.ToString();
             strAnContent = objNews.an_content.ToString();
             strNewsAccordionContent += "<h3>" + strAnTitle.Substring(0, strAnTitle.Length > 15 ? 15 : strAnTitle.Length) + (strAnTitle.Length > 15 ? "..." : "") + "</h3>";
-            strNewsAccordionContent += "<div>" + strAnContent.Substring(0, strAnContent.Length > 200 ? 200 : strAnContent.Length) + (strAnContent.Length > 200 ? "..." : "") + "</div>";
+            strNewsAccordionContent += "<div>" + strAnContent.Substring(0, strAnContent.Length > 200 ? 200 : strAnContent.Length) + (strAnContent.Length > 200 ? "..." : "") + "<br /><br />";
+            strNewsAccordionContent += "<a href='news_accordion_detail.aspx?an_id=" + objNews.an_id + "'>Read full story</a></div>";
         }
 
         ltl_news_accordion.Text = strNewsAccordionContent;
