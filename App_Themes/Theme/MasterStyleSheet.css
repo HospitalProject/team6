@@ -49,10 +49,10 @@ table {
 /* - - - - - - - - - end reset - - - - - - - - - */
 @charset "utf-8";
 
-#container{
+#container {
+    margin: auto;
     width: 1124px;
     height: auto;
-    margin: auto;
 }
 
 h1 {
@@ -103,9 +103,17 @@ h6 {
 
 header {
     width: 912px;
-    height: 65px;
-    margin: 78px 102px 0px 110px;
+    height: 135px;
+    margin: 0px 106px 0px 106px;
     border-bottom: 1px solid #F2ECE8;
+}
+
+#donationLink {
+    margin: 20px 0 10px 0;
+    width: 912px;
+    height: 40px;
+    float: left;
+    clear: both;
 }
  
 nav {
@@ -117,23 +125,16 @@ nav {
 #menu {
     font-size: 15px;
     font-family: 'Vidaloka', serif;
-    margin: 25px 0px 0px 37px;
+    margin: 24px 0px 0px 37px;
     float:left;
-    clear: both;
-    
+    clear: both;   
 }
 
 aside {
-    width: 912px;
-    height: 433px;
-    margin: 37px 102px 0px 110px;
-}
-
-
-aside #cph_asideLeft{
     width: 185px;
     height: auto;
-    float:left;
+    margin: 37px 0px 0px 106px;
+    float: left;
 }
 
 #googleSearch {
@@ -145,53 +146,50 @@ aside #cph_asideLeft{
     float: right;
 }
 
-aside #cph_asideRight{
+section {
+    margin: 45px 106px 0px 27px;
     width: 700px;
     height: auto;
-    margin: 0px 0px 0px 23px;
-    float:right;
-}
-
-#home_slideshow {
-    width: auto;
-    height: 260px;
-    border: 1px solid #808080;
-}
-
-#home_welcome {
-    width: auto;
-    height: auto;
-    margin: 32px 0px 0px 0px;
-    color: black;
-}
-
-section {
-    border: 1px solid #808080;
-    width: 912px;
-    height: 100px;
-    margin: 60px 102px 0px 110px;
+    float: right;
 }
 
 footer {
+    margin: 20px 0 0 0;
+    width: 1124px;
+    height: 165px;
+    float: left;
+    clear: both;
+}
+
+#ticker {
+    width: 1124px;
+    height: 20px;
+    border: 1px solid #000000;
+    float: left;
+    clear:both;
+}
+
+#requiredNav {
+    margin: 5px 0px 0px 0px;
     width: 1124px;
     height: 140px;
-    border: 1px solid #82C2A9;
     background-color: #82C2A9;
-    margin: 30px 0px 0px 0px;
+    float: left;
+    clear: both;
 }
 
 #requiredNav_left {
     margin: 42px 26px 0px 110px;
     width: 430px;
-    height:79px;
+    height: 79px;
     color: white;
     float: left;
 }
 
 #requiredNav_right {
-    margin: 42px 0px 0px 0px;
+    margin: 42px 128px 0px 0px;
     width: 430px;
-    height:79px;
+    height: 79px;
     line-height: 20px;
     font-size: 12px;
     color: #61625B;
@@ -199,11 +197,21 @@ footer {
 }
 
 #studentTag {
-    margin: 10px 250px;
-    color: #749887;
+    margin: 10px 160px;
+    color: #ff0000;
     clear: both;
 }
 
+.donatinBtn {
+    margin: 5px;
+    padding: 5px;
+    font-family: 'Carme', sans-serif;
+    font-size: 18px;
+    background-color: #82C2A9;
+    color: #FFFFFF;
+    text-decoration: none;
+    float: right;
+}
 
 .img_logo {
     float: left;
@@ -211,10 +219,10 @@ footer {
 
 .img_quickLink {
     float: left;
-    margin: 2px 0px 0px 10px;
+    margin: 2px 0px 0px 5px;
 }
 
-.q_link1 {
+.lbl_newsEvents {
     padding: 8px 5px;
     border-bottom: 1px solid #F2ECE8;
     clear: both;
@@ -227,36 +235,21 @@ footer {
     font-size: 18px;
 }
 
-.q_link2 {
-    padding: 9px 15px;
-    border-bottom: 1px dashed #F2ECE8;
-    clear:both;
+.newsEvents {
+    width: 185px;
+    height: 370px;
+    border: 1px solid #000000;
     font-family: 'Alegreya Sans SC', sans-serif;
     font-size: 15px;
 }
 
-.q_link2 a {
-    color: black;
-    text-decoration: none;
-}
-
-.q_link2 a:hover {
-    color: #00ADEF;
-}
-
-.q_link3 {
-    padding: 12px 12px;
-    border-bottom: 1px solid #F2ECE8;
-    clear:both;
-}
-
-.q_link4 {
+.q_link1 {
     padding: 8px 2px;
     border-bottom: 1px solid #F2ECE8;
     clear: both;
 }
 
-.q_link5 {
+.q_link2 {
     padding: 6px 10px;
 }
 

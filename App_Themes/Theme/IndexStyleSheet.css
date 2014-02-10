@@ -1,8 +1,16 @@
 ﻿@charset "utf-8";
 
-#content_index {
-    width: 912px;
-    margin: 0px 26px 0px 0px;
-    float: left;
+#home_slideshow {
+    width: 700px;
+    height: 260px;
+    border: 1px solid #808080;
 }
+
+#home_welcome {
+    width: 700px;
+    height: auto;
+    margin: 32px 0px 0px 0px;
+    color: black;
+}
+
 
