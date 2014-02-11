@@ -50,6 +50,8 @@ public partial class administrative_admin_news_accordion : System.Web.UI.Page
     protected void btn_addNews_Click(object sender, EventArgs e)
     {
         fmv_news.ChangeMode(FormViewMode.Insert);
+        ((TextBox)(fmv_news.FindControl("txt_titleI"))).Text = "";
+        ((TextBox)(fmv_news.FindControl("txt_contentI"))).Text = "";
         _showPanel(pnl_news);
     }
 
@@ -87,6 +89,7 @@ public partial class administrative_admin_news_accordion : System.Web.UI.Page
         linqNewsAccordion objNews = new linqNewsAccordion();
         objNews.commitInsert(_title, _content, _news_img);
         _rebind();
+
         _showPanel(pnl_all);
     }
 
@@ -164,6 +167,8 @@ public partial class administrative_admin_news_accordion : System.Web.UI.Page
     {
         _showPanel(pnl_all);
     }
+
+    //while clicking the delete image button, hide or show the image and set the button text according to the actually operation
     protected void btn_deleteImage_Click(object sender, EventArgs e)
     {
         Image newsImage = (Image)(fmv_news.FindControl("img_newsImageE"));

@@ -49,6 +49,10 @@ table {
 /* - - - - - - - - - end reset - - - - - - - - - */
 @charset "utf-8";
 
+body {
+    font-family: 'Carme', sans-serif;
+}
+
 #container {
     margin: auto;
     width: 1124px;
@@ -102,38 +106,44 @@ h6 {
 }
 
 header {
-    width: 912px;
-    height: 135px;
-    margin: 0px 106px 0px 106px;
+    width: 1104px;
+    height: 105px;
+    margin: 0px 10px 0px 10px;
     border-bottom: 1px solid #F2ECE8;
 }
 
 #donationLink {
-    margin: 20px 0 10px 0;
-    width: 912px;
-    height: 40px;
-    float: left;
-    clear: both;
+    margin: 10px 0 10px 0;
+    width: auto;
+    height: auto;
+    float: right;
+    /*clear: both;*/
 }
  
 nav {
-    width: 752px;
+    width: auto;
     height: 49px;
-    float: left;
+    margin: 0 5px 0 5px;
+    
+}
+
+#logo {
+    width: auto;
+    height: auto;
+    margin: 10px 0 10px 10px;
 }
 
 #menu {
     font-size: 15px;
     font-family: 'Vidaloka', serif;
-    margin: 24px 0px 0px 37px;
-    float:left;
-    clear: both;   
+    margin: 4px 0px 0px 17px;
+    float:right;  
 }
 
 aside {
-    width: 185px;
+    width: 270px;
     height: auto;
-    margin: 37px 0px 0px 106px;
+    margin: 7px 5px 5px 10px;
     float: left;
 }
 
@@ -147,8 +157,8 @@ aside {
 }
 
 section {
-    margin: 45px 106px 0px 27px;
-    width: 700px;
+    margin: 46px 10px 0px 10px;
+    width: 800px;
     height: auto;
     float: right;
 }
@@ -215,6 +225,7 @@ footer {
 
 .img_logo {
     float: left;
+    margin-top: 20px;
 }
 
 .img_quickLink {
@@ -236,9 +247,9 @@ footer {
 }
 
 .newsEvents {
-    width: 185px;
+    width: 260px;
     height: 370px;
-    border: 1px solid #000000;
+    margin: 5px;
     font-family: 'Alegreya Sans SC', sans-serif;
     font-size: 15px;
 }
@@ -265,5 +276,54 @@ footer {
     color: white;
 }
 
+/*****************/
+/*Styles used by Ben for accordion news*/
+/*****************/
+#news_accordion {
+width: 260px;
+height: 350px;
+}
+    #news_accordion a {
+        color: blue;
+        text-decoration: none;
+        font-size:80%;
+    }
+.ui-accordion .ui-accordion-content {
+    font-size:80%;
+}
+.ui-accordion .ui-accordion-header {
+	display: block;
+	cursor: pointer;
+	position: relative;
+	margin-top: 2px;
+	padding: .5em .5em .5em .7em;
+	min-height: 0; /* support: IE7 */
+    font-weight: bold;
+
+}
+.ui-accordion .ui-accordion-header-active {
+background: #96C2AA;
+color:white;
+}
+.ui-accordion .ui-accordion-icons {
+	padding-left: 2.2em;
+}
+.ui-accordion .ui-accordion-noicons {
+	padding-left: .7em;
+}
+.ui-accordion .ui-accordion-icons .ui-accordion-icons {
+	padding-left: 2.2em;
+}
+.ui-accordion .ui-accordion-header .ui-accordion-header-icon {
+	position: absolute;
+	left: .5em;
+	top: 50%;
+	margin-top: -8px;
+}
+.ui-accordion .ui-accordion-content {
+	padding: .2em .2em;
+	border-top: 0;
+	overflow: auto;
+}
 
 

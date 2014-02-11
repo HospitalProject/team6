@@ -5,6 +5,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title><%= pp_masterTitle %></title>
+    <link href="scripts/themes/base/jquery-ui.css" rel="stylesheet" />
+    <link href="scripts/themes/base/jquery.ui.accordion.css" rel="stylesheet" />
+    <script src="scripts/jquery-1.10.2.js"></script>
+    <script src="scripts/ui/jquery.ui.core.js"></script>
+    <script src="scripts/ui/jquery.ui.widget.js"></script>
+    <script src="scripts/ui/jquery.ui.accordion.js"></script>
+    <script>
+        $(function () {
+            $("#news_accordion").accordion({
+                heightStyle: "fill",
+                icons: null
+            });
+        });
+	</script>
     <asp:ContentPlaceHolder id="cph_head" runat="server">
         <link href='http://fonts.googleapis.com/css?family=Vidaloka' rel='stylesheet' type='text/css' />
         <link href='http://fonts.googleapis.com/css?family=Carme' rel='stylesheet' type='text/css' />
@@ -18,25 +32,30 @@
         <header>
 
             <asp:ContentPlaceHolder ID="cph_header" runat="server">
+                <div id="logo">
+                <asp:Image ID="img_logo" runat="server" AlternateText="Nipigon Logo" ImageUrl="~/App_Themes/Theme/img/logo1.png" CssClass="img_logo"/>
+                </div>
+                                
                 <div id="donationLink">
                     <asp:HyperLink ID="hpl_donation" runat="server" Text="Donation" NavigateUrl="~/visitors/donate.aspx"
                          CssClass="donatinBtn" Target="_self" />
                 </div>
-
-
-                <asp:Image ID="img_logo" runat="server" AlternateText="Nipigon Logo" ImageUrl="~/App_Themes/Theme/img/logo.png" CssClass="img_logo"/>
-            </asp:ContentPlaceHolder>
-            
-            <nav>
-                <asp:ContentPlaceHolder ID="cph_nav" runat="server">
-                    <div id="menu">
+                <nav>
+                <div id="menu">
                         <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
                         <asp:Menu ID="menu_top" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticHoverStyle-ForeColor="#00ADEF" 
                          StaticMenuItemStyle-ForeColor="#9B9694" DynamicHoverStyle-ForeColor="#00ADEF" DynamicMenuItemStyle-ForeColor="#9B9694" 
-                         StaticMenuItemStyle-VerticalPadding="5" StaticMenuItemStyle-HorizontalPadding="5" DynamicMenuItemStyle-VerticalPadding="1" />
+                         StaticMenuItemStyle-VerticalPadding="15px" StaticMenuItemStyle-HorizontalPadding="15px" DynamicMenuItemStyle-VerticalPadding="1px" />
                     </div>
+                </nav>
+                
+            </asp:ContentPlaceHolder>
+            
+            
+                <asp:ContentPlaceHolder ID="cph_nav" runat="server">
+                    
                 </asp:ContentPlaceHolder>
-            </nav>
+            
 
         </header>
 
@@ -51,7 +70,9 @@
                     </div>
 
                     <div  class="newsEvents">
-                        "This is for news & event"
+                        <div id="news_accordion">
+                            <asp:Literal ID="ltl_news_accordion" runat="server" />
+                        </div>
                     </div>
 
                     <div class="q_link1">
