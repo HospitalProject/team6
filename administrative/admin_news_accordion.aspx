@@ -1,15 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="admin_news_accordion.aspx.cs" Inherits="administrative_admin_news_accordion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/administrative/AdminMasterPage.master" AutoEventWireup="true" CodeFile="admin_news_accordion.aspx.cs" Inherits="admin_news_accordion" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <link href="../App_Themes/Theme/AccordionNewsManagement.css" rel="stylesheet" />
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+<asp:Content ID="Content4" ContentPlaceHolderID="cph_content" Runat="Server">
+        <div>
     <asp:Panel ID="pnl_all" runat="server" CssClass="container" GroupingText="News list">
          <asp:GridView ID="grv_news" runat="server" AutoGenerateColumns="false" Width="100%">
          <RowStyle CssClass="gridcell" />
@@ -149,6 +141,5 @@
         </asp:FormView>
     </asp:Panel>     
     </div>
-    </form>
-</body>
-</html>
+</asp:Content>
+

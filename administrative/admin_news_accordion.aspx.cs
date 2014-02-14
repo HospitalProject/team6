@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.Linq;
 
-public partial class administrative_admin_news_accordion : System.Web.UI.Page
+public partial class admin_news_accordion : System.Web.UI.Page
 {
 
     protected void Page_Load(object sender, EventArgs e)
@@ -43,15 +43,13 @@ public partial class administrative_admin_news_accordion : System.Web.UI.Page
         {
             ((Image)(fmv_news.FindControl("img_newsimageV"))).ImageUrl = "ShowNewsAccordionImage.ashx?an_id=" + _id.ToString();
         }
-        
+
         _showPanel(pnl_news);
     }
     //change the formview to insert mode and show it
     protected void btn_addNews_Click(object sender, EventArgs e)
     {
         fmv_news.ChangeMode(FormViewMode.Insert);
-        ((TextBox)(fmv_news.FindControl("txt_titleI"))).Text = "";
-        ((TextBox)(fmv_news.FindControl("txt_contentI"))).Text = "";
         _showPanel(pnl_news);
     }
 
@@ -66,6 +64,9 @@ public partial class administrative_admin_news_accordion : System.Web.UI.Page
     protected void btn_cancel_insert_news_Click(object sender, EventArgs e)
     {
         _showPanel(pnl_all);
+        //reset the input text box
+        ((TextBox)(((Button)sender).NamingContainer.FindControl("txt_titleI"))).Text = string.Empty;
+        ((TextBox)(((Button)sender).NamingContainer.FindControl("txt_contentI"))).Text = string.Empty;
     }
     //insert the news
     protected void btn_insert_news_Click(object sender, EventArgs e)
@@ -89,7 +90,9 @@ public partial class administrative_admin_news_accordion : System.Web.UI.Page
         linqNewsAccordion objNews = new linqNewsAccordion();
         objNews.commitInsert(_title, _content, _news_img);
         _rebind();
-
+        //reset the input text box
+        ((TextBox)(((Button)sender).NamingContainer.FindControl("txt_titleI"))).Text = string.Empty;
+        ((TextBox)(((Button)sender).NamingContainer.FindControl("txt_contentI"))).Text = string.Empty;
         _showPanel(pnl_all);
     }
 
@@ -182,6 +185,6 @@ public partial class administrative_admin_news_accordion : System.Web.UI.Page
         {
             btnDeleteImage.Text = "Delete Image";
         }
-            
+
     }
 }
