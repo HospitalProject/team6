@@ -3,5 +3,6 @@
     <siteMapNode url="" title=""  description="">
         <siteMapNode url="~/administrative/admin_news_accordion.aspx" title="Accordion News"  description="" />
         <siteMapNode url="~/administrative/admin_news_ticker.aspx" title="Ticker News"  description="" />
+        <siteMapNode url="~/administrative/admin_homepage_imageslider.aspx" title="Homepage Image Slider"  description="" />
     </siteMapNode>
 </siteMap>

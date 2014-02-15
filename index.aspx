@@ -9,7 +9,19 @@
 <asp:Content ID="Content5" ContentPlaceHolderID="cph_section" Runat="Server">
     
     <div id="home_slideshow">
-        "This is the section of slide show"
+          <asp:ScriptManager ID="scm_main" runat="server" />
+        <asp:UpdatePanel ID="upd_main" runat="server">
+            <ContentTemplate>
+                <asp:Label ID="lbl_timer" runat="server"  />
+                <asp:Timer ID="tmr_main" runat="server" Interval="5000" OnTick="subTick" />
+           
+
+        <asp:Image ID="img_slider" runat="server" Width="797px" Height="250px" />
+                <br />
+                <asp:Label ID="lbl_slider" runat="server" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
+        
     </div>
     
     <div id ="home_welcome">

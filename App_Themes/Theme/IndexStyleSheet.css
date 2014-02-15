@@ -3,6 +3,7 @@
 #home_slideshow {
     width: 800px;
     height: 260px;
+    padding: 4px;
     border: 1px solid #808080;
 }
 
