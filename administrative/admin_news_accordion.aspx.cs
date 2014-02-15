@@ -41,7 +41,7 @@ public partial class admin_news_accordion : System.Web.UI.Page
         }
         else
         {
-            ((Image)(fmv_news.FindControl("img_newsimageV"))).ImageUrl = "ShowNewsAccordionImage.ashx?an_id=" + _id.ToString();
+            ((Image)(fmv_news.FindControl("img_newsimageV"))).ImageUrl = "../ShowNewsAccordionImage.ashx?an_id=" + _id.ToString();
         }
 
         _showPanel(pnl_news);

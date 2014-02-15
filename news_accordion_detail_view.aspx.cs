@@ -19,7 +19,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
-            ((Image)(frm_accordion_news.FindControl("img_newsimageV"))).ImageUrl = "administrative/ShowNewsAccordionImage.ashx?an_id=" + _id.ToString();
+            ((Image)(frm_accordion_news.FindControl("img_newsimageV"))).ImageUrl = "ShowNewsAccordionImage.ashx?an_id=" + _id.ToString();
         }
     }
 }

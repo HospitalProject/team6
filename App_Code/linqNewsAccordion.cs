@@ -20,7 +20,7 @@ public class linqNewsAccordion
     public IQueryable<accordion_news_info> getNewsAccordion()
     {
         news_accordionDataContext objNewsDC = new news_accordionDataContext();
-        var allNews = objNewsDC.accordion_news_infos.Select(x => x);
+        var allNews = objNewsDC.accordion_news_infos.Select(x => x).OrderByDescending(x => x.an_id);
         return allNews;
     }
 
