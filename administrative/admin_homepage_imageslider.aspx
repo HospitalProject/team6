@@ -2,6 +2,10 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="cph_content" Runat="Server">
     <asp:Label ID="lbl_msg" runat="server" />
+<<<<<<< HEAD
+=======
+    <br />
+>>>>>>> origin/Tunde
     <asp:Label ID="lbl_sliderimgI" runat="server"  Text="Select Image" AssociatedControlID="fud_sliderimgI" Font-Bold="true" />
         <br />
         <asp:FileUpload ID="fud_sliderimgI" runat="server" />
@@ -27,7 +31,11 @@
         <asp:Label ID="lbl_titleI" runat="server" Text="Title" AssociatedControlID="txt_titleI" Font-Bold="true" />
         <br />
         <asp:TextBox ID="txt_titleI" runat="server" /> 
+<<<<<<< HEAD
          
+=======
+         <br />
+>>>>>>> origin/Tunde
         <asp:Button ID="btn_insert" runat="server" Text="Insert" CommandName="Insert" ValidationGroup="insert" OnCommand="btn_insert_Click" />
         &nbsp;&nbsp;&nbsp;
         <asp:Button ID="btn_cancel" runat="server" Text="Cancel" CommandName="Cancel" CausesValidation="false" />
