@@ -115,11 +115,6 @@
         <footer>
             <asp:ContentPlaceHolder ID="cph_footer" runat="server">
 
-                <div id="ticker">
-                    <asp:Label ID="lbl_index" runat="server" Text="<h6>THIS IS THE TICKER SECTION</h6>" />
-
-                </div>
-
                 <div id="requiredNav">
 
                     <div id="requiredNav_left">
