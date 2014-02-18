@@ -3,13 +3,27 @@
 <%@ MasterType VirtualPath="~/MasterPage.master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
-    <link href="Theme/IndexStyleSheet.css" rel="stylesheet" media="screen" />
+    <script src="scripts/jquery.webticker.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="cph_section" Runat="Server">
-    
+
+    <%-- Ben: The following ticker area is for the news ticker--%>
+    <div id="ticker">
+            <%-- the ul following is for the scrolled news ticker, using the webticker plugin --%>
+            <ul id="webticker">
+
+            </ul>
+        <%-- get the ticker news item from the RSS feed (dynamically created), re-check the rss feed every 1 minute --%>
+        <script>
+            $(function () {
+                $("#webticker").webTicker({ duplicate: false, speed: 40, direction: 'left', rssurl: 'TickerNewsRSS.ashx', rssfrequency: 1, startEmpty: false, hoverpause: false });
+            });
+        </script>
+    </div>
+    <%-- Ben: end of the news ticker --%>
     <div id="home_slideshow">
-          <asp:ScriptManager ID="scm_main" runat="server" />
+        <asp:ScriptManager ID="scm_main" runat="server" />
         <asp:UpdatePanel ID="upd_main" runat="server">
             <ContentTemplate>
                 <asp:Label ID="lbl_timer" runat="server"  />

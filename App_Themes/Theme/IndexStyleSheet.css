@@ -5,6 +5,7 @@
     height: 260px;
     padding: 4px;
     border: 1px solid #808080;
+    clear: both;
 }
 
 #home_welcome {
@@ -14,4 +15,43 @@
     color: black;
 }
 
+/*the following css styles are used for news ticker*/
+#ticker {
+    width: 800px;
+    height: 25px;
+    float: left;
+    clear:both;
+}
 
+.tickercontainer {
+width:800px; 
+float: left; 
+overflow: hidden; 
+}
+    .tickercontainer li {
+        float: left;
+    }
+    .tickercontainer .mask {
+        width: 780px;
+        position: relative;
+        padding: 5px;
+        overflow: hidden; 
+    }
+ul.newsticker { 
+-webkit-transition: all 0s linear;
+-moz-transition: all 0s linear;
+-o-transition: all 0s linear;
+transition: all 0s linear;
+position: relative;
+margin-left: 20px;
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+ul.newsticker li {
+float: left; 
+margin: 0;
+padding-right: 9px;
+padding-left: 10px;
+border-right: 2px solid #96C2AA;
+}

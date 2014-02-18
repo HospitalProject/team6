@@ -35,7 +35,7 @@ public partial class tickerNewsLinqDataContext : System.Data.Linq.DataContext
   #endregion
 	
 	public tickerNewsLinqDataContext() : 
-			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DB_69755_aspclassConnectionString1"].ConnectionString, mappingSource)
+			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DB_69755_aspclassConnectionString"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}

@@ -27,6 +27,7 @@ public class tickerNewsLinq
     public IQueryable<ticker_new> getPublicTickerNews()
     {
         tickerNewsLinqDataContext objNewsDC = new tickerNewsLinqDataContext();
+        //the (display_status == true) means the news need to be shown to public
         var publicNews = objNewsDC.ticker_news.Select(x => x).OrderByDescending(x => x.tn_id).Where(x => x.display_status == true);
         return publicNews;
     }

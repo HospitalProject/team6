@@ -171,13 +171,6 @@ footer {
     clear: both;
 }
 
-#ticker {
-    width: 1124px;
-    height: 20px;
-    border: 1px solid #000000;
-    float: left;
-    clear:both;
-}
 
 #requiredNav {
     margin: 5px 0px 0px 0px;

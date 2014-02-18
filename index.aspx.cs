@@ -25,6 +25,7 @@ public partial class _index : System.Web.UI.Page
             {
                 SetImageUrl();
             }
+
         }
 
     private void SetImageUrl()
@@ -77,6 +78,4 @@ public partial class _index : System.Web.UI.Page
             }
     }
 
-
-    
 }
