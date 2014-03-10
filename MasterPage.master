@@ -35,10 +35,21 @@
                 <div id="logo">
                 <asp:Image ID="img_logo" runat="server" AlternateText="Nipigon Logo" ImageUrl="~/App_Themes/Theme/img/logo1.png" CssClass="img_logo"/>
                 </div>
-                                
+                       
+      
                 <div id="donationLink">
+                    <div id="loginarea">
+                    <asp:LoginView ID="lgv_main" runat="server">
+                        <LoggedInTemplate>
+                            Welcome <%= getCurrentUserFullName() %>! 
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                    <br />
+                        <asp:LoginStatus ID="lgs_main" runat="server" />
+                    </div>
                     <asp:HyperLink ID="hpl_donation" runat="server" Text="Donation" NavigateUrl="~/visitors/donate.aspx"
                          CssClass="donatinBtn" Target="_self" />
+
                 </div>
                 <nav>
                 <div id="menu">

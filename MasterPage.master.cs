@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
@@ -46,6 +47,17 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         ltl_news_accordion.Text = strNewsAccordionContent;
     
+    }
+
+    //get current user full name (First Name + Last Name)
+    public string getCurrentUserFullName()
+    {
+        //get current user id
+        Guid _userId = (Guid)Membership.GetUser().ProviderUserKey;
+
+        linqUsers objUsers = new linqUsers();
+        var objCurrentUser = objUsers.getUserAdditionalInfoByUserId(_userId).First();
+        return objCurrentUser.FirstName + " " + objCurrentUser.LastName;
     }
 
 }

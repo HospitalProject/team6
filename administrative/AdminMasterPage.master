@@ -20,7 +20,8 @@
                 <asp:Image ID="img_logo" runat="server" AlternateText="Nipigon Logo" ImageUrl="~/App_Themes/Theme/img/logo1.png"/>
                         </a>
                 </div>
-            <div class="floatright">
+            <div class="floatright alignright">
+                <asp:LoginStatus ID="lgs_main" runat="server" LogoutPageUrl="~/administrative/admin_index.aspx" /><br />
                 <h3>Nipigon District Memorial Hospital Administration</h3>
             </div>        
         </asp:ContentPlaceHolder>
