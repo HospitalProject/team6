@@ -318,5 +318,10 @@ color:white;
 	border-top: 0;
 	overflow: auto;
 }
-
+/*****************/
+/*Styles used by Ben for alignment and validation*/
+/*****************/
+.alignright {
+text-align: right;
+}
 

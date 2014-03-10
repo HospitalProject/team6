@@ -69,6 +69,7 @@ body {
     clear: both;
     border-bottom: 2px solid #96C2AA;
     background: white;
+    
     z-index:99;
 }
 
@@ -134,6 +135,7 @@ body {
 
 .floatright {
 float: right;
+padding: 5px;
 }
 
 #studentTag {
