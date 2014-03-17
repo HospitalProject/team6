@@ -22,142 +22,142 @@ using System.Reflection;
 
 
 [global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DB_69755_aspclass")]
-public partial class tickerNewsLinqDataContext : System.Data.Linq.DataContext
+public partial class rssfeedDataContext : System.Data.Linq.DataContext
 {
 	
 	private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 	
   #region Extensibility Method Definitions
   partial void OnCreated();
-  partial void Insertticker_new(ticker_new instance);
-  partial void Updateticker_new(ticker_new instance);
-  partial void Deleteticker_new(ticker_new instance);
+  partial void Insertrss(rss instance);
+  partial void Updaterss(rss instance);
+  partial void Deleterss(rss instance);
   #endregion
 	
-	public tickerNewsLinqDataContext() : 
+	public rssfeedDataContext() : 
 			base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DB_69755_aspclassConnectionString"].ConnectionString, mappingSource)
 	{
 		OnCreated();
 	}
 	
-	public tickerNewsLinqDataContext(string connection) : 
+	public rssfeedDataContext(string connection) : 
 			base(connection, mappingSource)
 	{
 		OnCreated();
 	}
 	
-	public tickerNewsLinqDataContext(System.Data.IDbConnection connection) : 
+	public rssfeedDataContext(System.Data.IDbConnection connection) : 
 			base(connection, mappingSource)
 	{
 		OnCreated();
 	}
 	
-	public tickerNewsLinqDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+	public rssfeedDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 			base(connection, mappingSource)
 	{
 		OnCreated();
 	}
 	
-	public tickerNewsLinqDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+	public rssfeedDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 			base(connection, mappingSource)
 	{
 		OnCreated();
 	}
 	
-	public System.Data.Linq.Table<ticker_new> ticker_news
+	public System.Data.Linq.Table<rss> rsses
 	{
 		get
 		{
-			return this.GetTable<ticker_new>();
+			return this.GetTable<rss>();
 		}
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ticker_news")]
-public partial class ticker_new : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.rss")]
+public partial class rss : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 	
-	private int _tn_id;
+	private int _rss_Id;
 	
-	private string _tn_content;
+	private string _rss_title;
 	
-	private bool _display_status;
+	private string _rss_url;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void Ontn_idChanging(int value);
-    partial void Ontn_idChanged();
-    partial void Ontn_contentChanging(string value);
-    partial void Ontn_contentChanged();
-    partial void Ondisplay_statusChanging(bool value);
-    partial void Ondisplay_statusChanged();
+    partial void Onrss_IdChanging(int value);
+    partial void Onrss_IdChanged();
+    partial void Onrss_titleChanging(string value);
+    partial void Onrss_titleChanged();
+    partial void Onrss_urlChanging(string value);
+    partial void Onrss_urlChanged();
     #endregion
 	
-	public ticker_new()
+	public rss()
 	{
 		OnCreated();
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tn_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-	public int tn_id
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rss_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int rss_Id
 	{
 		get
 		{
-			return this._tn_id;
+			return this._rss_Id;
 		}
 		set
 		{
-			if ((this._tn_id != value))
+			if ((this._rss_Id != value))
 			{
-				this.Ontn_idChanging(value);
+				this.Onrss_IdChanging(value);
 				this.SendPropertyChanging();
-				this._tn_id = value;
-				this.SendPropertyChanged("tn_id");
-				this.Ontn_idChanged();
+				this._rss_Id = value;
+				this.SendPropertyChanged("rss_Id");
+				this.Onrss_IdChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tn_content", DbType="NVarChar(250) NOT NULL", CanBeNull=false)]
-	public string tn_content
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rss_title", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string rss_title
 	{
 		get
 		{
-			return this._tn_content;
+			return this._rss_title;
 		}
 		set
 		{
-			if ((this._tn_content != value))
+			if ((this._rss_title != value))
 			{
-				this.Ontn_contentChanging(value);
+				this.Onrss_titleChanging(value);
 				this.SendPropertyChanging();
-				this._tn_content = value;
-				this.SendPropertyChanged("tn_content");
-				this.Ontn_contentChanged();
+				this._rss_title = value;
+				this.SendPropertyChanged("rss_title");
+				this.Onrss_titleChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_display_status", DbType="Bit NOT NULL")]
-	public bool display_status
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rss_url", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+	public string rss_url
 	{
 		get
 		{
-			return this._display_status;
+			return this._rss_url;
 		}
 		set
 		{
-			if ((this._display_status != value))
+			if ((this._rss_url != value))
 			{
-				this.Ondisplay_statusChanging(value);
+				this.Onrss_urlChanging(value);
 				this.SendPropertyChanging();
-				this._display_status = value;
-				this.SendPropertyChanged("display_status");
-				this.Ondisplay_statusChanged();
+				this._rss_url = value;
+				this.SendPropertyChanged("rss_url");
+				this.Onrss_urlChanged();
 			}
 		}
 	}

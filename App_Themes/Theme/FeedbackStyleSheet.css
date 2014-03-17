@@ -1,0 +1,157 @@
+﻿                    /*-------------------------------- Feedback Public -------------------------------- */
+
+h2 {
+    color: #96C2AA;
+}
+
+#feedback_title {
+    float: left;
+    clear: both;
+}
+
+#feedback_titleL {
+    margin: 5px 10px;
+    float: left;
+}
+
+#feedback_titleR {
+    margin: 5px 10px;
+    float: right;
+}
+
+#header_view {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+
+#content_view {
+    border-top: 1px solid #5C534F;
+    width: 100%;
+    height: auto;
+    float: left;
+
+    /* outer shadows */
+    -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
+    -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+
+    /* gradients */
+    background: -webkit-gradient(linear, left bottom, left top, 
+    color-stop(0%, white), color-stop(15%, white), color-stop(100%, #E2E2E2)); 
+    background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%); 
+}
+
+#sideLeft {
+    margin: 10px;
+    padding: 5px;
+    border-right: 1px solid #5C534F;
+    width: 470px;
+    font-size: 12px;
+    float: left;
+}
+
+#sideRight {
+    margin: 10px;
+    padding: 5px;
+    width: 270px;
+    float: right;
+}
+
+.btn_link {
+    margin: auto;
+    padding: 15px;
+    border: 1px solid #E2E2E2;
+    border-radius: 0 15px 0 0;
+         -webkit-border-radius: 0 15px 0 0;
+         -moz-border-radius: 0 15px 0 0; 
+    width: 150px;
+    background-color: #E2E2E2;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    float: left;
+}
+
+.btn_link:hover {
+    margin: 0px;
+    padding: 15px;
+    border: 1px solid #82C1A9;
+    border-radius: 0 15px 0 0;
+    width: 150px;
+    background-color: #82C1A9;
+    float: left;
+}
+
+.btn_function {
+    width: 100px;
+    height: 50px;
+    background-color: #E2E2E2; 
+    color: #00AEEF;
+    font-weight: bold;
+}
+
+.txtmsg{
+    margin: 20px;
+    padding: 10px;
+    width: auto;
+    color: #fa6c6c;
+    float: left;
+    clear: both;
+}
+
+
+                              /*-------------------------------- Feedback Admin -------------------------------- */
+#feedback_tables {
+    width: 300px;
+    margin: auto;
+    float: left;
+    clear: both;
+}
+
+fieldset {
+    margin: 10px;
+    width: 80%;
+    float: left;
+    clear: both;
+}
+
+.tableFormat_th {
+    padding: 10px 20px;
+    border-bottom: 1px solid #00AEEF;
+    color: #82C1A9;
+    font-weight:bold;
+}
+
+.tableFormat_td {
+    padding: 10px 20px;
+    border-bottom: 1px dashed #00AEEF;
+}
+
+.selectView {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+    cursor: pointer;
+    background: #000;
+    background: rgba(0,0,0,0.75);
+    display: none;
+    float: left;
+}
+
+#selectEdit {
+    background: #fff;
+    padding: 1%;
+    width: 40%;
+    position: relative;
+    top: 15%;
+    left: 50%;
+    margin: 0 0 0 -20%; /* add negative left margin for half the width to center the div */
+    cursor: default;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.9);
+}
+
