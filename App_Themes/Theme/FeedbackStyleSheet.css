@@ -57,6 +57,13 @@ h2 {
     float: right;
 }
 
+.fieldset_feedback {
+    margin: 10px;
+    width: 90%;
+    float: left;
+    clear: both;
+}
+
 .btn_link {
     margin: auto;
     padding: 15px;
@@ -102,19 +109,6 @@ h2 {
 
 
                               /*-------------------------------- Feedback Admin -------------------------------- */
-#feedback_tables {
-    width: 300px;
-    margin: auto;
-    float: left;
-    clear: both;
-}
-
-fieldset {
-    margin: 10px;
-    width: 80%;
-    float: left;
-    clear: both;
-}
 
 .tableFormat_th {
     padding: 10px 20px;
@@ -139,7 +133,6 @@ fieldset {
     background: #000;
     background: rgba(0,0,0,0.75);
     display: none;
-    float: left;
 }
 
 #selectEdit {
