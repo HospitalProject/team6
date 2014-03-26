@@ -7,10 +7,11 @@
     <title><%= pp_masterTitle %></title>
     <link href="scripts/themes/base/jquery-ui.css" rel="stylesheet" />
     <link href="scripts/themes/base/jquery.ui.accordion.css" rel="stylesheet" />
-    <script src="scripts/jquery-1.10.2.js"></script>
-    <script src="scripts/ui/jquery.ui.core.js"></script>
-    <script src="scripts/ui/jquery.ui.widget.js"></script>
-    <script src="scripts/ui/jquery.ui.accordion.js"></script>
+    <%-- The code below is because this master page is used in different files in different folder lever, need to get the correct path --%>
+    <script src='<%# this.Page.ResolveUrl("~/scripts/jquery-1.10.2.js") %>'></script>
+    <script src='<%# this.Page.ResolveUrl("~/scripts/ui/jquery.ui.core.js") %>'></script>
+    <script src='<%# this.Page.ResolveUrl("~/scripts/ui/jquery.ui.widget.js") %>'></script>
+    <script src='<%# this.Page.ResolveUrl("~/scripts/ui/jquery.ui.accordion.js") %>'></script>
     <script>
         $(function () {
             $("#news_accordion").accordion({
@@ -19,10 +20,10 @@
             });
         });
 	</script>
-    <asp:ContentPlaceHolder id="cph_head" runat="server">
-        <link href='http://fonts.googleapis.com/css?family=Vidaloka' rel='stylesheet' type='text/css' />
-        <link href='http://fonts.googleapis.com/css?family=Carme' rel='stylesheet' type='text/css' />
-        <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Vidaloka' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Carme' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css' />
+   <asp:ContentPlaceHolder id="cph_head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>

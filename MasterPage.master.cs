@@ -17,6 +17,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
+        this.Page.Header.DataBind();    // NOTE: this resolves any <%# ... %> tags in <head>
+
         if (!Page.IsPostBack)
         {
             initAccordionNews();
@@ -41,7 +43,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             strAnContent = objNews.an_content.ToString();
             strNewsAccordionContent += "<h3>" + strAnTitle.Substring(0, strAnTitle.Length > MAXTITLEWORDS ? MAXTITLEWORDS : strAnTitle.Length) + (strAnTitle.Length > MAXTITLEWORDS ? "..." : "") + "</h3>";
             strNewsAccordionContent += "<div>" + strAnContent.Substring(0, strAnContent.Length > MAXCONTENTWORDS ? MAXCONTENTWORDS : strAnContent.Length) + (strAnContent.Length > MAXCONTENTWORDS ? "..." : "") + "<br /><br />";
-            strNewsAccordionContent += "<a href='news_accordion_detail_view.aspx?accordionid=" + i + "&an_id=" + objNews.an_id + "'>Read full story</a></div>";
+            strNewsAccordionContent += "<a href='" + ResolveUrl("~/news_accordion_detail_view.aspx") + "?accordionid=" + i + "&an_id=" + objNews.an_id + "'>Read full story</a></div>";
             i++;
         }
 
@@ -56,8 +58,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
         Guid _userId = (Guid)Membership.GetUser().ProviderUserKey;
 
         linqUsers objUsers = new linqUsers();
-        var objCurrentUser = objUsers.getUserAdditionalInfoByUserId(_userId).First();
-        return objCurrentUser.FirstName + " " + objCurrentUser.LastName;
+        int count = objUsers.getUserAdditionalInfoByUserId(_userId).Count();
+
+        if (count == 0)
+            return "";
+        else
+        {
+            var objCurrentUser = objUsers.getUserAdditionalInfoByUserId(_userId).First();
+            return objCurrentUser.FirstName + " " + objCurrentUser.LastName;
+        }
     }
 
 }

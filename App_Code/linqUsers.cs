@@ -39,4 +39,21 @@ public class linqUsers
         var allUsers = objUserDC.User_AddtionalInfos.Where(x => x.UserId == _userId).Select(x => x);
         return allUsers;
     }
+
+    //get all registered users (registered_users is a view)
+    public IQueryable<registered_user> getAllRegisteredUsers()
+    {
+        UsersDataContext objUserDC = new UsersDataContext();
+        var allRegisteredUsers = objUserDC.registered_users.Select(x => x);
+        return allRegisteredUsers;
+    }
+
+    //get all doctors (doctors is a view)
+    public IQueryable<doctor> getAllDoctors()
+    {
+        UsersDataContext objUserDC = new UsersDataContext();
+        var allDoctors = objUserDC.doctors.Select(x => x);
+        return allDoctors;
+    }
+
 }
