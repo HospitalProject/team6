@@ -67,7 +67,6 @@
           </asp:GridView>
         </table>
         </fieldset>
-       </div>
        <br />
 
                                 <%------------------------------- Comments Section---------------------------------%>
@@ -134,7 +133,6 @@
                    </asp:GridView>
                </table>
            </fieldset>
-       </div>
        <br />
 
                                 <%------------------------------- Appreciations Section---------------------------------%>
@@ -180,7 +178,7 @@
 
                                        <%-- show the database --%>
                                        <td class="tableFormat_td">
-                                           <asp:Label ID="lbl_dateApp" runat="server" Text='<%#Eval("feedbackDate") %>' /></td>
+                                           <asp:Label ID="lbl_dateApp" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"feedbackDate", "{0:dd.MM.yyyy}") %>' /></td>
                                        <td class="tableFormat_td">
                                            <asp:Label ID="lbl_fnameApp" runat="server" Text='<%#Eval("fname") %>' /></td>
                                        <td class="tableFormat_td">
@@ -201,7 +199,6 @@
                    </asp:GridView>
                </table>
            </fieldset>
-       </div>
        <br />
 
        <div class="selectView">

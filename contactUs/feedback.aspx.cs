@@ -76,7 +76,7 @@ public partial class feedback : System.Web.UI.Page
     {
         if (flag)
         {
-            lbl_txtMsg.Text = "Thank you. Your feedback has been sent successfuly, and we will replay you in 2 to 3 business days.";
+            lbl_txtMsg.Text = "Thank you. Your feedback has been sent successfuly. We will replay you in 2 to 3 business days.";
         }
         else
         {
@@ -84,21 +84,49 @@ public partial class feedback : System.Web.UI.Page
         }
     }
 
+    //Define the captcha validation for complaint
+    protected void recaptchaComp(object sender, ServerValidateEventArgs e)
+    {
+        this.recaptchaView1.Validate();
+        e.IsValid = this.recaptchaView1.IsValid;
+    }
+    //Define the captcha validation for commnet
+    protected void recaptchaComm(object sender, ServerValidateEventArgs e)
+    {
+        this.recaptchaView2.Validate();
+        e.IsValid = this.recaptchaView2.IsValid;
+    }
+    //Define the captcha validation for appreciation
+    protected void recaptchaApp(object sender, ServerValidateEventArgs e)
+    {
+        this.recaptchaView3.Validate();
+        e.IsValid = this.recaptchaView3.IsValid;
+    }
+
     protected void sendData(object sender, CommandEventArgs e)
     {
         switch (e.CommandName) // Define the case of Insert the database
         {
             case "InsertComp":
-                _txtMsg(objLinq.commitInsert(txtView1_fname.Text, txtView1_email.Text, ddlView1_rdepartment.Text, txtView1_title.Text, txtView1_content.Text, hdfView1_section.Value)); // Dispaly the proper message by click the insert button for complaint
-                _subRebind();
+                if (Page.IsValid)
+                {
+                    _txtMsg(objLinq.commitInsert(txtView1_fname.Text, txtView1_email.Text, ddlView1_rdepartment.Text, txtView1_title.Text, txtView1_content.Text, hdfView1_section.Value)); // Dispaly the proper message by click the insert button for complaint
+                    _subRebind();
+                }
                 break;
             case "InsertComm":
-                _txtMsg(objLinq.commitInsert(txtView2_fname.Text, txtView2_email.Text, ddlView2_rdepartment.Text, txtView2_title.Text, txtView2_content.Text, hdfView2_section.Value)); // Dispaly the proper message by click the insert button for comment
-                _subRebind();
+                if (Page.IsValid)
+                {
+                    _txtMsg(objLinq.commitInsert(txtView2_fname.Text, txtView2_email.Text, ddlView2_rdepartment.Text, txtView2_title.Text, txtView2_content.Text, hdfView2_section.Value)); // Dispaly the proper message by click the insert button for comment
+                    _subRebind();
+                }
                 break;
             case "InsertApp":
-                _txtMsg(objLinq.commitInsert(txtView3_fname.Text, txtView3_email.Text, ddlView3_rdepartment.Text, txtView3_title.Text, txtView3_content.Text, hdfView3_section.Value)); // Dispaly the proper message by click the insert button for appreciation
-                _subRebind();
+                if (Page.IsValid)
+                {
+                    _txtMsg(objLinq.commitInsert(txtView3_fname.Text, txtView3_email.Text, ddlView3_rdepartment.Text, txtView3_title.Text, txtView3_content.Text, hdfView3_section.Value)); // Dispaly the proper message by click the insert button for appreciation
+                    _subRebind();
+                }
                 break;
             case "Cancel":// referesh the page
                 _subRebind();

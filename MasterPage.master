@@ -149,7 +149,7 @@
                             <tr class="bottomNav">
                                 <td><a href="contactUs/feedback.aspx">CONTACT US</a></td>
                                 <td><a href="aboutUs/board_of_directors.aspx">BORD OF DIRECTORS</a></td>
-                                <td><a></a></td>
+                                <td><a href="contactUs/rssfeed.aspx">RSS</a></td>
                             </tr>
                         </table>
                     </div>

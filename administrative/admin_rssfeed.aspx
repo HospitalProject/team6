@@ -26,14 +26,14 @@
 
                             <td>
                                 <%-- Title Textbox with validation and pattern --%>
-                                    <asp:TextBox ID="txt_rssTitleI" runat="server" />
+                                <asp:TextBox ID="txt_rssTitleI" runat="server" />
                                 <asp:RequiredFieldValidator ID="rfv_rssTitleI" runat="server" ControlToValidate="txt_rssTitleI" ValidationGroup="val_insert"
                                     Text="<span style=color:red;>*Title of RSS required</span>" Display="Dynamic" ErrorMessage="Should be less than 50 characters" />
                             </td>
 
                             <td>
                                 <%-- Url Textbox with validation and pattern --%>
-                                    <asp:TextBox ID="txt_rssUrlI" runat="server" Text="http:// .xml"/>
+                                <asp:TextBox ID="txt_rssUrlI" runat="server" />
                                 <asp:RequiredFieldValidator ID="rfv_rssUrlI" runat="server" ControlToValidate="txt_rssUrlI" ValidationGroup="val_insert"
                                     Text="<span style=color:red;>*Url address required</span>" Display="Dynamic" />
                             </td>
@@ -72,14 +72,14 @@
                             <td>
                                 <%-- Title Textbox with validation and pattern --%>
                                 <asp:HiddenField ID="hdf_rssId" runat="server" Value='<%#Eval("rss_Id")%>' />
-                                    <asp:TextBox ID="txt_rssTitleE" runat="server" Text='<%#Bind("rss_title")%>' />
+                                <asp:TextBox ID="txt_rssTitleE" runat="server" Text='<%#Bind("rss_title")%>' />
                                 <asp:RequiredFieldValidator ID="rfv_rssTitleE" runat="server" ControlToValidate="txt_rssTitleE" ValidationGroup="val_edit"
                                     Text="<span style=color:red;>*Title of RSS required</span>" Display="Dynamic" ErrorMessage="Should be less than 50 characters" />
                             </td>
 
                             <td>
                                 <%-- Url Textbox with validation and pattern --%>
-                                    <asp:TextBox ID="txt_rssUrlE" runat="server" Text='<%#Bind("rss_url")%>' />
+                                <asp:TextBox ID="txt_rssUrlE" runat="server" Text='<%#Bind("rss_url")%>' />
                                 <asp:RequiredFieldValidator ID="rfv_rssUrlE" runat="server" ControlToValidate="txt_rssUrlE" ValidationGroup="val_edit"
                                     Text="<span style=color:red;>*Url address required</span>" Display="Dynamic" />
                             </td>
