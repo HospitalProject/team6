@@ -2866,9 +2866,11 @@ public partial class appointment_list
 	
 	private int _appointment_id;
 	
-	private string _FirstName;
+	private string _PatientFirstName;
 	
-	private string _LastName;
+	private string _PatientLastName;
+	
+	private System.Nullable<System.Guid> _patient_id;
 	
 	private string _Phone;
 	
@@ -2880,7 +2882,13 @@ public partial class appointment_list
 	
 	private System.TimeSpan _available_endtime;
 	
+	private bool _book_status;
+	
 	private System.Guid _doctor_id;
+	
+	private string _DoctorFirstName;
+	
+	private string _DoctorLastName;
 	
 	public appointment_list()
 	{
@@ -2902,39 +2910,55 @@ public partial class appointment_list
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-	public string FirstName
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientFirstName", DbType="NVarChar(50)")]
+	public string PatientFirstName
 	{
 		get
 		{
-			return this._FirstName;
+			return this._PatientFirstName;
 		}
 		set
 		{
-			if ((this._FirstName != value))
+			if ((this._PatientFirstName != value))
 			{
-				this._FirstName = value;
+				this._PatientFirstName = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-	public string LastName
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientLastName", DbType="NVarChar(50)")]
+	public string PatientLastName
 	{
 		get
 		{
-			return this._LastName;
+			return this._PatientLastName;
 		}
 		set
 		{
-			if ((this._LastName != value))
+			if ((this._PatientLastName != value))
 			{
-				this._LastName = value;
+				this._PatientLastName = value;
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patient_id", DbType="UniqueIdentifier")]
+	public System.Nullable<System.Guid> patient_id
+	{
+		get
+		{
+			return this._patient_id;
+		}
+		set
+		{
+			if ((this._patient_id != value))
+			{
+				this._patient_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(50)")]
 	public string Phone
 	{
 		get
@@ -3014,6 +3038,22 @@ public partial class appointment_list
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_status", DbType="Bit NOT NULL")]
+	public bool book_status
+	{
+		get
+		{
+			return this._book_status;
+		}
+		set
+		{
+			if ((this._book_status != value))
+			{
+				this._book_status = value;
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doctor_id", DbType="UniqueIdentifier NOT NULL")]
 	public System.Guid doctor_id
 	{
@@ -3026,6 +3066,38 @@ public partial class appointment_list
 			if ((this._doctor_id != value))
 			{
 				this._doctor_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DoctorFirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string DoctorFirstName
+	{
+		get
+		{
+			return this._DoctorFirstName;
+		}
+		set
+		{
+			if ((this._DoctorFirstName != value))
+			{
+				this._DoctorFirstName = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DoctorLastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string DoctorLastName
+	{
+		get
+		{
+			return this._DoctorLastName;
+		}
+		set
+		{
+			if ((this._DoctorLastName != value))
+			{
+				this._DoctorLastName = value;
 			}
 		}
 	}

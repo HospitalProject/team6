@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.75, 12.5" name="Users">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12, 12.5" name="Users">
   <DataContextMoniker Name="/UsersDataContext" />
   <nestedChildShapes>
     <classShape Id="03d5dbdd-7669-4461-88fe-eacba3d96939" absoluteBounds="3.75, 4.25, 2, 1.5785953776041666">
@@ -78,7 +78,7 @@
         <elementListCompartment Id="94351520-d03a-4d3e-872c-c68e07a57c97" absoluteBounds="1.1400000000000001, 7.21, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.125 : 3.65549967447917); (4.125 : 4); (3.5 : 4); (3.5 : 7.82774983723958); (3.125 : 7.82774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.125 : 3.65549967447917); (4.125 : 4); (3.5 : 4); (3.5 : 7.82774983723958); (3.125 : 7.82774983723958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/UsersDataContext/aspnet_User/aspnet_User_appointment" />
       <nodes>
         <classShapeMoniker Id="bd8feb36-b3a2-4dd9-b844-45e1fb7b0388" />
@@ -92,10 +92,10 @@
         <classShapeMoniker Id="23071185-7651-4f25-b603-74a279e98f91" />
       </nodes>
     </associationConnector>
-    <classShape Id="c2cd3756-720a-469a-95ff-1eac72df8668" absoluteBounds="9.5, 2.5, 2, 2.5401025390625">
+    <classShape Id="cde67dc9-4b18-45c5-8546-c4d2484b495a" absoluteBounds="9.75, 2.75, 2, 3.3093082682291666">
       <DataClassMoniker Name="/UsersDataContext/appointment_list" />
       <nestedChildShapes>
-        <elementListCompartment Id="f38a08d9-0cd6-4efd-b679-b2cea12e8361" absoluteBounds="9.515, 2.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="83083004-dac7-4293-90b6-8d7258430dc4" absoluteBounds="9.765, 3.21, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
