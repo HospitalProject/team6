@@ -44,6 +44,9 @@ public partial class UsersDataContext : System.Data.Linq.DataContext
   partial void Insertaspnet_UsersInRole(aspnet_UsersInRole instance);
   partial void Updateaspnet_UsersInRole(aspnet_UsersInRole instance);
   partial void Deleteaspnet_UsersInRole(aspnet_UsersInRole instance);
+  partial void Insertappointment(appointment instance);
+  partial void Updateappointment(appointment instance);
+  partial void Deleteappointment(appointment instance);
   #endregion
 	
 	public UsersDataContext() : 
@@ -129,6 +132,22 @@ public partial class UsersDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<doctor>();
+		}
+	}
+	
+	public System.Data.Linq.Table<appointment> appointments
+	{
+		get
+		{
+			return this.GetTable<appointment>();
+		}
+	}
+	
+	public System.Data.Linq.Table<appointment_list> appointment_lists
+	{
+		get
+		{
+			return this.GetTable<appointment_list>();
 		}
 	}
 }
@@ -334,6 +353,10 @@ public partial class aspnet_User : INotifyPropertyChanging, INotifyPropertyChang
 	
 	private EntitySet<aspnet_UsersInRole> _aspnet_UsersInRoles;
 	
+	private EntitySet<appointment> _appointments;
+	
+	private EntitySet<appointment> _appointments1;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -359,6 +382,8 @@ public partial class aspnet_User : INotifyPropertyChanging, INotifyPropertyChang
 		this._User_AddtionalInfo = default(EntityRef<User_AddtionalInfo>);
 		this._aspnet_Membership = default(EntityRef<aspnet_Membership>);
 		this._aspnet_UsersInRoles = new EntitySet<aspnet_UsersInRole>(new Action<aspnet_UsersInRole>(this.attach_aspnet_UsersInRoles), new Action<aspnet_UsersInRole>(this.detach_aspnet_UsersInRoles));
+		this._appointments = new EntitySet<appointment>(new Action<appointment>(this.attach_appointments), new Action<appointment>(this.detach_appointments));
+		this._appointments1 = new EntitySet<appointment>(new Action<appointment>(this.attach_appointments1), new Action<appointment>(this.detach_appointments1));
 		OnCreated();
 	}
 	
@@ -573,6 +598,32 @@ public partial class aspnet_User : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_User_appointment", Storage="_appointments", ThisKey="UserId", OtherKey="doctor_id")]
+	public EntitySet<appointment> appointments
+	{
+		get
+		{
+			return this._appointments;
+		}
+		set
+		{
+			this._appointments.Assign(value);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_User_appointment1", Storage="_appointments1", ThisKey="UserId", OtherKey="patient_id")]
+	public EntitySet<appointment> appointments1
+	{
+		get
+		{
+			return this._appointments1;
+		}
+		set
+		{
+			this._appointments1.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -603,6 +654,30 @@ public partial class aspnet_User : INotifyPropertyChanging, INotifyPropertyChang
 	{
 		this.SendPropertyChanging();
 		entity.aspnet_User = null;
+	}
+	
+	private void attach_appointments(appointment entity)
+	{
+		this.SendPropertyChanging();
+		entity.aspnet_User = this;
+	}
+	
+	private void detach_appointments(appointment entity)
+	{
+		this.SendPropertyChanging();
+		entity.aspnet_User = null;
+	}
+	
+	private void attach_appointments1(appointment entity)
+	{
+		this.SendPropertyChanging();
+		entity.aspnet_User1 = this;
+	}
+	
+	private void detach_appointments1(appointment entity)
+	{
+		this.SendPropertyChanging();
+		entity.aspnet_User1 = null;
 	}
 }
 
@@ -2492,6 +2567,537 @@ public partial class doctor
 			if ((this._Phone != value))
 			{
 				this._Phone = value;
+			}
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.appointment")]
+public partial class appointment : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _appointment_id;
+	
+	private System.Guid _doctor_id;
+	
+	private System.DateTime _available_date;
+	
+	private System.TimeSpan _available_starttime;
+	
+	private System.TimeSpan _available_endtime;
+	
+	private bool _book_status;
+	
+	private System.Nullable<System.Guid> _patient_id;
+	
+	private EntityRef<aspnet_User> _aspnet_User;
+	
+	private EntityRef<aspnet_User> _aspnet_User1;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onappointment_idChanging(int value);
+    partial void Onappointment_idChanged();
+    partial void Ondoctor_idChanging(System.Guid value);
+    partial void Ondoctor_idChanged();
+    partial void Onavailable_dateChanging(System.DateTime value);
+    partial void Onavailable_dateChanged();
+    partial void Onavailable_starttimeChanging(System.TimeSpan value);
+    partial void Onavailable_starttimeChanged();
+    partial void Onavailable_endtimeChanging(System.TimeSpan value);
+    partial void Onavailable_endtimeChanged();
+    partial void Onbook_statusChanging(bool value);
+    partial void Onbook_statusChanged();
+    partial void Onpatient_idChanging(System.Nullable<System.Guid> value);
+    partial void Onpatient_idChanged();
+    #endregion
+	
+	public appointment()
+	{
+		this._aspnet_User = default(EntityRef<aspnet_User>);
+		this._aspnet_User1 = default(EntityRef<aspnet_User>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_appointment_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int appointment_id
+	{
+		get
+		{
+			return this._appointment_id;
+		}
+		set
+		{
+			if ((this._appointment_id != value))
+			{
+				this.Onappointment_idChanging(value);
+				this.SendPropertyChanging();
+				this._appointment_id = value;
+				this.SendPropertyChanged("appointment_id");
+				this.Onappointment_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doctor_id", DbType="UniqueIdentifier NOT NULL")]
+	public System.Guid doctor_id
+	{
+		get
+		{
+			return this._doctor_id;
+		}
+		set
+		{
+			if ((this._doctor_id != value))
+			{
+				if (this._aspnet_User.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Ondoctor_idChanging(value);
+				this.SendPropertyChanging();
+				this._doctor_id = value;
+				this.SendPropertyChanged("doctor_id");
+				this.Ondoctor_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available_date", DbType="Date NOT NULL")]
+	public System.DateTime available_date
+	{
+		get
+		{
+			return this._available_date;
+		}
+		set
+		{
+			if ((this._available_date != value))
+			{
+				this.Onavailable_dateChanging(value);
+				this.SendPropertyChanging();
+				this._available_date = value;
+				this.SendPropertyChanged("available_date");
+				this.Onavailable_dateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available_starttime", DbType="Time NOT NULL")]
+	public System.TimeSpan available_starttime
+	{
+		get
+		{
+			return this._available_starttime;
+		}
+		set
+		{
+			if ((this._available_starttime != value))
+			{
+				this.Onavailable_starttimeChanging(value);
+				this.SendPropertyChanging();
+				this._available_starttime = value;
+				this.SendPropertyChanged("available_starttime");
+				this.Onavailable_starttimeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available_endtime", DbType="Time NOT NULL")]
+	public System.TimeSpan available_endtime
+	{
+		get
+		{
+			return this._available_endtime;
+		}
+		set
+		{
+			if ((this._available_endtime != value))
+			{
+				this.Onavailable_endtimeChanging(value);
+				this.SendPropertyChanging();
+				this._available_endtime = value;
+				this.SendPropertyChanged("available_endtime");
+				this.Onavailable_endtimeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_status", DbType="Bit NOT NULL")]
+	public bool book_status
+	{
+		get
+		{
+			return this._book_status;
+		}
+		set
+		{
+			if ((this._book_status != value))
+			{
+				this.Onbook_statusChanging(value);
+				this.SendPropertyChanging();
+				this._book_status = value;
+				this.SendPropertyChanged("book_status");
+				this.Onbook_statusChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patient_id", DbType="UniqueIdentifier")]
+	public System.Nullable<System.Guid> patient_id
+	{
+		get
+		{
+			return this._patient_id;
+		}
+		set
+		{
+			if ((this._patient_id != value))
+			{
+				if (this._aspnet_User1.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.Onpatient_idChanging(value);
+				this.SendPropertyChanging();
+				this._patient_id = value;
+				this.SendPropertyChanged("patient_id");
+				this.Onpatient_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_User_appointment", Storage="_aspnet_User", ThisKey="doctor_id", OtherKey="UserId", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+	public aspnet_User aspnet_User
+	{
+		get
+		{
+			return this._aspnet_User.Entity;
+		}
+		set
+		{
+			aspnet_User previousValue = this._aspnet_User.Entity;
+			if (((previousValue != value) 
+						|| (this._aspnet_User.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._aspnet_User.Entity = null;
+					previousValue.appointments.Remove(this);
+				}
+				this._aspnet_User.Entity = value;
+				if ((value != null))
+				{
+					value.appointments.Add(this);
+					this._doctor_id = value.UserId;
+				}
+				else
+				{
+					this._doctor_id = default(System.Guid);
+				}
+				this.SendPropertyChanged("aspnet_User");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="aspnet_User_appointment1", Storage="_aspnet_User1", ThisKey="patient_id", OtherKey="UserId", IsForeignKey=true)]
+	public aspnet_User aspnet_User1
+	{
+		get
+		{
+			return this._aspnet_User1.Entity;
+		}
+		set
+		{
+			aspnet_User previousValue = this._aspnet_User1.Entity;
+			if (((previousValue != value) 
+						|| (this._aspnet_User1.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._aspnet_User1.Entity = null;
+					previousValue.appointments1.Remove(this);
+				}
+				this._aspnet_User1.Entity = value;
+				if ((value != null))
+				{
+					value.appointments1.Add(this);
+					this._patient_id = value.UserId;
+				}
+				else
+				{
+					this._patient_id = default(Nullable<System.Guid>);
+				}
+				this.SendPropertyChanged("aspnet_User1");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.appointment_lists")]
+public partial class appointment_list
+{
+	
+	private int _appointment_id;
+	
+	private string _PatientFirstName;
+	
+	private string _PatientLastName;
+	
+	private System.Nullable<System.Guid> _patient_id;
+	
+	private string _Phone;
+	
+	private string _Email;
+	
+	private System.DateTime _available_date;
+	
+	private System.TimeSpan _available_starttime;
+	
+	private System.TimeSpan _available_endtime;
+	
+	private bool _book_status;
+	
+	private System.Guid _doctor_id;
+	
+	private string _DoctorFirstName;
+	
+	private string _DoctorLastName;
+	
+	public appointment_list()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_appointment_id", DbType="Int NOT NULL")]
+	public int appointment_id
+	{
+		get
+		{
+			return this._appointment_id;
+		}
+		set
+		{
+			if ((this._appointment_id != value))
+			{
+				this._appointment_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientFirstName", DbType="NVarChar(50)")]
+	public string PatientFirstName
+	{
+		get
+		{
+			return this._PatientFirstName;
+		}
+		set
+		{
+			if ((this._PatientFirstName != value))
+			{
+				this._PatientFirstName = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PatientLastName", DbType="NVarChar(50)")]
+	public string PatientLastName
+	{
+		get
+		{
+			return this._PatientLastName;
+		}
+		set
+		{
+			if ((this._PatientLastName != value))
+			{
+				this._PatientLastName = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patient_id", DbType="UniqueIdentifier")]
+	public System.Nullable<System.Guid> patient_id
+	{
+		get
+		{
+			return this._patient_id;
+		}
+		set
+		{
+			if ((this._patient_id != value))
+			{
+				this._patient_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(50)")]
+	public string Phone
+	{
+		get
+		{
+			return this._Phone;
+		}
+		set
+		{
+			if ((this._Phone != value))
+			{
+				this._Phone = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(256)")]
+	public string Email
+	{
+		get
+		{
+			return this._Email;
+		}
+		set
+		{
+			if ((this._Email != value))
+			{
+				this._Email = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available_date", DbType="Date NOT NULL")]
+	public System.DateTime available_date
+	{
+		get
+		{
+			return this._available_date;
+		}
+		set
+		{
+			if ((this._available_date != value))
+			{
+				this._available_date = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available_starttime", DbType="Time NOT NULL")]
+	public System.TimeSpan available_starttime
+	{
+		get
+		{
+			return this._available_starttime;
+		}
+		set
+		{
+			if ((this._available_starttime != value))
+			{
+				this._available_starttime = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_available_endtime", DbType="Time NOT NULL")]
+	public System.TimeSpan available_endtime
+	{
+		get
+		{
+			return this._available_endtime;
+		}
+		set
+		{
+			if ((this._available_endtime != value))
+			{
+				this._available_endtime = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_book_status", DbType="Bit NOT NULL")]
+	public bool book_status
+	{
+		get
+		{
+			return this._book_status;
+		}
+		set
+		{
+			if ((this._book_status != value))
+			{
+				this._book_status = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doctor_id", DbType="UniqueIdentifier NOT NULL")]
+	public System.Guid doctor_id
+	{
+		get
+		{
+			return this._doctor_id;
+		}
+		set
+		{
+			if ((this._doctor_id != value))
+			{
+				this._doctor_id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DoctorFirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string DoctorFirstName
+	{
+		get
+		{
+			return this._DoctorFirstName;
+		}
+		set
+		{
+			if ((this._DoctorFirstName != value))
+			{
+				this._DoctorFirstName = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DoctorLastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+	public string DoctorLastName
+	{
+		get
+		{
+			return this._DoctorLastName;
+		}
+		set
+		{
+			if ((this._DoctorLastName != value))
+			{
+				this._DoctorLastName = value;
 			}
 		}
 	}

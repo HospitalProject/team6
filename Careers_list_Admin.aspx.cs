@@ -9,7 +9,7 @@ public partial class Careers_list_Admin : System.Web.UI.Page
 {
 
     //create an object of LinqClass
-    CareersListClass objLinq=new CareersListClass();
+    CareersListClass objLinq = new CareersListClass();
     /*
      * Rebind the data sourse
      */
@@ -39,7 +39,7 @@ public partial class Careers_list_Admin : System.Web.UI.Page
         {
             case "Insert":
                 //insert data using Linq, and then call the _strMessage function to display the status
-                _strMessage(objLinq.commitInsert(txt_job_titleI.Text, txt_job_typeI.Text, txt_job_descriptionI.Text, txt_requirementsI.Text, Int32.Parse(txt_recruiting_numI.Text.ToString()), txt_locationI.Text,DateTime.Parse(txt_deadlineI.Text.ToString())), "insert");
+                _strMessage(objLinq.commitInsert(txt_job_titleI.Text, txt_job_typeI.Text, txt_job_descriptionI.Text, txt_requirementsI.Text, Int32.Parse(txt_recruiting_numI.Text.ToString()), txt_locationI.Text, DateTime.Parse(txt_deadlineI.Text.ToString())), "insert");
                 _subRebind();
                 break;
             case "Cancel":
@@ -73,7 +73,7 @@ public partial class Careers_list_Admin : System.Web.UI.Page
                 HiddenField hdfID = (HiddenField)e.Item.FindControl("hdf_idE");
                 int proID = int.Parse(hdfID.Value.ToString());
                 //update data using Linq, and then call the _strMessage function to display the status
-                _strMessage(objLinq.commitUpdate(proID, txtTitle.Text, txtType.Text, txtDesc.Text, txtRq.Text, Int32.Parse(txtRec.Text.ToString()), txtLoc.Text,DateTime.Parse(txtDdl.Text.ToString())), "update");
+                _strMessage(objLinq.commitUpdate(proID, txtTitle.Text, txtType.Text, txtDesc.Text, txtRq.Text, Int32.Parse(txtRec.Text.ToString()), txtLoc.Text, DateTime.Parse(txtDdl.Text.ToString())), "update");
                 _subRebind();
                 break;
             case "Delete":
