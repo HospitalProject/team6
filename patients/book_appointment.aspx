@@ -3,26 +3,30 @@
 <%@ MasterType VirtualPath="~/MasterPage.master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
+    <link href="../App_Themes/Appointment.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="cph_section" Runat="Server">
     <asp:Panel ID="pnl_appointmentlist" runat="server">
+        <div id="menutab">
         <asp:Menu ID="mnu_myappointment" runat="server" StaticDisplayLevels="1" Orientation="Horizontal" OnMenuItemClick="mnu_myappointment_MenuItemClick">
             <Items>
-                <asp:MenuItem Text="Active" />
+                <asp:MenuItem Text="Active" Selected="true" /> 
                 <asp:MenuItem Text="Archived" />
             </Items>
+            <StaticMenuItemStyle HorizontalPadding="10px" VerticalPadding="10px" />
         </asp:Menu>
+        </div>
         <asp:MultiView ID="mtv_myappointment" runat="server" ActiveViewIndex="0">
             <asp:View ID="vw_activeappointment" runat="server">
                 <asp:Repeater ID="rpt_activeappointment" runat="server">
                     <HeaderTemplate>
-                        <table>
+                        <table class="tblAppointment">
                             <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Doctor</th>
-                                <th>&nbsp;</th>
+                                <th class="tblth">Date</th>
+                                <th class="tblth">Time</th>
+                                <th class="tblth">Doctor</th>
+                                <th class="tblth">&nbsp;</th>
                             </tr>
                     </HeaderTemplate>
                     <ItemTemplate>
@@ -41,11 +45,11 @@
             <asp:View ID="vw_archivedappointment" runat="server">
                 <asp:Repeater ID="rpt_archivedappointment" runat="server">
                     <HeaderTemplate>
-                        <table>
+                        <table class="tblAppointment">
                             <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Doctor</th>
+                                <th class="tblth">Date</th>
+                                <th class="tblth">Time</th>
+                                <th class="tblth">Doctor</th>
                             </tr>
                     </HeaderTemplate>
                     <ItemTemplate>
@@ -68,7 +72,7 @@
         <asp:Label ID="lbl_bookappointment" runat="server" Text="Book a new appointment" />
         <br />
         <br />
-        <table>
+        <table class="tblAppointment">
             <tr>
                 <td>
                     Doctor:

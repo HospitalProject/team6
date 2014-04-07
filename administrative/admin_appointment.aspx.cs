@@ -16,6 +16,7 @@ public partial class admin_appointment : System.Web.UI.Page
         }
     }
 
+    //rebind the doctor list
     private void _subRebindDocList()
     {
         linqUsers objUsers = new linqUsers();
@@ -25,7 +26,7 @@ public partial class admin_appointment : System.Web.UI.Page
         rpt_doctorlist.DataBind();
     }
 
-
+    //rebind the doctor timeslot
     private void _subRebindDocTimeslot()
     {
         Guid _doctor_id = new Guid(ViewState["doctor_id"].ToString());
@@ -52,7 +53,7 @@ public partial class admin_appointment : System.Web.UI.Page
         pnl.Visible = true;
     }
 
-
+    //show different panel and bind data based on the which link button is clicked
     protected void subAdmin(object sender, CommandEventArgs e)
     {
         Guid _doctor_id;
@@ -75,6 +76,7 @@ public partial class admin_appointment : System.Web.UI.Page
         }
     }
 
+    //rebind the doctor appointment list
     private void _subRebindDocAppointment()
     {
         Guid _doctor_id = new Guid(ViewState["doctor_id"].ToString());
@@ -101,10 +103,13 @@ public partial class admin_appointment : System.Web.UI.Page
         }
     }
 
+    //back to doctor list
     protected void lkb_backtodoclist_Click(object sender, EventArgs e)
     {
         _showPanel(pnl_doctorList);
     }
+
+    //show the timeslot panel
     protected void btn_addtimeslot_Click(object sender, EventArgs e)
     {
         _showPanel(pnl_addtimeslot);
@@ -142,6 +147,8 @@ public partial class admin_appointment : System.Web.UI.Page
         ddl_endtime.SelectedIndex = ddl_endtime.Items.IndexOf(ddl_endtime.Items.FindByText("09:30"));
         _showPanel(pnl_timeslot);
     }
+
+    //while available date is changed, change the timeslots accordingly.
     protected void ddl_docavailable_date_SelectedIndexChanged(object sender, EventArgs e)
     {
         Guid _doctor_id;
@@ -185,6 +192,8 @@ public partial class admin_appointment : System.Web.UI.Page
             rpt_doctimeslotlist.DataBind();
         }
     }
+
+    //cancel an appointment
     protected void lkb_docappintmentcancelappointment_Command(object sender, CommandEventArgs e)
     {
         int _appointment_id = Int32.Parse(e.CommandArgument.ToString());
@@ -192,6 +201,8 @@ public partial class admin_appointment : System.Web.UI.Page
         objUser.cancelAppointment(_appointment_id);
         _subRebindDocAppointment();
     }
+
+    //these two server validation are not working because they are in a hidden panel when loading, it is a bug of .NET
     protected void ctv_endtime_ServerValidate(object source, ServerValidateEventArgs args)
     {
         if (TimeSpan.Parse(ddl_endtime.SelectedValue) > TimeSpan.Parse(ddl_starttime.SelectedValue))
@@ -222,6 +233,8 @@ public partial class admin_appointment : System.Web.UI.Page
         }
 
     }
+
+    //switch the view according to clicked menu item
     protected void mnu_appointment_MenuItemClick(object sender, MenuEventArgs e)
     {
         if (e.Item.Text == "Archived")

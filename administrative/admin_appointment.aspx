@@ -2,13 +2,14 @@
 
 <asp:Content id="cnt_header" ContentPlaceHolderID="head"  runat="server">
     <link href="../App_Themes/AdminUsers.css" rel="stylesheet" />
+    <link href="../App_Themes/Appointment.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cph_content" Runat="Server">
     <AJAX:ToolkitScriptManager ID="tsm_users" runat="server" />
     <asp:Panel ID="pnl_doctorList" runat="server">
         <asp:Repeater ID="rpt_doctorlist" runat="server">
             <HeaderTemplate>
-                <table>
+                <table class="tblDocList">
                     <tr>
                         <th class="tabHead">Doctor Name</th>
                         <th class="tabHead">&nbsp;</th>
@@ -31,28 +32,31 @@
         </asp:Repeater>
     </asp:Panel>
     <asp:Panel ID="pnl_appointments" runat="server" Visible="false">
+        <br />
         <asp:Label ID="lbl_docappointment" runat="server" />
         <br />
         <br />
+        <div id="menutab">
         <asp:Menu ID="mnu_appointment" runat="server" StaticDisplayLevels="1" Orientation="Horizontal" OnMenuItemClick="mnu_appointment_MenuItemClick">
             <Items>
-                <asp:MenuItem Text="Active" />
+                <asp:MenuItem Text="Active" Selected="true" />
                 <asp:MenuItem Text="Archived" />
             </Items>
+            <StaticMenuItemStyle HorizontalPadding="10px" VerticalPadding="10px" />
         </asp:Menu>
-
+        </div>
         <asp:MultiView ID="mtv_docappointment" runat="server" ActiveViewIndex="0">
             <asp:View ID="vw_docactiveappointment" runat="server">
                 <asp:Repeater ID="rpt_activeappointmentlist" runat="server">
                     <HeaderTemplate>
-                        <table>
+                        <table class="tblAppointment">
                             <tr>
-                                <th>Patient Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>&nbsp;</th>
+                                <th class="tblth">Patient Name</th>
+                                <th class="tblth">Email</th>
+                                <th class="tblth">Phone</th>
+                                <th class="tblth">Date</th>
+                                <th class="tblth">Time</th>
+                                <th class="tblth">&nbsp;</th>
                             </tr>
                     </HeaderTemplate>
                     <ItemTemplate>
@@ -73,13 +77,13 @@
             <asp:View ID="vw_docarchivedappointment" runat="server">
                 <asp:Repeater ID="rpt_archiveappointmentlist" runat="server">
                     <HeaderTemplate>
-                        <table>
+                        <table class="tblAppointment">
                             <tr>
-                                <th>Patient Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Date</th>
-                                <th>Time</th>
+                                <th class="tblth">Patient Name</th>
+                                <th class="tblth">Email</th>
+                                <th class="tblth">Phone</th>
+                                <th class="tblth">Date</th>
+                                <th class="tblth">Time</th>
                             </tr>
                     </HeaderTemplate>
                     <ItemTemplate>
@@ -97,15 +101,17 @@
                 </asp:Repeater>
             </asp:View>
         </asp:MultiView>
+        <br />
         <asp:LinkButton ID="lkb_backtodoclist1" runat="server" OnClick="lkb_backtodoclist_Click" Text="Back" />
     </asp:Panel>
     <asp:Panel ID="pnl_timeslot" runat="server" Visible="false">
+        <br />
         <asp:Label ID="lbl_doctimeslot" runat="server" />
         <br />
-        <table>
+        <table class="tblDocTimeslot">
             <tr>
-                <td>Date:<asp:DropDownList ID="ddl_docavailable_date" runat="server" OnSelectedIndexChanged="ddl_docavailable_date_SelectedIndexChanged" AutoPostBack="true" /></td>
-                <td><asp:Button ID="btn_addtimeslot" runat="server" Text="Add new available time slot" OnClick="btn_addtimeslot_Click" /></td>
+                <td>Date:</td>
+                <td><asp:DropDownList ID="ddl_docavailable_date" runat="server" OnSelectedIndexChanged="ddl_docavailable_date_SelectedIndexChanged" AutoPostBack="true" /><asp:Button ID="btn_addtimeslot" runat="server" Text="Add new available time slot" OnClick="btn_addtimeslot_Click" /></td>
             </tr>
             <tr>
                 <td>
@@ -116,10 +122,10 @@
                         <HeaderTemplate>
                             <table>
                                 <tr>
-                                    <th>Time</th>
-                                    <th>Book Status</th>
-                                    <th>Patient Name</th>
-                                    <th>Action</th>
+                                    <th class="tblth">Time</th>
+                                    <th class="tblth">Book Status</th>
+                                    <th class="tblth">Patient Name</th>
+                                    <th class="tblth">Action</th>
                                 </tr>
                         </HeaderTemplate>
                         <ItemTemplate>
@@ -139,6 +145,7 @@
                 </td>
             </tr>
         </table>
+        <br />
         <asp:LinkButton ID="lkb_backtodoclist2" runat="server" OnClick="lkb_backtodoclist_Click" Text="Back" />
     </asp:Panel>
     <asp:Panel ID="pnl_addtimeslot" runat="server" Visible="false">
