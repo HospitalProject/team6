@@ -16,6 +16,7 @@ public partial class book_appointment : System.Web.UI.Page
         }
     }
 
+    //rebind the active and archived appointments
     private void _subRebind()
     {
         Guid _userId = (Guid)Membership.GetUser().ProviderUserKey;
@@ -23,24 +24,24 @@ public partial class book_appointment : System.Web.UI.Page
         
         rpt_activeappointment.DataSource = objUsers.getAppointmentByPatientId(_userId, "active");
         rpt_activeappointment.DataBind();
-        if (rpt_activeappointment.Items.Count == 0)
-        {
-            rpt_activeappointment.Visible = false;
-        }
-        else
-        {
-            rpt_activeappointment.Visible = true;
-        }
+        //if (rpt_activeappointment.Items.Count == 0)
+        //{
+        //    rpt_activeappointment.Visible = false;
+        //}
+        //else
+        //{
+        //    rpt_activeappointment.Visible = true;
+        //}
         rpt_archivedappointment.DataSource = objUsers.getAppointmentByPatientId(_userId, "archived");
         rpt_archivedappointment.DataBind();
-        if (rpt_archivedappointment.Items.Count == 0)
-        {
-            rpt_archivedappointment.Visible = false;
-        }
-        else
-        {
-            rpt_archivedappointment.Visible = true;
-        }
+        //if (rpt_archivedappointment.Items.Count == 0)
+        //{
+        //    rpt_archivedappointment.Visible = false;
+        //}
+        //else
+        //{
+        //    rpt_archivedappointment.Visible = true;
+        //}
     }
 
     //get current user full name (First Name + Last Name)
@@ -60,6 +61,8 @@ public partial class book_appointment : System.Web.UI.Page
             return objCurrentUser.FirstName + " " + objCurrentUser.LastName;
         }
     }
+
+    //while clicking make a new appointment, show the doctor list and time slots
     protected void btn_makeappointment_Click(object sender, EventArgs e)
     {
         linqUsers objUser = new linqUsers();
@@ -85,6 +88,8 @@ public partial class book_appointment : System.Web.UI.Page
 
         _showPanel(pnl_makeappointment);
     }
+
+    //Cancel an appointment
     protected void subCancelAppointment(object sender, CommandEventArgs e)
     {
         int _appointment_id = Int32.Parse(e.CommandArgument.ToString());
@@ -100,11 +105,13 @@ public partial class book_appointment : System.Web.UI.Page
         pnl.Visible = true;
     }
 
+    //while doctor changed, change the available dates accordingly
     protected void ddl_doctorlist_SelectedIndexChanged(object sender, EventArgs e)
     {
         setAvailableDateList();
     }
 
+    //list all available dates no earlier than today
     private void setAvailableDateList()
     {
         linqUsers objUser = new linqUsers();
@@ -119,6 +126,7 @@ public partial class book_appointment : System.Web.UI.Page
 
         btn_submitAppointment.Enabled = false;
 
+        //if there is available dates, show the timeslots of it
         if (ddl_availabledate.Items.Count > 0)
         {
             setTimeSlotList();
@@ -126,6 +134,7 @@ public partial class book_appointment : System.Web.UI.Page
 
     }
 
+    //show the time slots
     private void setTimeSlotList()
     {
         cbl_timeslot.Items.Clear();
@@ -147,10 +156,14 @@ public partial class book_appointment : System.Web.UI.Page
         }
 
     }
+
+    //when the avaliable date is changed, change the timeslots accordingly
     protected void ddl_availabledate_SelectedIndexChanged(object sender, EventArgs e)
     {
         setTimeSlotList();
     }
+
+    //submit the appointment
     protected void btn_submitAppointment_Click(object sender, EventArgs e)
     {
         Guid _patient_id = (Guid)Membership.GetUser().ProviderUserKey;
@@ -169,6 +182,8 @@ public partial class book_appointment : System.Web.UI.Page
         _subRebind();
         _showPanel(pnl_appointmentlist);
     }
+
+    //cancel appointment submission
     protected void btn_cancelSubmitAppointment_Click(object sender, EventArgs e)
     {
         ddl_doctorlist.Items.Clear();
@@ -176,6 +191,8 @@ public partial class book_appointment : System.Web.UI.Page
         cbl_timeslot.Items.Clear();
         _showPanel(pnl_appointmentlist);
     }
+
+    //when clicking the "archived" or "active" menu, switch the view accordingly
     protected void mnu_myappointment_MenuItemClick(object sender, MenuEventArgs e)
     {
         if (e.Item.Text == "Archived")
