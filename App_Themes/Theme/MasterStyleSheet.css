@@ -112,6 +112,15 @@ header {
     border-bottom: 1px solid #F2ECE8;
 }
 
+#loginarea {
+    margin: 5px 0 10px 0;
+    position: relative;
+    padding-right: 5px;
+    width: auto;
+    height: 60px;
+    float: right;
+}
+
 #donationLink {
     margin: 10px 0 10px 0;
     width: auto;
@@ -157,7 +166,7 @@ aside {
 }
 
 section {
-    margin: 46px 10px 0px 10px;
+    margin: 15px 10px 0px 10px;
     width: 800px;
     height: auto;
     float: right;
@@ -214,6 +223,16 @@ footer {
     color: #FFFFFF;
     text-decoration: none;
     float: right;
+}
+
+.loginBtn {
+    margin: 5px;
+    padding: 5px;
+    font-family: 'Carme', sans-serif;
+    font-size: 14px;
+    background-color: #82C2A9;
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 .img_logo {

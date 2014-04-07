@@ -2,10 +2,20 @@
 
 #home_slideshow {
     width: 800px;
-    height: 260px;
+    height: 320px;
     padding: 4px;
     border: 1px solid #808080;
     clear: both;
+    background-color:#658749;
+
+}
+
+.btnslider {
+    margin-right: 370px;
+    padding: 5px;
+    color: #658749;
+    float: right;
+
 }
 
 #home_welcome {

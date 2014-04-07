@@ -27,12 +27,14 @@
         <asp:UpdatePanel ID="upd_main" runat="server">
             <ContentTemplate>
                 <asp:Label ID="lbl_timer" runat="server"  />
-                <asp:Timer ID="tmr_main" runat="server" Interval="5000" OnTick="subTick" />
+                <asp:Timer ID="tmr_main" runat="server" Interval="3000" OnTick="subTick" />
            
 
-        <asp:Image ID="img_slider" runat="server" Width="797px" Height="250px" />
+                <asp:Image ID="img_slider" runat="server" Width="797px" Height="260px" />
                 <br />
-                <asp:Label ID="lbl_slider" runat="server" />
+
+                <asp:Label ID="lbl_slider" runat="server" /><br />
+                <asp:Button ID="btn_slide" runat="server" Text="Stop" Font-Bold="true" CssClass="btnslider" OnClick="Btn_Click" />
                 </ContentTemplate>
             </asp:UpdatePanel>
         
