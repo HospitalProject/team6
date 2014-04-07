@@ -69,6 +69,7 @@ public partial class _index : System.Web.UI.Page
             if (imageDataRow != null)
             {
                 img_slider.ImageUrl = "~/images/" + imageDataRow["simageName"].ToString();
+                lbl_slider.ForeColor = System.Drawing.Color.White;
                 lbl_slider.Text = (imageDataRow["simageTitle"] + " - " + imageDataRow["simageText"]).ToString();
                 
             }
@@ -78,4 +79,17 @@ public partial class _index : System.Web.UI.Page
             }
     }
 
+    protected void Btn_Click(object sender, EventArgs e)
+    {
+        if (tmr_main.Enabled)
+        {
+            tmr_main.Enabled = false;
+            btn_slide.Text = "Start";
+        }
+        else
+        {
+            tmr_main.Enabled = true;
+            btn_slide.Text = "Stop";
+        }
+    }
 }
