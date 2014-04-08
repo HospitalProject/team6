@@ -296,7 +296,7 @@ footer {
     clear: both;
 }
 
-/*@media (min-width: 360px) {
+@media (min-width: 360px) {
     #requiredNav {
         width: 337px;
         height: auto;
@@ -422,7 +422,7 @@ footer {
         line-height: 20px;
     }
 }
-*/
+
 #studentTag {
     margin: 10px 160px;
     color: #ff0000;

@@ -1,61 +1,54 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Services.aspx.cs" Inherits="_services" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="services.aspx.cs" Inherits="_services" %>
 
-<%@ MasterType VirtualPath="~/MasterPage.master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
-    <script src="scripts/ui.tabs.jquery.json"></script>
-     
+    <script src="scripts/ui/jquery.ui.tabs.js"></script>
+
+    
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="cph_header" Runat="Server">
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="cph_nav" Runat="Server">
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="cph_section" Runat="Server">
-
-    <%-- Ben: The following ticker area is for the news ticker--%>
-    <div id="tabs">
-            <%-- the ul following is for the scrolled news ticker, using the webticker plugin --%>
-            <ul id="tabs">
-
-            </ul>
-        <%-- get the ticker news item from the RSS feed (dynamically created), re-check the rss feed every 1 minute --%>
-        <script>
-            $(function () {
-                $("#tabs").tabs({
-                    beforeLoad: function (event, ui) {
-                        ui.jqXHR.error(function () {
-                            ui.panel.html(
-                            "Couldn't load this tab. We'll try to fix this as soon as possible. "
-                            );
-                        });
-                    }
-                });
+    <script>
+        $(function () {
+            $("#service-tabs").tabs({
+                beforeLoad: function (event, ui) {
+                    ui.jqXHR.error(function () {
+                        ui.panel.html(
+                        "Couldn't load this tab. We'll try to fix this as soon as possible. "
+                        );
+                    });
+                }
             });
+        });
 </script>
-    </div>
-    <%-- Ben: end of the news ticker --%>
-    <div id="home_slideshow">
-        <asp:ScriptManager ID="scm_main" runat="server" />
-        <asp:UpdatePanel ID="upd_main" runat="server">
-            <ContentTemplate>
-                <asp:Label ID="lbl_timer" runat="server"  />
-                <asp:Timer ID="tmr_main" runat="server" Interval="3000" OnTick="subTick" />
-           
 
-                <asp:Image ID="img_slider" runat="server" Width="797px" Height="260px" />
-                <br />
+     
+        <div id="service-tabs">
+	<ul>
+		<li><a href="#tabs-1">Physiotherapy</a></li>
+		<li><a href="services/lab.aspx">Laboratory</a></li>
+		<li><a href="services/alternate_level_of_care.aspx">ALC</a></li>
+		<li><a href="services/diagnostic_imaging.aspx">Diagnostics</a></li>
+        <li><a href="services/respite_care.aspx">Respite Care</a></li>
+        <li><a href="services/ontario_telemedicane.aspx">OTN</a></li>
+	</ul>
 
-                <asp:Label ID="lbl_slider" runat="server" /><br />
-                <asp:Button ID="btn_slide" runat="server" Text="Stop" Font-Bold="true" CssClass="btnslider" OnClick="Btn_Click" />
-                </ContentTemplate>
-            </asp:UpdatePanel>
-        
-    </div>
-    
-    <div id ="home_welcome">
-        <asp:Literal ID="ltl_welcome" runat="server" Mode="PassThrough" Text="<h1>WELCOME</h1>" />
-        <h5>The community of Nipigon is located at the cross roads of Highway 11/17. We are minutes away from beautiful
-            Lake Superior, rugged Lake Nipigon, and famous Nipigon River. Nipigon District Memorial Hospital opened its
-            current site in 1992 serving the catchment area in Acute , Emergency and Long Term care services.</h5>
-    </div>
+            <div id="tabs-1">
+                <h2>Our Services</h2>
+		<p>The Nipigon District Memorial Hospital offers a variety of programs and services including  Acute and Complex Continuing Care, Emergency, Diagnostic Imaging, Laboratory,  Physiotherapy, Outpatient Clinics, etc.</p>
+                <h2>Physiotherapy</h2>
+                <p>The Physiotherapy Department is staffed with an Ontario Certified Physiotherapist.  The hospital provides inpatient physiotherapy services; patients are assessed and treated for various conditions such as fractures, strokes, amputations, orthopedic surgeries, sprains, musculoskeletal conditions.</p>
 
+<p>A referral is required to access the services of the Physiotherapy department.</p> 
+	</div>
+
+    </div>
 </asp:Content>
-
+<asp:Content ID="Content6" ContentPlaceHolderID="cph_footer" Runat="Server">
+</asp:Content>
 
