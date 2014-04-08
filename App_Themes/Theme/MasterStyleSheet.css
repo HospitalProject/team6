@@ -107,22 +107,21 @@ h6 {
 
 header {
     width: 1104px;
-    height: 105px;
+    height: 130px;
     margin: 0px 10px 0px 10px;
     border-bottom: 1px solid #F2ECE8;
 }
 
 #loginarea {
     margin: 5px 0 10px 0;
-    position: relative;
+    height: auto;
     padding-right: 5px;
     width: auto;
-    height: 60px;
     float: right;
 }
 
 #donationLink {
-    margin: 10px 0 10px 0;
+    margin: 26px 10px 10px 0;
     width: auto;
     height: auto;
     float: right;

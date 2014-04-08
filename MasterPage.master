@@ -36,30 +36,34 @@
                 <div id="logo">
                 <asp:Image ID="img_logo" runat="server" AlternateText="Nipigon Logo" ImageUrl="~/App_Themes/Theme/img/logo1.png" CssClass="img_logo"/>
                 </div>
-                       
-      
-                <div id="donationLink">
-                    <div id="loginarea">
+                    
+                <div id="loginarea">
+                     
                     <asp:LoginView ID="lgv_main" runat="server">
                         <LoggedInTemplate>
                             Welcome <%= getCurrentUserFullName() %>! 
                         </LoggedInTemplate>
-                    </asp:LoginView>
-                    <br />
-                        <asp:LoginStatus ID="lgs_main" runat="server" />
-                    </div>
+                    </asp:LoginView><br /><br />
+                    <asp:LoginStatus ID="lgs_main" runat="server" CssClass="loginBtn"/>
+                       
+                    </div>   
+      
+                <div id="donationLink">
+                    
                     <asp:HyperLink ID="hpl_donation" runat="server" Text="Donation" NavigateUrl="~/visitors/donate.aspx"
                          CssClass="donatinBtn" Target="_self" />
 
                 </div>
-                <nav>
+                
                 <div id="menu">
+                    <nav>
                         <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
                         <asp:Menu ID="menu_top" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticHoverStyle-ForeColor="#00ADEF" 
                          StaticMenuItemStyle-ForeColor="#9B9694" DynamicHoverStyle-ForeColor="#00ADEF" DynamicMenuItemStyle-ForeColor="#9B9694" 
                          StaticMenuItemStyle-VerticalPadding="15px" StaticMenuItemStyle-HorizontalPadding="15px" DynamicMenuItemStyle-VerticalPadding="1px" />
+                         </nav>
                     </div>
-                </nav>
+               
                 
             </asp:ContentPlaceHolder>
             
