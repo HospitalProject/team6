@@ -54,9 +54,37 @@ body {
 }
 
 #container {
-    margin: auto;
-    width: 1124px;
+    margin: 0 auto;
+    width: auto;
     height: auto;
+}
+
+@media (min-width: 337px) {
+     #container {
+        width: 30%;
+        height: auto;
+    }
+}
+
+@media (min-width: 674px) {
+     #container {
+        width: 60%;
+        height: auto;
+    }
+}
+
+@media (min-width: 900px) {
+     #container {
+        width: 80%;
+        height: auto;
+    }
+}
+
+@media (min-width: 1124px) {
+     #container {
+        width: 1124px;
+        height: auto;
+    }
 }
 
 h1 {
@@ -106,10 +134,37 @@ h6 {
 }
 
 header {
-    width: 1104px;
-    height: 120px;
-    margin: 0px 10px 0px 10px;
-    border-bottom: 1px solid #F2ECE8;
+    display: block;
+}
+
+@media (min-width: 338px) {
+     header {
+        width: 331px;
+        height: auto;
+    }
+}
+
+@media (min-width: 675px) {
+     header {
+        width: 662px;
+        height: auto;
+    }
+}
+
+@media (min-width: 900px) {
+    header {
+        width: 883px;
+        height: auto;
+    }
+}
+
+@media (min-width: 1124px) {
+    header {
+        width: 1104px;
+        height: 120px;
+        margin: 0px 10px 0px 10px;
+        border-bottom: 1px solid #F2ECE8;
+    }
 }
 
 #loginarea {
@@ -149,11 +204,25 @@ nav {
 }
 
 aside {
-    width: 270px;
-    height: auto;
-    margin: 7px 5px 5px 10px;
+    display: block;
     float: left;
 }
+
+@media (min-width: 280px) {
+     aside {
+        width: 260px;
+        height: auto;
+    }
+}
+
+@media (min-width: 320px) {
+     aside {
+        width: 270px;
+        height: auto;
+        margin: 7px 5px 5px 10px;
+    }
+}
+
 
 #googleSearch {
     float: left;
@@ -172,41 +241,188 @@ section {
 }
 
 footer {
-    margin: 20px 0 0 0;
-    width: 1124px;
-    height: 165px;
     float: left;
     clear: both;
 }
 
+@media (min-width: 280px) {
+     footer {
+        width: 225px;
+        height: auto;
+    }
+}
+
+@media (min-width: 360px) {
+     footer {
+        width: 337px;
+        height: auto;
+    }
+}
+
+@media (min-width: 480px) {
+     footer {
+        width: 450px;
+        height: auto;
+    }
+}
+
+@media (min-width: 720px) {
+     footer {
+        width: 674px;
+        height: auto;
+    }
+}
+
+@media (min-width: 960px) {
+     footer {
+        width: 900px;
+        height: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+     footer {
+        width: 1124px;
+        height: 320px;
+        margin: 20px 0 0 0;
+    }
+}
+
+
 
 #requiredNav {
-    margin: 5px 0px 0px 0px;
-    width: 1124px;
-    height: 140px;
     background-color: #82C2A9;
     float: left;
     clear: both;
 }
 
+/*@media (min-width: 360px) {
+    #requiredNav {
+        width: 337px;
+        height: auto;
+    }
+}
+
+@media (min-width: 480px) {
+     #requiredNav {
+        width: 450px;
+        height: auto;
+    }
+}
+
+@media (min-width: 720px) {
+     #requiredNav {
+        width: 674px;
+        height: auto;
+    }
+}
+
+@media (min-width: 960px) {
+     #requiredNav {
+        width: 900px;
+        height: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+     #requiredNav {
+        width: 1124px;
+        height: 140px;
+        margin: 5px 0px 0px 0px;
+    }
+}
+
 #requiredNav_left {
-    margin: 42px 26px 0px 110px;
-    width: 430px;
-    height: 79px;
     color: white;
     float: left;
 }
 
+@media (min-width: 280px) {
+     #requiredNav_left {
+        margin: auto;
+        width: 258px;
+        height: auto;
+    }
+}
+
+@media (min-width: 360px) {
+     #requiredNav_left {
+        margin: auto;
+        width: 258px;
+        height: auto;
+    }
+}
+
+@media (min-width: 480px) {
+     #requiredNav_left {
+        margin: auto;
+        width: 258px;
+        height: auto;
+    }
+}
+
+@media (min-width: 720px) {
+     #requiredNav_left {
+        margin: auto;
+        width: 258px;
+        height: auto;
+    }
+}
+
+@media (min-width: 960px) {
+     #requiredNav_left {
+        margin: auto;
+        width: 344px;
+        height: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+     #requiredNav_left {
+        margin: 42px 26px 0px 110px;
+        width: 430px;
+        height: 79px;
+    }
+}
+
+
 #requiredNav_right {
-    margin: 42px 128px 0px 0px;
-    width: 430px;
-    height: 79px;
-    line-height: 20px;
     font-size: 12px;
     color: #61625B;
     float: left;
 }
 
+@media (min-width: 600px) {
+    #requiredNav_right {
+           display: none;
+    }
+}
+
+@media (min-width: 720px) {
+    #requiredNav_right {
+        margin: auto;
+        width: 258px;
+        height: auto;
+    }
+}
+
+@media (min-width: 960px) {
+    #requiredNav_right {
+        margin: auto;
+        width: 344px;
+        height: auto;
+    }
+}
+ 
+@media (min-width: 1200px) {
+     #requiredNav_right {
+        margin: 42px 128px 0px 0px;
+        width: 430px;
+        height: 79px;
+        line-height: 20px;
+    }
+}
+*/
 #studentTag {
     margin: 10px 160px;
     color: #ff0000;

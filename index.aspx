@@ -30,7 +30,7 @@
                 <asp:Timer ID="tmr_main" runat="server" Interval="3000" OnTick="subTick" />
            
 
-                <asp:Image ID="img_slider" runat="server" Width="797px" Height="260px" />
+                <asp:Image ID="img_slider" runat="server" CssClass="img_slider" />
                 <br />
 
                 <asp:Label ID="lbl_slider" runat="server" /><br />

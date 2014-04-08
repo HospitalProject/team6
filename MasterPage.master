@@ -158,6 +158,16 @@
                         </table>
                     </div>
 
+                    <div id="mobile_footer">
+                        <table>
+                            <tr class="bottomNav">
+                                <td><a href="contactUs/feedback.aspx">CONTACT US</a></td>
+                                <td><a href="aboutUs/board_of_directors.aspx">BORD OF DIRECTORS</a></td>
+                                <td><a href="contactUs/rssfeed.aspx">RSS</a></td>
+                            </tr>
+                        </table>
+                    </div>
+
                     <div id="studentTag">
                         <h6> THIS IS NOT A REAL WEBSITE. THIS WEB SITE IS A STUDENT PROJECT FOR THE WEB DEVELOPMENT PROGRAM OF HUMBER COLLEGE.</h6>
                     </div>
