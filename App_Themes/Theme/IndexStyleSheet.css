@@ -47,7 +47,7 @@
 @media (min-width: 1200px) {
      #home_slideshow {
         width: 800px;
-        height: 320px;
+        height: 265px;
     }
 }
 
@@ -100,7 +100,6 @@
 }
 
 .btnslider {
-    margin-right: 370px;
     padding: 5px;
     color: #658749;
     float: right;
@@ -153,4 +152,20 @@ margin: 0;
 padding-right: 9px;
 padding-left: 10px;
 border-right: 2px solid #96C2AA;
+}
+
+#cph_section_upd_main {
+    position: relative;
+}
+
+.fuck {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    background: #000;
+    opacity: 0.8;
+    height: 220px;
+    padding: 20px;
+    color: #fff !important;
 }

@@ -47,7 +47,8 @@ public partial class _index : System.Web.UI.Page
 
             DataRow imageDataRow = ds.Tables["image"].Select().FirstOrDefault(x => x["simageOrder"].ToString() == "1");
             img_slider.ImageUrl = "~/images/" + imageDataRow["simageName"].ToString();
-            lbl_slider.Text = (imageDataRow["simageTitle"] + " - " + imageDataRow["simageText"]).ToString();
+            lbl_slider.Text = (imageDataRow["simageTitle"]).ToString();
+            lbl_slider2.Text = " - " + (imageDataRow["simageText"]).ToString();
             
 
     }
@@ -69,8 +70,10 @@ public partial class _index : System.Web.UI.Page
             if (imageDataRow != null)
             {
                 img_slider.ImageUrl = "~/images/" + imageDataRow["simageName"].ToString();
-                lbl_slider.ForeColor = System.Drawing.Color.White;
-                lbl_slider.Text = (imageDataRow["simageTitle"] + " - " + imageDataRow["simageText"]).ToString();
+                lbl_slider.ForeColor = System.Drawing.Color.AliceBlue;
+                lbl_slider.Text = (imageDataRow["simageTitle"]).ToString();
+                lbl_slider2.ForeColor = System.Drawing.Color.Brown;
+                lbl_slider2.Text = (imageDataRow["simageText"]).ToString();
                 
             }
             else

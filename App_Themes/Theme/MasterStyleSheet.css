@@ -59,6 +59,17 @@ body {
     height: auto;
 }
 
+.menuclass {
+  background: none repeat scroll 0 0 #CECECE;
+  display: none;
+  left: 0;
+  line-height: 1.2em;
+  padding: 10px;
+  position: absolute;
+  top: 40px;
+  z-index: 10000;
+}
+
 @media (min-width: 337px) {
      #container {
         width: 30%;
