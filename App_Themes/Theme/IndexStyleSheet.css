@@ -14,6 +14,15 @@
         width: 160px;
         height: auto;
     }
+    #ticker {
+        width: 160px;
+    }
+    .tickercontainer {
+        width: 160px;
+    }
+        .tickercontainer .mask {
+            width: 140px;
+        }
 }
 
 @media (min-width: 360px) {
@@ -21,6 +30,15 @@
         width: 240px;
         height: auto;
     }
+    #ticker {
+        width: 240px;
+    }
+    .tickercontainer {
+        width: 240px;
+    }
+        .tickercontainer .mask {
+            width: 220px;
+        }
 }
 
 @media (min-width: 480px) {
@@ -28,6 +46,15 @@
         width: 320px;
         height: auto;
     }
+    #ticker {
+        width: 320px;
+    }
+    .tickercontainer {
+        width: 320px;
+    }
+        .tickercontainer .mask {
+            width: 300px;
+        }
 }
 
 @media (min-width: 720px) {
@@ -35,6 +62,15 @@
         width: 480px;
         height: auto;
     }
+    #ticker {
+        width: 480px;
+    }
+    .tickercontainer {
+        width: 480px;
+    }
+        .tickercontainer .mask {
+            width: 460px;
+        }
 }
 
 @media (min-width: 960px) {
@@ -42,6 +78,15 @@
         width: 640px;
         height: auto;
     }
+    #ticker {
+        width: 640px;
+    }
+    .tickercontainer {
+        width: 640px;
+    }
+        .tickercontainer .mask {
+            width: 620px;
+        }
 }
 
 @media (min-width: 1200px) {
@@ -49,6 +94,15 @@
         width: 800px;
         height: 265px;
     }
+    #ticker {
+        width: 800px;
+    }
+    .tickercontainer {
+        width: 800px;
+    }
+        .tickercontainer .mask {
+            width: 780px;
+        }
 }
 
 .img_slider {
@@ -115,14 +169,12 @@
 
 /*the following css styles are used for news ticker*/
 #ticker {
-    width: 800px;
     height: 25px;
     float: left;
     clear:both;
 }
 
 .tickercontainer {
-width:800px; 
 float: left; 
 overflow: hidden; 
 }
@@ -130,7 +182,6 @@ overflow: hidden;
         float: left;
     }
     .tickercontainer .mask {
-        width: 780px;
         position: relative;
         padding: 5px;
         overflow: hidden; 
