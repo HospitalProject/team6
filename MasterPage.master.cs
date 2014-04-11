@@ -28,6 +28,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
         if (!Page.IsPostBack)
         {
             initAccordionNews();
+            //trv_collapsemenu.ExpandDepth = 1;
+            //trv_collapsemenu.ExpandAll();
+            trv_collapsemenu.CollapseAll();
         }
     }
 
@@ -48,8 +51,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
             strAnTitle = objNews.an_title.ToString();
             strAnContent = objNews.an_content.ToString();
             strNewsAccordionContent += "<h3>" + strAnTitle.Substring(0, strAnTitle.Length > MAXTITLEWORDS ? MAXTITLEWORDS : strAnTitle.Length) + (strAnTitle.Length > MAXTITLEWORDS ? "..." : "") + "</h3>";
-            strNewsAccordionContent += "<div>" + strAnContent.Substring(0, strAnContent.Length > MAXCONTENTWORDS ? MAXCONTENTWORDS : strAnContent.Length) + (strAnContent.Length > MAXCONTENTWORDS ? "..." : "") + "<br /><br />";
-            strNewsAccordionContent += "<a href='" + ResolveUrl("~/news_accordion_detail_view.aspx") + "?accordionid=" + i + "&an_id=" + objNews.an_id + "'>Read full story</a></div>";
+            strNewsAccordionContent += "<div>" + strAnContent.Substring(0, strAnContent.Length > MAXCONTENTWORDS ? MAXCONTENTWORDS : strAnContent.Length) + (strAnContent.Length > MAXCONTENTWORDS ? "..." : "") + "<br />";
+            strNewsAccordionContent += "<p><a href='" + ResolveUrl("~/news_accordion_detail_view.aspx") + "?accordionid=" + i + "&an_id=" + objNews.an_id + "'>Read full story</a></p></div>";
             i++;
         }
 
@@ -74,4 +77,38 @@ public partial class MasterPage : System.Web.UI.MasterPage
             return objCurrentUser.FirstName + " " + objCurrentUser.LastName;
         }
     }
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+=======
+    //protected void trv_collapsemenu_TreeNodePopulate(object sender, TreeNodeEventArgs e)
+    //{
+    //    e.Node.SelectAction = TreeNodeSelectAction.Expand;
+    //}
+
+    protected void trv_collapsemenu_DataBound(object sender, EventArgs e)
+    {
+        trv_collapsemenu.CollapseAll();
+    }
+    //get current user Id 
+    public string getCurrentUserId()
+    {
+        //get current user id
+        Guid _userId = (Guid)Membership.GetUser().ProviderUserKey;
+
+        linqUsers objUsers = new linqUsers();
+        int count = objUsers.getUserAdditionalInfoByUserId(_userId).Count();
+
+        if (count == 0)
+            return "";
+        else
+        {
+            string userId = Convert.ToString((Guid)Membership.GetUser().ProviderUserKey);
+            return userId;
+        }
+    }
+
+>>>>>>> 6eaea97cf01436551078049ecf891ece1db588d8
+>>>>>>> 083ddfdb79ce4755e0bfcb83f4e07eb42ed75807
 }

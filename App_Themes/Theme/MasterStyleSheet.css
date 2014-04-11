@@ -75,6 +75,7 @@ body {
         width: 30%;
         height: auto;
     }
+
 }
 
 @media (min-width: 674px) {
@@ -146,12 +147,19 @@ h6 {
 
 header {
     display: block;
+    clear: both;
 }
 
 @media (min-width: 338px) {
      header {
         width: 331px;
         height: auto;
+    }
+    .collapsMenuBtn {
+        display:block;
+    }
+    #menu nav {
+        display:none;
     }
 }
 
@@ -160,12 +168,27 @@ header {
         width: 662px;
         height: auto;
     }
+    .collapsMenuBtn {
+        display:block;
+    }
+    #menu nav {
+        display:none;
+    }
 }
 
 @media (min-width: 900px) {
     header {
         width: 883px;
         height: auto;
+    }
+    .collapsMenuBtn {
+        display:none;
+    }
+    #collapsemenu {
+        display: none !important;
+    }
+    #menu nav {
+        display:block;
     }
 }
 
@@ -176,23 +199,92 @@ header {
         margin: 0px 10px 0px 10px;
         border-bottom: 1px solid #F2ECE8;
     }
+    .collapsMenuBtn {
+        display:none;
+    }
+    #collapsemenu {
+        display: none !important; 
+    }
+    #menu nav {
+        display:block;
+    }
+
 }
 
-#loginarea {
+ /*#loginarea, #donationLink, #collapsMenu {
     margin: 5px 0 10px 0;
     height: auto;
-    padding-right: 5px;
     width: auto;
     float: right;
+}*/
+
+#loginstatus {
+    float: right;
+    clear: both;
+    height: 20px;
+}
+#header_buttons {
+    clear: both;
+    float: right;
+}
+#login_buttons {
+    float: right;
+}
+#logo_login {
+    padding: 5px;
+}
+/*#menu_buttons {
+    float: right;
+    margin-top: 10px;
+}*/
+.donatinBtn, .collapsMenuBtn, .loginBtn {
+    margin: 5px;
+    padding: 5px;
+    font-family: 'Carme', sans-serif;
+    font-size: 18px;
+    background-color: #82C2A9;
+    color: #FFFFFF;
+    text-decoration: none;
+    float: right;
+    cursor: pointer;
 }
 
+#collapsemenu {
+    width: 100%;
+    clear: both;
+    background-color: #82C2A9;
+    padding: 5px;
+    display: none;
+}
+
+.collapsedmenunode {
+    padding: 2px;
+}
+
+    .collapsedmenunode a {
+        color: black;
+    }
+    .collapsedmenunode a:visited {
+        color: black;
+    }
+
+/*
+.loginBtn {
+    margin: 5px;
+    padding: 5px;
+    font-family: 'Carme', sans-serif;
+    font-size: 14px;
+    background-color: #82C2A9;
+    color: #FFFFFF;
+    text-decoration: none;
+}
 #donationLink {
     margin: 26px 10px 10px 0;
     width: auto;
     height: auto;
     float: right;
-    /*clear: both;*/
-}
+    clear: both;
+}*/
  
 nav {
     width: auto;
@@ -202,9 +294,7 @@ nav {
 }
 
 #logo {
-    width: auto;
-    height: auto;
-    margin: 10px 0 10px 10px;
+    float: left;
 }
 
 #menu {
@@ -217,6 +307,7 @@ nav {
 aside {
     display: block;
     float: left;
+    clear: both;
 }
 
 @media (min-width: 280px) {
@@ -440,31 +531,12 @@ footer {
     clear: both;
 }
 
-.donatinBtn {
-    margin: 5px;
-    padding: 5px;
-    font-family: 'Carme', sans-serif;
-    font-size: 18px;
-    background-color: #82C2A9;
-    color: #FFFFFF;
-    text-decoration: none;
-    float: right;
-}
 
-.loginBtn {
-    margin: 5px;
-    padding: 5px;
-    font-family: 'Carme', sans-serif;
-    font-size: 14px;
-    background-color: #82C2A9;
-    color: #FFFFFF;
-    text-decoration: none;
-}
 
-.img_logo {
+/*.img_logo {
     float: left;
     margin-top: 20px;
-}
+}*/
 
 .img_quickLink {
     float: left;
@@ -485,8 +557,8 @@ footer {
 }
 
 .newsEvents {
-    width: 260px;
-    height: 370px;
+
+    height: 360px;
     margin: 5px;
     font-family: 'Alegreya Sans SC', sans-serif;
     font-size: 15px;
@@ -518,8 +590,8 @@ footer {
 /*Styles used by Ben for accordion news*/
 /*****************/
 #news_accordion {
-width: 260px;
-height: 350px;
+
+height: 320px;
 }
     #news_accordion a {
         color: blue;
@@ -553,15 +625,19 @@ color:white;
 	padding-left: 2.2em;
 }
 .ui-accordion .ui-accordion-header .ui-accordion-header-icon {
-	position: absolute;
+	/*position: absolute;*/
 	left: .5em;
 	top: 50%;
 	margin-top: -8px;
 }
 .ui-accordion .ui-accordion-content {
-	padding: .2em .2em;
+	padding: 1em 1em;
 	border-top: 0;
 	overflow: auto;
+}
+.ui-accordion-content p {
+    text-align: right;
+    margin-bottom:0
 }
 /*****************/
 /*Styles used by Ben for alignment and validation*/
