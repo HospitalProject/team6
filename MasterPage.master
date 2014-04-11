@@ -20,6 +20,12 @@
             });
         });
 	</script>
+    <script>
+        function toggleMenu() {
+            //$("#menu").find("nav").toggle();
+            $("#collapsemenu").slideToggle(500);
+        }
+    </script>
     <link href='http://fonts.googleapis.com/css?family=Vidaloka' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Carme' rel='stylesheet' type='text/css' />
     <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC' rel='stylesheet' type='text/css' />
@@ -29,42 +35,47 @@
 <body>
     <form id="form1" runat="server">
     <div id="container">
-
         <header>
 
             <asp:ContentPlaceHolder ID="cph_header" runat="server">
-                <div id="logo">
-                <asp:Image ID="img_logo" runat="server" AlternateText="Nipigon Logo" ImageUrl="~/App_Themes/Theme/img/logo1.png" CssClass="img_logo"/>
+                <div id="collapsemenu">
+                    <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
+                    <asp:TreeView ID="trv_collapsemenu" runat="server" DataSourceID="sds_menu" ExpandDepth="1" OnDataBound="trv_collapsemenu_DataBound" NodeStyle-CssClass="collapsedmenunode" />
+            
                 </div>
-                    
-                <div id="loginarea">
-                     
-                    <asp:LoginView ID="lgv_main" runat="server">
-                        <LoggedInTemplate>
-                            Welcome <%= getCurrentUserFullName() %>! 
-                        </LoggedInTemplate>
-                    </asp:LoginView><br /><br />
-                    <asp:LoginStatus ID="lgs_main" runat="server" CssClass="loginBtn"/>
-                       
-                    </div>   
-      
-                <div id="donationLink">
-                    
-                    <asp:HyperLink ID="hpl_donation" runat="server" Text="Donation" NavigateUrl="~/visitors/donate.aspx"
-                         CssClass="donatinBtn" Target="_self" />
+                <div id="logo_login">
+                    <div id="logo">
+                        <a href="index.aspx"><asp:Image ID="img_logo" runat="server" AlternateText="Nipigon Logo" ImageUrl="~/App_Themes/Theme/img/logo1.png" CssClass="img_logo"/></a>
+                    </div>
+                    <div id="login_buttons">
+                        <div id="loginstatus">
+                            <asp:LoginView ID="lgv_main" runat="server">
+                                <LoggedInTemplate>
+                                    Welcome <%= getCurrentUserFullName() %>! 
+                                </LoggedInTemplate>
+                            </asp:LoginView>
+                        </div>
+                        <div id="header_buttons">
 
+                                <asp:HyperLink ID="hpl_donation" runat="server" Text="Donation" NavigateUrl="#"
+                                     CssClass="donatinBtn" Target="_self" />
+
+                                <asp:LoginStatus ID="lgs_main" runat="server" CssClass="loginBtn"/>
+
+
+                                <a onclick="toggleMenu()" class="collapsMenuBtn">Menu</a>
+
+                        </div>  
+                    </div>
                 </div>
-                
                 <div id="menu">
                     <nav>
-                        <asp:SiteMapDataSource ID="sds_menu" runat="server" ShowStartingNode="false" />
+                              
                         <asp:Menu ID="menu_top" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticHoverStyle-ForeColor="#00ADEF" 
-                         StaticMenuItemStyle-ForeColor="#9B9694" DynamicHoverStyle-ForeColor="#00ADEF" DynamicMenuItemStyle-ForeColor="#9B9694" 
-                         StaticMenuItemStyle-VerticalPadding="15px" StaticMenuItemStyle-HorizontalPadding="15px" DynamicMenuItemStyle-VerticalPadding="1px" />
-                         </nav>
-                    </div>
-               
-                
+                            StaticMenuItemStyle-ForeColor="#9B9694" DynamicHoverStyle-ForeColor="#00ADEF" DynamicMenuItemStyle-ForeColor="#9B9694" 
+                            StaticMenuItemStyle-VerticalPadding="15px" StaticMenuItemStyle-HorizontalPadding="15px" DynamicMenuItemStyle-VerticalPadding="1px" />
+                    </nav>
+                </div>                
             </asp:ContentPlaceHolder>
             
             
