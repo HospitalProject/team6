@@ -25,7 +25,7 @@
     <div id="header_view">
         <table>
             <tr>
-                <th><asp:Button ID="btn_complains" runat="server" Text="Complains" OnClick="btnComplains_Click" CssClass="btn_link" /></th>
+                <th><asp:Button ID="btn_complains" runat="server" Text="Complaints" OnClick="btnComplains_Click" CssClass="btn_link" /></th>
                 <th><asp:Button ID="btn_comments" runat="server" Text="Comments" OnClick="btnComments_Click" CssClass="btn_link" /></th>
                 <th><asp:Button ID="btn_appreciations" runat="server" Text="Appreciations" OnClick="btnAppreciations_Click" CssClass="btn_link" /></th>
             </tr>
@@ -39,7 +39,7 @@
                              <%------------------------------- Complaints Section---------------------------------%>
                 <asp:View ID="View1" runat="server">
                     <asp:HiddenField ID="hdfView1_section" runat="server" Value="complaint"  />
-                    <asp:Label ID="lblView1_title" runat="server" Text="<h1>Your Complains<h1>" />
+                    <asp:Label ID="lblView1_title" runat="server" Text="<h1>Your Complaints<h1>" />
                     <asp:Label ID="lblview1_explain"  runat="server" Text="<h5>Please fill out all the required fields(<span style='color:red;'>*</span>)</h5>" />
                     
                     <h5>Full Name:

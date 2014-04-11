@@ -15,6 +15,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
         set { _title = value; }
     }
 
+    protected void searchData(object sender, CommandEventArgs e)
+    {
+        Session["search"] = txt_search.Text;
+        Server.Transfer("~/resultSearch.aspx");
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         this.Page.Header.DataBind();    // NOTE: this resolves any <%# ... %> tags in <head>
@@ -99,5 +105,4 @@ public partial class MasterPage : System.Web.UI.MasterPage
             return userId;
         }
     }
-
 }

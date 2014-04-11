@@ -81,7 +81,6 @@ public partial class admin_feedback : System.Web.UI.Page
                 lbl_titleSelect.Text = titleComm.Text.ToString();
                 txt_contentSelect.Text = contentComm.Value.ToString();
                 _subRebind();
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "reza", "reza();", true);
                 break;
 
         }
