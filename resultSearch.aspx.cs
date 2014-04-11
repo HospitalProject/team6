@@ -24,7 +24,8 @@ public partial class resultSearch : System.Web.UI.Page
 
         else
         {
-            label1.Text = "The fowllowing are the results of " + keyword;
+            int searchCount = objLinqSE.getContentBySearch(keyword).Count();
+            label1.Text = searchCount + " result(s) of " + keyword + " found";
             dtlSearch.DataSource = objLinqSE.getContentBySearch(keyword); 
             dtlSearch.DataBind();
         }
