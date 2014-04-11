@@ -3,7 +3,6 @@
 <%@ MasterType VirtualPath="~/MasterPage.master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
-    <script src="../scripts/jquery-1.10.2.js" type="text/javascript"></script>
     <script src="../scripts/SearchHighlight.js" type="text/javascript"></script>
 </asp:Content>
 

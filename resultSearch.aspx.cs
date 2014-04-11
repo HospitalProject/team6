@@ -11,17 +11,16 @@ public partial class resultSearch : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         string keyword = Session["search"].ToString();
-        
 
         if (string.IsNullOrEmpty(keyword))
         {
             label1.Text = "No keywords entered, please try again";
         }
 
-        //else if (SearchID == 0)
-        //{
-           //label1.Text = "No result found";
-        //}
+        else if ((objLinqSE.getContentBySearch(keyword).Count() == 0))
+        {
+            label1.Text = "No result found of" + keyword + ", please try again";
+        }
 
         else
         {
