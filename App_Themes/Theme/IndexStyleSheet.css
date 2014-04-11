@@ -160,6 +160,12 @@
 
 }
 
+@media (max-width: 750px) {
+    .btnslider {
+        display: none;
+    }
+}
+
 #home_welcome {
     height: auto;
     color: black;
@@ -260,7 +266,16 @@ border-right: 2px solid #96C2AA;
     }
 }
 
-@media (max-width: 720px) {
+@media (min-width: 600px) {
+    .sld {
+        width: 180px;
+        height: 100px;
+        padding: 10px;
+    }
+}
+
+
+@media (min-width: 720px) {
     .sld {
         width: 200px;
         height: 132px;
@@ -268,7 +283,7 @@ border-right: 2px solid #96C2AA;
     }
 }
 
-@media (max-width: 960px) {
+@media (min-width: 960px) {
     .sld {
         width: 200px;
         height: 176px;
@@ -276,11 +291,12 @@ border-right: 2px solid #96C2AA;
     }
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
     .sld {
         width: 200px;
         height: 220px;
-        padding: 20px; 
+        padding: 20px;
+        
     }
 }
 

@@ -341,10 +341,11 @@ section {
     float: right;
 }
 
-@media (min-width: 360px) {
+@media (max-width: 360px) {
     section {
         width: 240px;
-        margin: auto;
+        float: left;
+        margin-left: 8px;
     }
 }
 
@@ -353,6 +354,7 @@ section {
     section {
         width: 320px;
         margin: auto;
+        float:left;
     }
 }
 
@@ -431,118 +433,21 @@ footer {
     background-color: #82C2A9;
     float: left;
     clear: both;
+    width: 1124px;
+    height: 140px;
+    margin: 5px 0px 0px 0px;
 }
 
-@media (min-width: 360px) {
-    #requiredNav {
-        width: 337px;
-        height: auto;
-    }
-}
-
-@media (min-width: 480px) {
-     #requiredNav {
-        width: 450px;
-        height: auto;
-    }
-}
-
-@media (min-width: 720px) {
-     #requiredNav {
-        width: 674px;
-        height: auto;
-    }
-}
-
-@media (min-width: 960px) {
-     #requiredNav {
-        width: 900px;
-        height: auto;
-    }
-}
-
-@media (min-width: 1200px) {
-     #requiredNav {
-        width: 1124px;
-        height: 140px;
-        margin: 5px 0px 0px 0px;
-    }
-}
 
 #requiredNav_left {
     color: white;
     float: left;
+    margin: 42px 26px 0px 110px;
+    width: 430px;
+    height: 79px;
 }
 
-@media (min-width: 280px) {
-     #requiredNav_left {
-        margin: auto;
-        width: 258px;
-        height: auto;
-    }
-}
-
-@media (min-width: 360px) {
-     #requiredNav_left {
-        margin: auto;
-        width: 258px;
-        height: auto;
-    }
-}
-
-@media (min-width: 480px) {
-     #requiredNav_left {
-        margin: auto;
-        width: 258px;
-        height: auto;
-    }
-}
-
-@media (min-width: 720px) {
-     #requiredNav_left {
-        margin: auto;
-        width: 258px;
-        height: auto;
-    }
-}
-
-@media (min-width: 960px) {
-     #requiredNav_left {
-        margin: auto;
-        width: 344px;
-        height: auto;
-    }
-}
-
-@media (min-width: 1200px) {
-     #requiredNav_left {
-        margin: 42px 26px 0px 110px;
-        width: 430px;
-        height: 79px;
-    }
-}
-
-
-#requiredNav_right {
-    font-size: 12px;
-    color: #61625B;
-    float: left;
-}
-
-@media (min-width: 600px) {
-    #requiredNav_right {
-           display: none;
-    }
-}
-
-@media (min-width: 720px) {
-    #requiredNav_right {
-        margin: auto;
-        width: 258px;
-        height: auto;
-    }
-}
-
+@
 @media (min-width: 960px) {
     #requiredNav_right {
         margin: auto;
@@ -551,8 +456,7 @@ footer {
     }
 }
  
-@media (min-width: 1200px) {
-     #requiredNav_right {
+#requiredNav_right {
         margin: 42px 128px 0px 0px;
         width: 430px;
         height: 79px;
