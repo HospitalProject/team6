@@ -248,10 +248,45 @@ border-right: 2px solid #96C2AA;
     position: absolute;
     top: 0;
     right: 0;
-    width: 200px;
     background: #000;
     opacity: 0.8;
-    height: 220px;
-    padding: 20px;
     color: #fff !important;
 }
+
+@media (max-width: 480px) {
+    .sld {
+        visibility: hidden;
+        padding: 5px; 
+    }
+}
+
+@media (max-width: 720px) {
+    .sld {
+        width: 200px;
+        height: 132px;
+        padding: 10px; 
+    }
+}
+
+@media (max-width: 960px) {
+    .sld {
+        width: 200px;
+        height: 176px;
+        padding: 15px; 
+    }
+}
+
+@media (max-width: 1200px) {
+    .sld {
+        width: 200px;
+        height: 220px;
+        padding: 20px; 
+    }
+}
+
+
+
+
+
+
+
