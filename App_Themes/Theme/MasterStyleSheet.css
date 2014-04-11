@@ -338,7 +338,7 @@ aside {
 section {
     display: block;
     height: auto;
-    float: right;
+    float: left;
 }
 
 @media (max-width: 360px) {

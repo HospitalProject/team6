@@ -48,7 +48,7 @@ public partial class _index : System.Web.UI.Page
             DataRow imageDataRow = ds.Tables["image"].Select().FirstOrDefault(x => x["simageOrder"].ToString() == "1");
             img_slider.ImageUrl = "~/images/" + imageDataRow["simageName"].ToString();
             lbl_slider.Text = (imageDataRow["simageTitle"]).ToString();
-            lbl_slider2.Text = " - " + (imageDataRow["simageText"]).ToString();
+            lbl_slider2.Text = (imageDataRow["simageText"]).ToString();
             
 
     }
