@@ -72,8 +72,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
     }
 
-<<<<<<< HEAD
-=======
+
     //protected void trv_collapsemenu_TreeNodePopulate(object sender, TreeNodeEventArgs e)
     //{
     //    e.Node.SelectAction = TreeNodeSelectAction.Expand;
@@ -101,5 +100,4 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
     }
 
->>>>>>> 6eaea97cf01436551078049ecf891ece1db588d8
 }
