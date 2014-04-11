@@ -72,7 +72,7 @@ body {
 
 @media (min-width: 337px) {
      #container {
-        width: 330px;
+        width: 30%;
         height: auto;
     }
 
@@ -80,14 +80,14 @@ body {
 
 @media (min-width: 674px) {
      #container {
-        width: 640px;
+        width: 60%;
         height: auto;
     }
 }
 
 @media (min-width: 900px) {
      #container {
-        width: 840px;
+        width: 80%;
         height: auto;
     }
 }
@@ -336,47 +336,10 @@ aside {
 }
 
 section {
-    display: block;
+    margin: 15px 10px 0px 10px;
+    width: 800px;
     height: auto;
-    float: left;
-}
-
-@media (max-width: 360px) {
-    section {
-        width: 240px;
-        float: left;
-        margin-left: 8px;
-    }
-}
-
-
-@media (min-width: 480px) {
-    section {
-        width: 320px;
-        margin: auto;
-        float:left;
-    }
-}
-
-@media (min-width: 720px) {
-    section {
-        width: 480px;
-        margin: auto;
-    }
-}
-
-@media (min-width: 960px) {
-    section {
-        width: 640px;
-        margin: 15px 10px 0px 10px;
-    }
-}
-
-@media (min-width: 1200px) {
-    section {
-        width: 800px;
-        margin: 15px 10px 0px 10px;
-    }
+    float: right;
 }
 
 footer {
@@ -433,21 +396,121 @@ footer {
     background-color: #82C2A9;
     float: left;
     clear: both;
-    width: 1124px;
-    height: 140px;
-    margin: 5px 0px 0px 0px;
 }
 
+@media (min-width: 360px) {
+    #requiredNav {
+        width: 337px;
+        height: auto;
+    }
+}
+
+@media (min-width: 480px) {
+     #requiredNav {
+        width: 450px;
+        height: auto;
+    }
+}
+
+@media (min-width: 720px) {
+     #requiredNav {
+        width: 674px;
+        height: auto;
+    }
+}
+
+@media (min-width: 960px) {
+     #requiredNav {
+        width: 900px;
+        height: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+     #requiredNav {
+        width: 1124px;
+        height: 140px;
+        margin: 5px 0px 0px 0px;
+    }
+}
 
 #requiredNav_left {
     color: white;
     float: left;
-    margin: 42px 26px 0px 110px;
-    width: 430px;
-    height: 79px;
 }
 
-@
+@media (min-width: 280px) {
+     #requiredNav_left {
+        margin: auto;
+        width: 258px;
+        height: auto;
+    }
+}
+
+@media (min-width: 360px) {
+     #requiredNav_left {
+        margin: auto;
+        width: 258px;
+        height: auto;
+    }
+}
+
+@media (min-width: 480px) {
+     #requiredNav_left {
+        margin: auto;
+        width: 258px;
+        height: auto;
+    }
+}
+
+@media (min-width: 720px) {
+     #requiredNav_left {
+        margin: auto;
+        width: 258px;
+        height: auto;
+    }
+}
+
+@media (min-width: 960px) {
+     #requiredNav_left {
+        margin: auto;
+        width: 344px;
+        height: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+     #requiredNav_left {
+        margin: 42px 26px 0px 110px;
+        width: 430px;
+        height: 79px;
+    }
+}
+
+
+#requiredNav_right {
+    font-size: 12px;
+    color: #61625B;
+    float: left;
+}
+
+@media (min-width: 600px) {
+    #requiredNav_right {
+        margin: 42px 128px 0px 0px;
+        width: 430px;
+        height: 79px;
+        line-height: 20px;
+    }
+}
+
+@media (min-width: 720px) {
+    #requiredNav_right {
+        margin: auto;
+        width: 258px;
+        height: auto;
+    }
+}
+
 @media (min-width: 960px) {
     #requiredNav_right {
         margin: auto;
@@ -456,7 +519,8 @@ footer {
     }
 }
  
-#requiredNav_right {
+@media (min-width: 1200px) {
+     #requiredNav_right {
         margin: 42px 128px 0px 0px;
         width: 430px;
         height: 79px;
