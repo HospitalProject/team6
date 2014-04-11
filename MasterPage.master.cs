@@ -77,11 +77,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             return objCurrentUser.FirstName + " " + objCurrentUser.LastName;
         }
     }
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-=======
     //protected void trv_collapsemenu_TreeNodePopulate(object sender, TreeNodeEventArgs e)
     //{
     //    e.Node.SelectAction = TreeNodeSelectAction.Expand;
@@ -108,7 +104,4 @@ public partial class MasterPage : System.Web.UI.MasterPage
             return userId;
         }
     }
-
->>>>>>> 6eaea97cf01436551078049ecf891ece1db588d8
->>>>>>> 083ddfdb79ce4755e0bfcb83f4e07eb42ed75807
 }
