@@ -32,7 +32,7 @@
 
                 <asp:Image ID="img_slider" runat="server" CssClass="img_slider" />
                 <br />
-                <div class="fuck">
+                <div class="sld">
                 <asp:Label ID="lbl_slider" runat="server" Font-Bold="true" Font-Size="X-Large" /><br /><br />
                 <asp:Label ID="lbl_slider2" runat="server" Font-Size="Large" /><br /><br /><br />
 
