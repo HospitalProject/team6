@@ -106,7 +106,7 @@
                         </tr>
                         <tr>
                             <td class="style11" style="text-align: right">
-                                内容：</td>
+                                Content：</td>
                             <td class="" colspan="4">
                                 <asp:TextBox ID="TextBox2" runat="server" TextMode="MultiLine" Width="480px" 
                                     BorderStyle="None" Height="141px"></asp:TextBox>
@@ -116,7 +116,7 @@
                             <td class="style11">
                                 &nbsp;</td>
                             <td align="right" class="style16" colspan="2">
-                                验证码：<asp:TextBox ID="TextBox3" runat="server" Width="101px"></asp:TextBox>
+                                Captcha：<asp:TextBox ID="TextBox3" runat="server" Width="101px"></asp:TextBox>
                                 <span>
                                 <asp:Image ID="Image2" runat="server" Height="22px" ImageUrl="~/ValidNums.aspx" 
                                     Width="58px" />

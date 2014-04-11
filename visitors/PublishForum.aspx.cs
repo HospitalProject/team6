@@ -36,50 +36,15 @@ public partial class PublishForum : System.Web.UI.Page
             string num = this.TextBox3.Text.Trim();
             if (Session["ValidNums"].ToString() == num.ToUpper())
             {
-                // 连接数据库
-                SqlConnection sqlcon = new SqlConnection(ConfigurationManager.ConnectionStrings["DB_69755_aspclassConnectionString"].ConnectionString);
-                sqlcon.Open();
-                // 向主表中插入数据信息
-                string StrInsert = "insert into tb_forums(title,dates,authorid,hf_nums) values(@title,@dates,@authorid,0)";
-                SqlCommand cmd = new SqlCommand(StrInsert, sqlcon);
-                // 添加参数并且设置参数值
-                cmd.Parameters.Add("@title", SqlDbType.VarChar);
-                cmd.Parameters["@title"].Value = this.TextBox1.Text.ToString();
-                cmd.Parameters.Add("@dates", SqlDbType.VarChar, 50);
-                cmd.Parameters["@dates"].Value = DateTime.Now.ToString();
-                cmd.Parameters.Add("@authorid", SqlDbType.VarChar);
-                //cmd.Parameters["@authorid"].Value = Session["userid"].ToString();
-                cmd.Parameters["@authorid"].Value = ((MasterPage)this.Master).getCurrentUserId().ToString();
-                // 执行插入数据的操作
-                cmd.ExecuteNonQuery();
-                //获取主表中的编号
-                string strselect1 = "select * from tb_forums where title='" + TextBox1.Text.Trim() + "'";
-                SqlCommand sqlcmd1 = new SqlCommand(strselect1, sqlcon);
-                SqlDataReader dr1 = sqlcmd1.ExecuteReader();
-                if (dr1.Read())
-                {
-                    Session["forumid"] = dr1["id"].ToString();
-                }
-                dr1.Close();
-                //向子表中插入数据
-                string StrInserts = "insert into tb_Sub_forums(forumid,styleid,title,contents,dates,authorid,first_forum) values(@forumid,@styleid,@title,@contents,@dates,@authorid,1)";
-                SqlCommand cmds = new SqlCommand(StrInserts, sqlcon);
-                // 添加参数并且设置参数值
-                cmds.Parameters.Add("@forumid", SqlDbType.VarChar);
-                cmds.Parameters["@forumid"].Value = Session["forumid"].ToString();
-                cmds.Parameters.Add("@styleid", SqlDbType.VarChar);
-                cmds.Parameters["@styleid"].Value = GetStyleId(DropDownList1.Text).ToString();
-                cmds.Parameters.Add("@title", SqlDbType.VarChar);
-                cmds.Parameters["@title"].Value = this.TextBox1.Text.ToString();
-                cmds.Parameters.Add("@contents", SqlDbType.VarChar);
-                cmds.Parameters["@contents"].Value = this.TextBox2.Text.ToString();
-                cmds.Parameters.Add("@dates", SqlDbType.VarChar, 50);
-                cmds.Parameters["@dates"].Value = DateTime.Now.ToString();
-                cmds.Parameters.Add("@authorid", SqlDbType.VarChar);
-                cmds.Parameters["@authorid"].Value = ((MasterPage)this.Master).getCurrentUserId().ToString();
-                // 执行插入数据的操作
-                cmds.ExecuteNonQuery();
-                sqlcon.Close();
+                lingTbForms ltf = new lingTbForms();
+                ltf.commitInsert(this.TextBox1.Text.ToString(), DateTime.Now,
+                    (Guid)Membership.GetUser().ProviderUserKey, 0);
+                Session["forumid"] = ltf.getTbForumsByTitle(TextBox1.Text.Trim()).First().id;
+
+                tbSubForumsLinq tsfl = new tbSubForumsLinq();
+                tsfl.commitInsert(Convert.ToInt32(Session["forumid"].ToString()), Convert.ToInt32(GetStyleId(DropDownList1.Text).ToString()), this.TextBox1.Text.ToString(),
+                    this.TextBox2.Text.ToString(), DateTime.Now, (Guid)Membership.GetUser().ProviderUserKey, 1);
+
                 this.Page.RegisterStartupScript("ss", "<script>alert('Posted successfully!')</script>");
                 Response.Redirect("forumInfos.aspx");
             }
@@ -107,16 +72,8 @@ public partial class PublishForum : System.Web.UI.Page
         }
         else
         {
-            SqlConnection sqlcons = new SqlConnection(ConfigurationManager.ConnectionStrings["DB_69755_aspclassConnectionString"].ConnectionString);
-            sqlcons.Open();
-            SqlDataAdapter adsas = new SqlDataAdapter("select id,forum_style from tb_forum_style where forum_style='" + instr + "'", sqlcons);
-            DataSet addss = new DataSet();
-            adsas.Fill(addss);
-            if (addss.Tables[0].Rows.Count > 0)
-            {
-                Numsid = Convert.ToInt32(addss.Tables[0].Rows[0][0].ToString());
-            }
-            sqlcons.Close();
+            tbForumStyleLinq tfsl = new tbForumStyleLinq();
+            Numsid = Convert.ToInt32(tfsl.getTbForumStyleByStyle(instr).First().id);
         }
         return Numsid;
     }
@@ -126,24 +83,14 @@ public partial class PublishForum : System.Web.UI.Page
     /// <param name="droplist">DropDownList控件名称</param>
     public void BindDatasOptionStyle(DropDownList droplist)
     {
-        SqlConnection sqlcons = new SqlConnection(ConfigurationManager.ConnectionStrings["DB_69755_aspclassConnectionString"].ConnectionString);
-        sqlcons.Open();
-        SqlDataAdapter adsas = new SqlDataAdapter("select id,forum_style from tb_forum_style order by id", sqlcons);
-        DataSet addss = new DataSet();
-        adsas.Fill(addss);
-        droplist.Items.Clear();
-        if (addss.Tables[0].Rows.Count > 0)
-        {
-            droplist.Items.Add("");
-            for (int i = 0; i < addss.Tables[0].Rows.Count; i++)
-            {
-                droplist.Items.Add(addss.Tables[0].Rows[i][1].ToString());
-            }
-        }
-        sqlcons.Close();
+        //droplist.Items.Add("");
+        linqTbForumStyleDataContext ltfsdc = new linqTbForumStyleDataContext();
+        droplist.DataSource = from tb in ltfsdc.tb_forum_style select tb.forum_style;
+        droplist.DataBind();
     }
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }
+
 }

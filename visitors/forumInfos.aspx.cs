@@ -29,22 +29,13 @@ public partial class forumInfos : System.Web.UI.Page
     /// </summary>
     private void LoadDatas()
     {
-        string _connString = WebConfigurationManager.ConnectionStrings["DB_69755_aspclassConnectionString"].ConnectionString;
-        SqlConnection sqlcon = new SqlConnection(_connString);
-        sqlcon.Open();
-        string strsqls = "select distinct id,title,forum_style,FirstName,dates,hf_nums from View_forum order by id";
-        SqlDataAdapter adsa = new SqlDataAdapter(strsqls, sqlcon);
-        DataSet adds = new DataSet();
-        adsa.Fill(adds);
-        if (adds.Tables[0].Rows.Count > 0)
-        {
-            GridView1.DataSource = adds;
-            GridView1.DataKeyNames = new string[] { "id" };
-            GridView1.DataBind();
-        }
+        forumInfosLinq f = new forumInfosLinq();
+        GridView1.DataSource = f.getForumInfos();
+        GridView1.DataBind();
+        GridView1.DataKeyNames = new string[] { "id" };
         // Label1.Text = "用户名称： " + Session["username"].ToString();
-        sqlcon.Close();
     }
+
     protected void GridView1_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
     {
         LoadDatas();

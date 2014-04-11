@@ -69,22 +69,4 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
     }
 
-    //get current user Id 
-    public string getCurrentUserId()
-    {
-        //get current user id
-        Guid _userId = (Guid)Membership.GetUser().ProviderUserKey;
-
-        linqUsers objUsers = new linqUsers();
-        int count = objUsers.getUserAdditionalInfoByUserId(_userId).Count();
-
-        if (count == 0)
-            return "";
-        else
-        {
-            string userId = Convert.ToString((Guid)Membership.GetUser().ProviderUserKey);
-            return userId;
-        }
-    }
-
 }
