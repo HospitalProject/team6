@@ -17,7 +17,7 @@
    <div id="feedback_tables">
        <div class="fieldset_feedback">
          <fieldset>
-            <legend>Complains</legend>
+            <legend>Complaints</legend>
             <table>
              <%-- Display & delete the user feedback in the DataList --%>
              <asp:GridView ID="grvComp" runat="server" AllowPaging="true" PageSize="3" AutoGenerateColumns="false" DataKeyNames="section"

@@ -95,26 +95,18 @@
                         <asp:Image ID="img_quickSearch" runat="server" AlternateText="Quick Search" ImageUrl="~/App_Themes/Theme/img/quickLink.png" 
                             CssClass="img_quickLink" />
                         <asp:Label ID="lbl_quickSearch" runat="server" Text="QUICK SEARCH"  CssClass="lbl_quickLink" />
-                        <br />
-                        <asp:Label ID="lbl_search1" runat="server" Text="I HAVE" SkinID="lbl_search" />
-                        <asp:TextBox ID="txt_search1" runat="server" SkinID="searcheng1"  />
-                        <br />
-                        <asp:Label ID="lbl_search2" runat="server" Text="I NEED" SkinID="lbl_search" />
-                        <asp:TextBox ID="txt_search2" runat="server" SkinID="searcheng1"  />
-                        <br />
-                        <asp:Label ID="lbl_search3" runat="server" Text="I 'M HAVING" SkinID="lbl_search" />
-                        <asp:TextBox ID="txt_search3" runat="server" SkinID="searcheng2"   />
                     </div>
-
                     <div class="q_link2">
                         <div id="googleSearch">
-                            <asp:TextBox ID="txt_search4" runat="server" SkinID="searcheng1"  />
+                            <asp:TextBox ID="txt_search" runat="server" SkinID="searcheng"  />
                         </div>
                         <div id="btn_googleSearch">
                             <asp:ImageButton ID="img_search" runat="server" AlternateText="Search Button" 
-                            ImageUrl="~/App_Themes/Theme/img/search.png" />
+                                ImageUrl="~/App_Themes/Theme/img/search.png" OnCommand="searchData" />
                         </div>
                     </div>
+
+                    
              
             </asp:ContentPlaceHolder>
 
@@ -141,19 +133,19 @@
                     <div id="requiredNav_right">
                         <table>
                             <tr class="bottomNav" >
-                                <td><a href="index.aspx">HOME</a></td>
-                                <td><a href="visitors/donate.aspx">DONATE</a></td>
-                                <td><a href="privacy.aspx">PRIVACY</a></td>
+                                <td><a href="../index.aspx">HOME</a></td>
+                                <td><a href="../visitors/donate.aspx">DONATE</a></td>
+                                <td><a href="../privacy.aspx">PRIVACY</a></td>
                             </tr>
                             <tr class="bottomNav">
-                                <td><a href="aboutUs/history.aspx">HISTORY</a></td>
-                                <td><a href="careers/job_listing.aspx">CAREERS</a></td>
-                                <td><a href="terms.aspx">TERMS OF USE</a></td>
+                                <td><a href="../aboutUs/history.aspx">HISTORY</a></td>
+                                <td><a href="../careers/job_listing.aspx">CAREERS</a></td>
+                                <td><a href="../terms.aspx">TERMS OF USE</a></td>
                             </tr>
                             <tr class="bottomNav">
-                                <td><a href="contactUs/feedback.aspx">CONTACT US</a></td>
-                                <td><a href="aboutUs/board_of_directors.aspx">BORD OF DIRECTORS</a></td>
-                                <td><a href="contactUs/rssfeed.aspx">RSS</a></td>
+                                <td><a href="../contactUs/feedback.aspx">CONTACT US</a></td>
+                                <td><a href="../aboutUs/board_of_directors.aspx">BORD OF DIRECTORS</a></td>
+                                <td><a href="../contactUs/rssfeed.aspx">RSS</a></td>
                             </tr>
                         </table>
                     </div>
@@ -161,9 +153,9 @@
                     <div id="mobile_footer">
                         <table>
                             <tr class="bottomNav">
-                                <td><a href="contactUs/feedback.aspx">CONTACT US</a></td>
-                                <td><a href="aboutUs/board_of_directors.aspx">BORD OF DIRECTORS</a></td>
-                                <td><a href="contactUs/rssfeed.aspx">RSS</a></td>
+                                <td><a href="../contactUs/feedback.aspx">CONTACT US</a></td>
+                                <td><a href="../aboutUs/board_of_directors.aspx">BORD OF DIRECTORS</a></td>
+                                <td><a href="../contactUs/rssfeed.aspx">RSS</a></td>
                             </tr>
                         </table>
                     </div>
