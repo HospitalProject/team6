@@ -161,11 +161,39 @@
 }
 
 #home_welcome {
-    width: 800px;
     height: auto;
-    margin: 32px 0px 0px 0px;
     color: black;
 }
+
+@media (min-width: 360px) {
+    #home_welcome {
+        width: 240px;
+        height: auto;
+    }
+}
+
+@media (min-width: 720px) {
+    #home_welcome {
+        width: 480px;
+        height: auto;
+    }
+}
+
+@media (min-width: 960px) {
+    #home_welcome {
+        width: 640px;
+        height: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    #home_welcome {
+        width: 800px;
+        margin: 32px 0px 0px 0px;
+        height: auto;
+    }
+}
+
 
 /*the following css styles are used for news ticker*/
 #ticker {
