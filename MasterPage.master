@@ -71,9 +71,7 @@
                 <div id="menu">
                     <nav>
                               
-                        <asp:Menu ID="menu_top" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" StaticHoverStyle-ForeColor="#00ADEF" 
-                            StaticMenuItemStyle-ForeColor="#9B9694" DynamicHoverStyle-ForeColor="#00ADEF" DynamicMenuItemStyle-ForeColor="#9B9694" 
-                            StaticMenuItemStyle-VerticalPadding="15px" StaticMenuItemStyle-HorizontalPadding="15px" DynamicMenuItemStyle-VerticalPadding="1px" />
+                        <asp:Menu ID="menu_top" runat="server" DataSourceID="sds_menu" Orientation="Horizontal" CssClass="dropdownmenuitem" StaticEnableDefaultPopOutImage="false" />
                     </nav>
                 </div>                
             </asp:ContentPlaceHolder>

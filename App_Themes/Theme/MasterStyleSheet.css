@@ -80,12 +80,6 @@ body {
         width: 330px;
         height: auto;
     }
-    .collapsMenuBtn {
-        display:block;
-    }
-    #menu nav {
-        display:none;
-    }
 }
 
 @media (min-width: 674px) {
@@ -157,6 +151,15 @@ h6 {
 header {
     display: block;
     clear: both;
+}
+
+@media (max-width: 338px) {
+    .collapsMenuBtn {
+        display:block;
+    }
+    #menu nav {
+        display:none;
+    }
 }
 
 @media (min-width: 338px) {
@@ -241,6 +244,7 @@ header {
 }
 #logo_login {
     padding: 5px;
+    clear: both;
 }
 /*#menu_buttons {
     float: right;
@@ -311,6 +315,7 @@ nav {
     font-family: 'Vidaloka', serif;
     margin: 4px 0px 0px 17px;
     float:right;  
+    clear: both;
 }
 
 aside {
@@ -687,5 +692,39 @@ text-align: right;
     }
 }
 
+.dropdownmenuitem
+{
+    background-color:#96C2AA;
+    color: white;
+}
 
+.dropdownmenuitem ul
+{
+    background-color:#96C2AA;
+    color: white;
+}
+
+.dropdownmenuitem a.static.highlighted
+{
+    color:#00868B !important;
+    background-color:  #96C2AA !important;
+}
+
+    .dropdownmenuitem li {
+        padding: 2px 5px;
+    }
+    .dropdownmenuitem a {
+        padding: 5px;
+        color: white;
+    }
+    .dropdownmenuitem a:hover {
+        background-color: white;
+        color: #96C2AA;
+    }
+
+.dropdownmenuitem a.static.selected
+{
+    color:#00acef !important;
+    background-color: #BFEFFF !important;
+}
 
