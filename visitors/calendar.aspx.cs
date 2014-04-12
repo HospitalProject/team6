@@ -25,29 +25,34 @@ public partial class visitors_calendar : System.Web.UI.Page
             int event_id = Convert.ToInt32(each_event.event_id);
             string event_title = each_event.event_title.ToString();
             string event_content = each_event.event_content.ToString();
-            DateTime start_date = Convert.ToDateTime(each_event.start_date);
-            DateTime end_date = Convert.ToDateTime(each_event.end_date);
+            DateTime date = Convert.ToDateTime(each_event.date);
+            string start_date = each_event.start_time.ToString();
+            string end_date = each_event.end_time.ToString();
 
-            if (e.Day.Date == start_date)
+            if ((e.Day.Date.ToString("yyyy-MM-dd") == date.ToString("yyyy-MM-dd")))
             {
-                e.Cell.BackColor = System.Drawing.Color.Red;
-                e.Cell.ToolTip = "Event: " + event_title;
+                if (e.Day.Date.ToString("yyyy-MM-dd").CompareTo(DateTime.Now.ToString("yyyy-MM-dd")) <= 0)
+                {
+                    e.Cell.BackColor = System.Drawing.Color.Yellow;
+                    e.Cell.ToolTip = "Past Event:" + event_title;
+                }
+                else
+                {
+                    e.Cell.BackColor = System.Drawing.Color.Red;
+                    e.Cell.ToolTip = "Upcoming Event:" + event_title;
+                }
             }
         }
+
         //DateTime aa = Calendar1.SelectedDate;
         //lbl_output.Text = aa.ToString();
     }
 
     protected void Calender1_SelectionChanged(object sender, EventArgs e)
     {
-        lbl_output.Text = Calendar1.SelectedDate.Date.ToString();
+        //lbl_output.Text = Calendar1.SelectedDate.Date.ToString("yyyy-mm-dd");
         calendarClassLinq objLinq = new calendarClassLinq();
-        var events = objLinq.getEventsList();
-
-        if (events.Count() != 0)
-        {
-            grv_main.DataSource = objLinq.getEventsListByDate(Convert.ToDateTime(Calendar1.SelectedDate.Date.ToString()));
-            grv_main.DataBind();
-        }
-    }  
+        grv_main.DataSource = objLinq.getEventsListByDate(Calendar1.SelectedDate);
+        grv_main.DataBind();
+    }
 }

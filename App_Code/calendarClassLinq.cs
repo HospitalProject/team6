@@ -25,14 +25,16 @@ public class calendarClassLinq
         return list;
     }
 
-    public IQueryable<event_calendar> getEventsListByDate(DateTime _start_date)
+    public IQueryable<event_calendar> getEventsListByDate(DateTime _date)
     {
         CalendarDataContext obj = new CalendarDataContext();
-        var list = obj.event_calendar.Where(x => x.start_date == _start_date).Select(x => x);
+        //var list = obj.event_calendar.Where(x => DateTime.Parse(x.date.ToString()).ToString("yyyy-MM-dd") == _date.ToString("yyyy-MM-dd")).Select(x => x);
+        var list = obj.event_calendar.Where(x =>x.date == _date).Select(x => x);
         return list;
     }
 
-    public bool commitInsert(string _event_title, string _event_content, DateTime _start_date, DateTime _end_date)
+
+    public bool commitInsert(string _event_title, string _event_content, DateTime _date, TimeSpan _start_time, TimeSpan _end_time)
     {
         CalendarDataContext objList = new CalendarDataContext();
         using (objList)
@@ -40,15 +42,16 @@ public class calendarClassLinq
             event_calendar obj = new event_calendar();
             obj.event_title = _event_title;
             obj.event_content = _event_content;
-            obj.start_date = _start_date;
-            obj.end_date = _end_date;
+            obj.date = Convert.ToDateTime(_date);
+            obj.start_time = _start_time;
+            obj.end_time = _end_time;
             objList.event_calendar.InsertOnSubmit(obj);
             objList.SubmitChanges();
             return true;
         }
     }
 
-    public bool commitUpdate(int _id, string _event_title, string _event_content, DateTime _start_date, DateTime _end_date)
+    public bool commitUpdate(int _id, string _event_title, string _event_content, DateTime _date, TimeSpan _start_date, TimeSpan _end_date)
     {
         CalendarDataContext objList = new CalendarDataContext();
         using (objList)
@@ -56,8 +59,9 @@ public class calendarClassLinq
             var obj = objList.event_calendar.Single(x => x.event_id == _id);
             obj.event_title = _event_title;
             obj.event_content = _event_content;
-            obj.start_date = _start_date;
-            obj.end_date = _end_date;
+            obj.date = _date;
+            obj.start_time = _start_date;
+            obj.end_time = _end_date;
             objList.SubmitChanges();
             return true;
         }
@@ -73,5 +77,6 @@ public class calendarClassLinq
             return true;
         }
     }
+    
 
 }

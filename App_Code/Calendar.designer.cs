@@ -85,9 +85,11 @@ public partial class event_calendar : INotifyPropertyChanging, INotifyPropertyCh
 	
 	private string _event_content;
 	
-	private System.Nullable<System.DateTime> _start_date;
+	private System.Nullable<System.DateTime> _date;
 	
-	private System.Nullable<System.DateTime> _end_date;
+	private System.Nullable<System.TimeSpan> _start_time;
+	
+	private System.Nullable<System.TimeSpan> _end_time;
 	
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -99,10 +101,12 @@ public partial class event_calendar : INotifyPropertyChanging, INotifyPropertyCh
     partial void Onevent_titleChanged();
     partial void Onevent_contentChanging(string value);
     partial void Onevent_contentChanged();
-    partial void Onstart_dateChanging(System.Nullable<System.DateTime> value);
-    partial void Onstart_dateChanged();
-    partial void Onend_dateChanging(System.Nullable<System.DateTime> value);
-    partial void Onend_dateChanged();
+    partial void OndateChanging(System.Nullable<System.DateTime> value);
+    partial void OndateChanged();
+    partial void Onstart_timeChanging(System.Nullable<System.TimeSpan> value);
+    partial void Onstart_timeChanged();
+    partial void Onend_timeChanging(System.Nullable<System.TimeSpan> value);
+    partial void Onend_timeChanged();
     #endregion
 	
 	public event_calendar()
@@ -170,42 +174,62 @@ public partial class event_calendar : INotifyPropertyChanging, INotifyPropertyCh
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start_date", DbType="DateTime")]
-	public System.Nullable<System.DateTime> start_date
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_date", DbType="DateTime")]
+	public System.Nullable<System.DateTime> date
 	{
 		get
 		{
-			return this._start_date;
+			return this._date;
 		}
 		set
 		{
-			if ((this._start_date != value))
+			if ((this._date != value))
 			{
-				this.Onstart_dateChanging(value);
+				this.OndateChanging(value);
 				this.SendPropertyChanging();
-				this._start_date = value;
-				this.SendPropertyChanged("start_date");
-				this.Onstart_dateChanged();
+				this._date = value;
+				this.SendPropertyChanged("date");
+				this.OndateChanged();
 			}
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_end_date", DbType="DateTime")]
-	public System.Nullable<System.DateTime> end_date
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start_time", DbType="Time")]
+	public System.Nullable<System.TimeSpan> start_time
 	{
 		get
 		{
-			return this._end_date;
+			return this._start_time;
 		}
 		set
 		{
-			if ((this._end_date != value))
+			if ((this._start_time != value))
 			{
-				this.Onend_dateChanging(value);
+				this.Onstart_timeChanging(value);
 				this.SendPropertyChanging();
-				this._end_date = value;
-				this.SendPropertyChanged("end_date");
-				this.Onend_dateChanged();
+				this._start_time = value;
+				this.SendPropertyChanged("start_time");
+				this.Onstart_timeChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_end_time", DbType="Time")]
+	public System.Nullable<System.TimeSpan> end_time
+	{
+		get
+		{
+			return this._end_time;
+		}
+		set
+		{
+			if ((this._end_time != value))
+			{
+				this.Onend_timeChanging(value);
+				this.SendPropertyChanging();
+				this._end_time = value;
+				this.SendPropertyChanged("end_time");
+				this.Onend_timeChanged();
 			}
 		}
 	}
