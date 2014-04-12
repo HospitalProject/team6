@@ -80,7 +80,12 @@ body {
         width: 330px;
         height: auto;
     }
-
+    .collapsMenuBtn {
+        display:block;
+    }
+    #menu nav {
+        display:none;
+    }
 }
 
 @media (min-width: 674px) {
