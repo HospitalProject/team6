@@ -72,7 +72,7 @@ public partial class _index : System.Web.UI.Page
                 img_slider.ImageUrl = "~/images/" + imageDataRow["simageName"].ToString();
                 lbl_slider.ForeColor = System.Drawing.Color.AliceBlue;
                 lbl_slider.Text = (imageDataRow["simageTitle"]).ToString();
-                lbl_slider2.ForeColor = System.Drawing.Color.Brown;
+                lbl_slider2.ForeColor = System.Drawing.Color.LightBlue;
                 lbl_slider2.Text = (imageDataRow["simageText"]).ToString();
                 
             }
