@@ -261,8 +261,8 @@ public partial class feedback : INotifyPropertyChanging, INotifyPropertyChanged
 			}
 		}
 	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_feedbackDate", DbType="Date NOT NULL")]
+
+    [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_feedbackDate", DbType = "Date NOT NULL", IsDbGenerated = true)]
 	public System.DateTime feedbackDate
 	{
 		get

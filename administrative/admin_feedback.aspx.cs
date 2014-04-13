@@ -40,6 +40,8 @@ public partial class admin_feedback : System.Web.UI.Page
                 int indexDel = Convert.ToInt32(e.CommandArgument.ToString());
                 int _idComp = int.Parse(((HiddenField)grvComp.Rows[indexDel].FindControl("hdf_idComp")).Value);
                 _txtmassge(objLinqFB.commitDelete(_idComp)); //display the proper message
+                 lbl_titleSelect.Text = "";// this is related to jQuery for pop-up page
+                 txt_contentSelect.Text = "";// this is related to jQuery for pop-up page
                 _subRebind();
                 break;
 
@@ -54,10 +56,12 @@ public partial class admin_feedback : System.Web.UI.Page
         }
     }
 
-    protected void grvComp_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    protected void grvComp_PageIndexChanging(object sender, GridViewPageEventArgs e) // create the paging of gridview for compalint
     {
 
         grvComp.PageIndex = e.NewPageIndex;
+        lbl_titleSelect.Text = "";// this is related to jQuery for pop-up page
+        txt_contentSelect.Text = "";// this is related to jQuery for pop-up page
         grvComp.DataSource = objLinqFB.getfeedbackByType("complaint");
         grvComp.DataBind();
     }
@@ -71,6 +75,8 @@ public partial class admin_feedback : System.Web.UI.Page
                 int indexDel = Convert.ToInt32(e.CommandArgument.ToString());
                 int _idComm = int.Parse(((HiddenField)grvComm.Rows[indexDel].FindControl("hdf_idComm")).Value);
                 _txtmassge(objLinqFB.commitDelete(_idComm)); //display the proper message
+                lbl_titleSelect.Text = "";
+                txt_contentSelect.Text = "";
                 _subRebind();
                 break;
 
@@ -90,6 +96,8 @@ public partial class admin_feedback : System.Web.UI.Page
     {
 
         grvComm.PageIndex = e.NewPageIndex;
+        lbl_titleSelect.Text = "";
+        txt_contentSelect.Text = "";
         grvComm.DataSource = objLinqFB.getfeedbackByType("comment");
         grvComm.DataBind();
     }
@@ -103,6 +111,8 @@ public partial class admin_feedback : System.Web.UI.Page
                 int indexDel = Convert.ToInt32(e.CommandArgument.ToString());
                 int _idApp = int.Parse(((HiddenField)grvApp.Rows[indexDel].FindControl("hdf_idApp")).Value);
                 _txtmassge(objLinqFB.commitDelete(_idApp)); //display the proper message
+                lbl_titleSelect.Text = "";
+                txt_contentSelect.Text = "";
                 _subRebind();
                 break;
 
@@ -122,11 +132,13 @@ public partial class admin_feedback : System.Web.UI.Page
     {
 
         grvApp.PageIndex = e.NewPageIndex;
+        lbl_titleSelect.Text = "";
+        txt_contentSelect.Text = "";
         grvApp.DataSource = objLinqFB.getfeedbackByType("appreciation");
         grvApp.DataBind();
     }
 
-    private void _txtmassge(bool flag)
+    private void _txtmassge(bool flag) // create the message of success or faild
     {
         if (flag)
             txtMsg.Text = " The feedback has been deleted successfully";

@@ -33,12 +33,13 @@ h2 {
 
     /* outer shadows */
     -webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
-    -moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+    -moz-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4);
 
     /* gradients */
-    background: -webkit-gradient(linear, left bottom, left top, 
-    color-stop(0%, white), color-stop(15%, white), color-stop(100%, #E2E2E2)); 
-    background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%); 
+    background: -webkit-linear-gradient(left bottom, color-stop(0%, white), color-stop(15%, white), color-stop(100%, #E2E2E2)); 
+    background: -moz-linear-gradient(left top, white 0%, white 55%, #E2E2E2 130%); 
+    background: linear-gradient(to left top, white 0% , white 15%, #E2E2E2 100%);
 }
 
 #sideLeft {
@@ -53,7 +54,9 @@ h2 {
 #sideRight {
     margin: 10px;
     padding: 5px;
-    width: 270px;
+    width: 265px;
+    font-size: 14px;
+    line-height: 1.5;
     float: right;
 }
 
@@ -111,15 +114,23 @@ h2 {
                               /*-------------------------------- Feedback Admin -------------------------------- */
 
 .tableFormat_th {
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-bottom: 1px solid #00AEEF;
     color: #82C1A9;
     font-weight:bold;
+    font-size: 12px;
+}
+
+fieldset {
+    margin:10px;
+    float: left;
+    clear: both;
 }
 
 .tableFormat_td {
     padding: 10px 20px;
     border-bottom: 1px dashed #00AEEF;
+    font-size: 12px;
 }
 
 .selectView {
