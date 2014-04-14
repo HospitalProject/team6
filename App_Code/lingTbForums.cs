@@ -59,6 +59,7 @@ public class lingTbForms
             return true;
         }
     }
+
     public bool commitDelete(int _id)
     {
         tbforumsLinqDataContext objList = new tbforumsLinqDataContext();
@@ -70,4 +71,6 @@ public class lingTbForms
             return true;
         }
     }
+
+
 }

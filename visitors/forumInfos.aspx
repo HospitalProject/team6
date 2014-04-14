@@ -38,7 +38,7 @@
                 <td style="text-align: center">
                     <table border="1" cellpadding="0" cellspacing="0" class="style2">
                         <tr>
-                            <td style=" height:100px; font-family: 宋体, Arial, Helvetica, sans-serif; font-size: 15px;">
+                            <td style=" height:100px; font-family: Times New Roman, Arial, Helvetica, sans-serif; font-size: 15px;">
                                 Message Board Manager</td>
                         </tr>
                         <tr>
@@ -46,7 +46,7 @@
 
                                 <table cellpadding="0" cellspacing="0" class="style4">
                                     <tr>
-                                        <td class="style7" style="font-family: 宋体, Arial, Helvetica, sans-serif; font-size: 15px">
+                                        <td class="style7" style="font-family:Times New Roman, Arial, Helvetica, sans-serif; font-size: 15px">
                                             <asp:LinkButton ID="LinkButton1" runat="server" onclick="LinkButton1_Click">Post a new topic</asp:LinkButton>                     
                                         </td>
                                     </tr>
