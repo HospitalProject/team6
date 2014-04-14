@@ -3,9 +3,11 @@
 <asp:Content id="cnt_header" ContentPlaceHolderID="head"  runat="server">
     <link href="../App_Themes/AdminUsers.css" rel="stylesheet" />
     <link href="../App_Themes/Appointment.css" rel="stylesheet" />
+    <script src="../scripts/jquery-1.10.2.js"></script>
+    <script src="../scripts/ui/jquery-ui.js"></script>
+    <link href="../App_Themes/css/smoothness/jquery-ui-1.10.4.custom.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cph_content" Runat="Server">
-    <AJAX:ToolkitScriptManager ID="tsm_users" runat="server" />
     <asp:Panel ID="pnl_doctorList" runat="server">
         <asp:Repeater ID="rpt_doctorlist" runat="server">
             <HeaderTemplate>
@@ -158,8 +160,7 @@
                     Date:
                 </td>
                 <td>
-                    <asp:TextBox ID="txt_timeslotdate" runat="server" />
-                    <AJAX:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txt_timeslotdate"></AJAX:CalendarExtender>
+                    <asp:TextBox ID="txt_timeslotdate" runat="server" CssClass="datepicker" />
                     <asp:RequiredFieldValidator ID="rfv_timeslotdate" runat="server" ControlToValidate="txt_timeslotdate" Text="*Required" CssClass="validatefail" SetFocusOnError="true" Display="Dynamic" ValidationGroup="addtimeslot" />
                     <asp:CompareValidator ID="cpv_timeslotdate" runat="server" ControlToValidate="txt_timeslotdate" Operator="DataTypeCheck" Type="Date" Text="Invalid date" CssClass="validatefail" SetFocusOnError="true" Display="Dynamic" ValidationGroup="addtimeslot" />
                     <asp:CustomValidator ID="ctv_timeslotdate" runat="server" ControlToValidate="txt_timeslotdate" OnServerValidate="ctv_timeslotdate_ServerValidate" Text="Cannot be a date earlier than today" CssClass="validatefail" Display="Dynamic" ValidationGroup="addtimeslot" />
@@ -285,6 +286,18 @@
             </tr>
         </table>
     </asp:Panel>
-    
+<script>
+    $(function () {
+        $(".datepicker").datepicker({
+            dateFormat: "mm/dd/yy",
+            buttonImageOnly: true,
+            buttonImage: "../scripts/themes/base/images/calendar.gif",
+            buttonText: "",
+            showOn: "button",
+            minDate: new Date()
+        });
+    });
+</script>    
 </asp:Content>
+
 
