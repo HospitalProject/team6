@@ -10,21 +10,21 @@
         <asp:FileUpload ID="fud_sliderimgI" runat="server" />
         <asp:RequiredFieldValidator ID="rfv_sliderimgI" runat="server" Text="*Required field" ControlToValidate="fud_sliderimgI" ValidationGroup="insert" />
         <br />
-        <asp:Label ID="lbl_nameI" runat="server" Text="Image Name" AssociatedControlID="txt_nameI" Font-Bold="true" />
+        <asp:Label ID="lbl_nameI" runat="server" Text="Image Name" AssociatedControlID="txt_nameI" Font-Bold="true" />             
         <br />
         <asp:TextBox ID="txt_nameI" runat="server" />
-        <asp:RequiredFieldValidator ID="rfv_nameI" runat="server" Text="*Required field" ControlToValidate="txt_nameI" ValidationGroup="insert" />
+        <asp:RequiredFieldValidator ID="rfv_nameI" runat="server" Text="*Required field" ControlToValidate="txt_nameI" ValidationGroup="insert" />   *image name should match image file name!
         <br />
         <asp:Label ID="lbl_orderI" runat="server" Text="Order" AssociatedControlID="txt_orderI" Font-Bold="true" />
         <br />
         <asp:TextBox ID="txt_orderI" runat="server" />
-        <asp:RequiredFieldValidator ID="rfv_orderI" runat="server" Text="*Required field" ControlToValidate="txt_orderI" ValidationGroup="insert" />
+        <asp:RequiredFieldValidator ID="rfv_orderI" runat="server" Text="*Required field" SetFocusOnError="true" ErrorMessage="Integer specified must be an increment of already existing indexes" ControlToValidate="txt_orderI" ValidationGroup="insert" />     *Refer to order table before selecting an unused number!
         <br />
         <asp:RequiredFieldValidator ID="rfv_titleI" runat="server" Text="*Required field" ControlToValidate="txt_titleI" ValidationGroup="insert" />
         <br />
         <asp:Label ID="lbl_textI" runat="server" Text="Text" AssociatedControlID="txt_textI" Font-Bold="true" />
         <br />
-        <asp:TextBox ID="txt_textI" runat="server" />
+        <asp:TextBox ID="txt_textI" runat="server" Width="200" Height="100" />
         <asp:RequiredFieldValidator ID="rfv_textI" runat="server" Text="*Required field" ControlToValidate="txt_textI" ValidationGroup="insert" />
         <br />
         <asp:Label ID="lbl_titleI" runat="server" Text="Title" AssociatedControlID="txt_titleI" Font-Bold="true" />
@@ -38,6 +38,13 @@
         <br />
         <br />
         <table>
+            <tr>
+                    <td><asp:Label ID="lbl_title" runat="server" Text="Slide Title" Font-Bold="true" /></td>
+                    <td><asp:Label ID="lbl_name" runat="server" Text="Image Name" Font-Bold="true" /></td>
+                    <td><asp:Label ID="lbl_desc" runat="server" Text="Slide Content" Font-Bold="true" /></td>
+                    <td><asp:Label ID="lbl_order" runat="server" Text="Slide Number/Order" Font-Bold="true" /></td>
+                    <td><asp:Label ID="lbl_action" runat="server" Text="Actions" Font-Bold="true" /></td>
+                </tr>
         <asp:ListView ID="ltv_main" runat="server" OnItemCommand="subAdmin">
             
             <ItemTemplate>
