@@ -1,20 +1,29 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/administrative/AdminMasterPage.master" AutoEventWireup="true" CodeFile="admin_users.aspx.cs" Inherits="admin_users" %>
 <asp:Content id="cnt_header" ContentPlaceHolderID="head"  runat="server">
     <link href="../App_Themes/AdminUsers.css" rel="stylesheet" />
+    <link href="../App_Themes/Appointment.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="cph_content" Runat="Server">
-    <AJAX:ToolkitScriptManager ID="tsm_users" runat="server" />
-    <ajax:TabContainer runat="server" ID="tab_users"  style="width:800px">
-        <ajax:TabPanel ID="tbp_doctors" runat="server" HeaderText="Doctors" Width="100%">
-            <ContentTemplate>
+
+    <div id="menutab">
+        <asp:Menu ID="mnu_users" runat="server" StaticDisplayLevels="1" Orientation="Horizontal" OnMenuItemClick="mnu_users_MenuItemClick">
+            <Items>
+                <asp:MenuItem Text="Doctors" Selected="true" />
+                <asp:MenuItem Text="Registered Users" />
+            </Items>
+            <StaticMenuItemStyle HorizontalPadding="10px" VerticalPadding="10px" />
+        </asp:Menu>
+    </div>
+    <asp:MultiView ID="mtv_users" runat="server" ActiveViewIndex="0">
+        <asp:View ID="vw_doctors" runat="server">
                 <asp:Repeater ID="rpt_doctors" runat="server">
                     <HeaderTemplate>
-                        <table Width="100%">
+                        <table Width="100%"  class="tblAppointment">
                             <tr>
-                                <th class="tabHead">First Name</th>
-                                <th class="tabHead">Last Name</th>
-                                <th class="tabHead">Email</th>
-                                <th class="tabHead">Phone</th>
+                                <th class="tblth">First Name</th>
+                                <th class="tblth">Last Name</th>
+                                <th class="tblth">Email</th>
+                                <th class="tblth">Phone</th>
                             </tr>
                     </HeaderTemplate>
                     <ItemTemplate>
@@ -29,18 +38,16 @@
                         </table>
                     </FooterTemplate>
                 </asp:Repeater>
-            </ContentTemplate>
-        </ajax:TabPanel>
-        <ajax:TabPanel ID="tbp_registeredUsers" runat="server" HeaderText="Registered Users"  Width="100%">
-            <ContentTemplate>
+        </asp:View>
+        <asp:View ID="vw_registeredUsers" runat="server">
                 <asp:Repeater ID="rpt_registeredUsers" runat="server">
                     <HeaderTemplate>
-                        <table  Width="100%">
+                        <table  Width="100%"  class="tblAppointment">
                             <tr>
-                                <th class="tabHead">First Name</th>
-                                <th class="tabHead">Last Name</th>
-                                <th class="tabHead">Email</th>
-                                <th class="tabHead">Phone</th>
+                                <th class="tblth">First Name</th>
+                                <th class="tblth">Last Name</th>
+                                <th class="tblth">Email</th>
+                                <th class="tblth">Phone</th>
                             </tr>
                     </HeaderTemplate>
                     <ItemTemplate>
@@ -55,10 +62,8 @@
                         </table>
                     </FooterTemplate>
                 </asp:Repeater>
-            </ContentTemplate>
-        </ajax:TabPanel>
-
-    </ajax:TabContainer>
+        </asp:View>
+    </asp:MultiView>
     <br />
     <br />
 
