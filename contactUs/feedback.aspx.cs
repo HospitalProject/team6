@@ -76,7 +76,7 @@ public partial class feedback : System.Web.UI.Page
     {
         if (flag)
         {
-            lbl_txtMsg.Text = "Thank you. Your feedback has been sent successfuly. We will replay you in 2 to 3 business days.";
+            lbl_txtMsg.Text = "Thank you. Your feedback has been sent successfully. We will replay you in 2 to 3 business days.";
         }
         else
         {

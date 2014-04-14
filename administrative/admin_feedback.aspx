@@ -50,15 +50,17 @@
                             </td>
                    
                             <%-- show the database --%>
-                            <td class="tableFormat_td"><asp:Label ID="lbl_dateComp" runat="server" Text='<%#Eval("feedbackDate") %>' /></td>
+                            <td class="tableFormat_td"><asp:Label ID="lbl_dateComp" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"feedbackDate", "{0:dd.MM.yyyy}") %>' /></td>
                             <td class="tableFormat_td"><asp:Label ID="lbl_fnameComp" runat="server" Text='<%#Eval("fname") %>' /></td>
                             <td class="tableFormat_td"><asp:Label ID="lbl_emailComp" runat="server" Text='<%#Eval("email") %>' /></td>
                             <td class="tableFormat_td"><asp:Label ID="lbl_rdepartmentComp" runat="server" Text='<%#Eval("rdepartment") %>' /></td>
                             <td class="tableFormat_td"><asp:Label ID="lbl_titleComp" runat="server" Text='<%#Eval("title") %>' /></td>  
                             <td class="tableFormat_td">
-                                <asp:Button ID="btn_SelectComp" runat="server" Text="Content" CommandName="SelectComp" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
+                                <asp:Button ID="btn_SelectComp" runat="server" Text="Content" CommandName="SelectComp"
+                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>"/>
                                 <asp:Button ID="btn_DeleteComp" runat="server" Text="Delete" CommandName="DeleteComp" 
-                                     OnClientClick = "return confirm('Do you want to delete the record ? ');" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
+                                     OnClientClick = "return confirm('Do you want to delete the record ? ');" 
+                                    CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
                             </td>                    
                         </tr>
                 </ItemTemplate>
@@ -112,7 +114,7 @@
 
                                        <%-- show the database --%>
                                        <td class="tableFormat_td">
-                                           <asp:Label ID="lbl_dateComm" runat="server" Text='<%#Eval("feedbackDate") %>' /></td>
+                                           <asp:Label ID="lbl_dateComm" runat="server" Text='<%#DataBinder.Eval(Container.DataItem,"feedbackDate", "{0:dd.MM.yyyy}") %>' /></td>
                                        <td class="tableFormat_td">
                                            <asp:Label ID="lbl_fnameComm" runat="server" Text='<%#Eval("fname") %>' /></td>
                                        <td class="tableFormat_td">

@@ -14,7 +14,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         get { return _title; }
         set { _title = value; }
     }
-
+    // transfer the keyword(s) of search engine to resultSearch
     protected void searchData(object sender, CommandEventArgs e)
     {
         Session["search"] = txt_search.Text;
