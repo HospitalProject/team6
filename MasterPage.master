@@ -107,10 +107,10 @@
                     </div>
                     <div class="q_link2">
                         <div id="googleSearch">
-                            <asp:TextBox ID="txt_search" runat="server" SkinID="searcheng"  />
+                            <asp:TextBox ID="txt_search" runat="server" SkinID="searcheng"  placeholder=" please enter your keyword(s)" />
                         </div>
                         <div id="btn_googleSearch">
-                            <asp:ImageButton ID="img_search" runat="server" AlternateText="Search Button" 
+                            <asp:ImageButton ID="img_search" runat="server" AlternateText="Search Button"
                                 ImageUrl="~/App_Themes/Theme/img/search.png" OnCommand="searchData" />
                         </div>
                     </div>

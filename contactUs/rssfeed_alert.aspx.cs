@@ -8,7 +8,7 @@ using System.Xml;//imported
 
 public partial class rssfeed_alert : System.Web.UI.Page
 {
-    tickerNewsLinq objLinq = new tickerNewsLinq();
+    tickerNewsLinq objLinq = new tickerNewsLinq();//Create the new class from Ticker News table
     protected void Page_Load(object sender, EventArgs e)
     {
         //create the XML

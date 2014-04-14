@@ -8,7 +8,7 @@ using System.Xml;//imported
 
 public partial class rssfeed_news : System.Web.UI.Page
 {
-    linqNewsAccordion objLinq = new linqNewsAccordion();
+    linqNewsAccordion objLinq = new linqNewsAccordion();//Create class from News and Events table
     protected void Page_Load(object sender, EventArgs e)
     {
         //create the XML
