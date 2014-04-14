@@ -148,5 +148,70 @@ public class linqSurveyclass
             YesOrNo, //will render a checkbox
             SingleSelect, //will render a dropdownlist
             MultiSelect //will render a listbox
-        } 
+        }
+
+        public IQueryable<surveyquestion> getSurveyquestion()
+        {
+            //creating an instance of the linq object
+            linqSurveyDataContext objSQDC = new linqSurveyDataContext();
+            //creating an annonymous var with value being instance of the created object
+            var allSurveyquestions = objSQDC.surveyquestions.Select(x => x);
+            //return IQueryable<linqSurveyclass> to be binded
+            return allSurveyquestions;
+        }
+
+        public IQueryable<surveyquestion> getSurveyquestionByID(int _Id)
+        {
+            linqSurveyDataContext objSQDC = new linqSurveyDataContext();
+            var allSurveyquestions = objSQDC.surveyquestions.Where(x => x.Id == _Id).Select(x => x);
+            return allSurveyquestions;
+        }
+
+        public bool commitInsertSQ(int _Id, int _SurveyID, int _QuestionID, System.Nullable<int> _OrderId)
+        {
+            linqSurveyDataContext objSQDC = new linqSurveyDataContext();
+            using (objSQDC)
+            {
+                //creating an instance of the table
+                surveyquestion objNewSQ = new surveyquestion();
+                //setting table to new values passed from web form
+                objNewSQ.SurveyID = _SurveyID;
+                objNewSQ.QuestionID = _QuestionID;
+                objNewSQ.OrderId = _OrderId;
+                
+                //inserting command
+                objSQDC.surveyquestions.InsertOnSubmit(objNewSQ);
+                //committing insert against database
+                objSQDC.SubmitChanges();
+                return true;
+            }
+        }
+        public bool commitUpdateSQ(int _Id, int _SurveyID, int _QuestionID, System.Nullable<int> _OrderId)
+        {
+            linqSurveyDataContext objSQDC = new linqSurveyDataContext();
+            using (objSQDC)
+            {
+                var objUpSQ = objSQDC.surveyquestions.Single(x => x.Id == _Id);
+
+                objUpSQ.SurveyID = _SurveyID;
+                objUpSQ.QuestionID = _QuestionID;
+                objUpSQ.OrderId = _OrderId;
+
+                objSQDC.SubmitChanges();
+                return true;
+            }
+        }
+        public bool commitDeleteSQ(int _Id)
+        {
+            linqSurveyDataContext objSQDC = new linqSurveyDataContext();
+            using (objSQDC)
+            {
+                var objDelSurv = objSQDC.Surveys.Single(x => x.Id == _Id);
+                //to delete
+                objSQDC.Surveys.DeleteOnSubmit(objDelSurv);
+                //committing to database
+                objSQDC.SubmitChanges();
+                return true;
+            }
+        }
 }

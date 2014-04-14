@@ -35,6 +35,9 @@ public partial class linqSurveyDataContext : System.Data.Linq.DataContext
   partial void InsertSurvey(Survey instance);
   partial void UpdateSurvey(Survey instance);
   partial void DeleteSurvey(Survey instance);
+  partial void Insertsurveyresponse(surveyresponse instance);
+  partial void Updatesurveyresponse(surveyresponse instance);
+  partial void Deletesurveyresponse(surveyresponse instance);
   #endregion
 	
 	public linqSurveyDataContext() : 
@@ -65,14 +68,6 @@ public partial class linqSurveyDataContext : System.Data.Linq.DataContext
 			base(connection, mappingSource)
 	{
 		OnCreated();
-	}
-	
-	public System.Data.Linq.Table<survpart> survparts
-	{
-		get
-		{
-			return this.GetTable<survpart>();
-		}
 	}
 	
 	public System.Data.Linq.Table<surveypart> surveyparts
@@ -106,121 +101,20 @@ public partial class linqSurveyDataContext : System.Data.Linq.DataContext
 			return this.GetTable<Survey>();
 		}
 	}
-}
-
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.survpart")]
-public partial class survpart
-{
 	
-	private string _Title;
-	
-	private string _Description;
-	
-	private System.DateTime _CreatedOn;
-	
-	private System.Nullable<System.DateTime> _ExpiresOn;
-	
-	private int _CreatedBy;
-	
-	private bool _Publish;
-	
-	public survpart()
-	{
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(200)")]
-	public string Title
+	public System.Data.Linq.Table<survpart> survparts
 	{
 		get
 		{
-			return this._Title;
-		}
-		set
-		{
-			if ((this._Title != value))
-			{
-				this._Title = value;
-			}
+			return this.GetTable<survpart>();
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
-	public string Description
+	public System.Data.Linq.Table<surveyresponse> surveyresponses
 	{
 		get
 		{
-			return this._Description;
-		}
-		set
-		{
-			if ((this._Description != value))
-			{
-				this._Description = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime NOT NULL")]
-	public System.DateTime CreatedOn
-	{
-		get
-		{
-			return this._CreatedOn;
-		}
-		set
-		{
-			if ((this._CreatedOn != value))
-			{
-				this._CreatedOn = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpiresOn", DbType="DateTime")]
-	public System.Nullable<System.DateTime> ExpiresOn
-	{
-		get
-		{
-			return this._ExpiresOn;
-		}
-		set
-		{
-			if ((this._ExpiresOn != value))
-			{
-				this._ExpiresOn = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int NOT NULL")]
-	public int CreatedBy
-	{
-		get
-		{
-			return this._CreatedBy;
-		}
-		set
-		{
-			if ((this._CreatedBy != value))
-			{
-				this._CreatedBy = value;
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Publish", DbType="Bit NOT NULL")]
-	public bool Publish
-	{
-		get
-		{
-			return this._Publish;
-		}
-		set
-		{
-			if ((this._Publish != value))
-			{
-				this._Publish = value;
-			}
+			return this.GetTable<surveyresponse>();
 		}
 	}
 }
@@ -356,6 +250,8 @@ public partial class question : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private string _Options;
 	
+	private EntitySet<surveyresponse> _surveyresponses;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -372,6 +268,7 @@ public partial class question : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public question()
 	{
+		this._surveyresponses = new EntitySet<surveyresponse>(new Action<surveyresponse>(this.attach_surveyresponses), new Action<surveyresponse>(this.detach_surveyresponses));
 		OnCreated();
 	}
 	
@@ -455,6 +352,19 @@ public partial class question : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="question_surveyresponse", Storage="_surveyresponses", ThisKey="Id", OtherKey="QuestionID")]
+	public EntitySet<surveyresponse> surveyresponses
+	{
+		get
+		{
+			return this._surveyresponses;
+		}
+		set
+		{
+			this._surveyresponses.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -473,6 +383,18 @@ public partial class question : INotifyPropertyChanging, INotifyPropertyChanged
 		{
 			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 		}
+	}
+	
+	private void attach_surveyresponses(surveyresponse entity)
+	{
+		this.SendPropertyChanging();
+		entity.question = this;
+	}
+	
+	private void detach_surveyresponses(surveyresponse entity)
+	{
+		this.SendPropertyChanging();
+		entity.question = null;
 	}
 }
 
@@ -577,6 +499,8 @@ public partial class Survey : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private bool _Publish;
 	
+	private EntitySet<surveyresponse> _surveyresponses;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -599,6 +523,7 @@ public partial class Survey : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public Survey()
 	{
+		this._surveyresponses = new EntitySet<surveyresponse>(new Action<surveyresponse>(this.attach_surveyresponses), new Action<surveyresponse>(this.detach_surveyresponses));
 		OnCreated();
 	}
 	
@@ -738,6 +663,514 @@ public partial class Survey : INotifyPropertyChanging, INotifyPropertyChanged
 				this._Publish = value;
 				this.SendPropertyChanged("Publish");
 				this.OnPublishChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Survey_surveyresponse", Storage="_surveyresponses", ThisKey="Id", OtherKey="SurveyID")]
+	public EntitySet<surveyresponse> surveyresponses
+	{
+		get
+		{
+			return this._surveyresponses;
+		}
+		set
+		{
+			this._surveyresponses.Assign(value);
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+	
+	private void attach_surveyresponses(surveyresponse entity)
+	{
+		this.SendPropertyChanging();
+		entity.Survey = this;
+	}
+	
+	private void detach_surveyresponses(surveyresponse entity)
+	{
+		this.SendPropertyChanging();
+		entity.Survey = null;
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.survpart")]
+public partial class survpart
+{
+	
+	private string _Title;
+	
+	private string _Description;
+	
+	private System.DateTime _CreatedOn;
+	
+	private System.Nullable<System.DateTime> _ExpiresOn;
+	
+	private int _CreatedBy;
+	
+	private bool _Publish;
+	
+	private System.Nullable<int> _OrderId;
+	
+	private int _QuestionID;
+	
+	private int _SurveyID;
+	
+	private int _Id;
+	
+	private string _Options;
+	
+	private string _QuestionType;
+	
+	private string _Text;
+	
+	public survpart()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="VarChar(200)")]
+	public string Title
+	{
+		get
+		{
+			return this._Title;
+		}
+		set
+		{
+			if ((this._Title != value))
+			{
+				this._Title = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+	public string Description
+	{
+		get
+		{
+			return this._Description;
+		}
+		set
+		{
+			if ((this._Description != value))
+			{
+				this._Description = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedOn", DbType="DateTime NOT NULL")]
+	public System.DateTime CreatedOn
+	{
+		get
+		{
+			return this._CreatedOn;
+		}
+		set
+		{
+			if ((this._CreatedOn != value))
+			{
+				this._CreatedOn = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpiresOn", DbType="DateTime")]
+	public System.Nullable<System.DateTime> ExpiresOn
+	{
+		get
+		{
+			return this._ExpiresOn;
+		}
+		set
+		{
+			if ((this._ExpiresOn != value))
+			{
+				this._ExpiresOn = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CreatedBy", DbType="Int NOT NULL")]
+	public int CreatedBy
+	{
+		get
+		{
+			return this._CreatedBy;
+		}
+		set
+		{
+			if ((this._CreatedBy != value))
+			{
+				this._CreatedBy = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Publish", DbType="Bit NOT NULL")]
+	public bool Publish
+	{
+		get
+		{
+			return this._Publish;
+		}
+		set
+		{
+			if ((this._Publish != value))
+			{
+				this._Publish = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderId", DbType="Int")]
+	public System.Nullable<int> OrderId
+	{
+		get
+		{
+			return this._OrderId;
+		}
+		set
+		{
+			if ((this._OrderId != value))
+			{
+				this._OrderId = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionID", DbType="Int NOT NULL")]
+	public int QuestionID
+	{
+		get
+		{
+			return this._QuestionID;
+		}
+		set
+		{
+			if ((this._QuestionID != value))
+			{
+				this._QuestionID = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SurveyID", DbType="Int NOT NULL")]
+	public int SurveyID
+	{
+		get
+		{
+			return this._SurveyID;
+		}
+		set
+		{
+			if ((this._SurveyID != value))
+			{
+				this._SurveyID = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+	public int Id
+	{
+		get
+		{
+			return this._Id;
+		}
+		set
+		{
+			if ((this._Id != value))
+			{
+				this._Id = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Options", DbType="VarChar(2000) NOT NULL", CanBeNull=false)]
+	public string Options
+	{
+		get
+		{
+			return this._Options;
+		}
+		set
+		{
+			if ((this._Options != value))
+			{
+				this._Options = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionType", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+	public string QuestionType
+	{
+		get
+		{
+			return this._QuestionType;
+		}
+		set
+		{
+			if ((this._QuestionType != value))
+			{
+				this._QuestionType = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Text", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+	public string Text
+	{
+		get
+		{
+			return this._Text;
+		}
+		set
+		{
+			if ((this._Text != value))
+			{
+				this._Text = value;
+			}
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.surveyresponse")]
+public partial class surveyresponse : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _Id;
+	
+	private int _SurveyID;
+	
+	private int _QuestionID;
+	
+	private string _Response;
+	
+	private System.Guid _FilledBy;
+	
+	private EntityRef<question> _question;
+	
+	private EntityRef<Survey> _Survey;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnSurveyIDChanging(int value);
+    partial void OnSurveyIDChanged();
+    partial void OnQuestionIDChanging(int value);
+    partial void OnQuestionIDChanged();
+    partial void OnResponseChanging(string value);
+    partial void OnResponseChanged();
+    partial void OnFilledByChanging(System.Guid value);
+    partial void OnFilledByChanged();
+    #endregion
+	
+	public surveyresponse()
+	{
+		this._question = default(EntityRef<question>);
+		this._Survey = default(EntityRef<Survey>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+	public int Id
+	{
+		get
+		{
+			return this._Id;
+		}
+		set
+		{
+			if ((this._Id != value))
+			{
+				this.OnIdChanging(value);
+				this.SendPropertyChanging();
+				this._Id = value;
+				this.SendPropertyChanged("Id");
+				this.OnIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SurveyID", DbType="Int NOT NULL")]
+	public int SurveyID
+	{
+		get
+		{
+			return this._SurveyID;
+		}
+		set
+		{
+			if ((this._SurveyID != value))
+			{
+				if (this._Survey.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnSurveyIDChanging(value);
+				this.SendPropertyChanging();
+				this._SurveyID = value;
+				this.SendPropertyChanged("SurveyID");
+				this.OnSurveyIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QuestionID", DbType="Int NOT NULL")]
+	public int QuestionID
+	{
+		get
+		{
+			return this._QuestionID;
+		}
+		set
+		{
+			if ((this._QuestionID != value))
+			{
+				if (this._question.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnQuestionIDChanging(value);
+				this.SendPropertyChanging();
+				this._QuestionID = value;
+				this.SendPropertyChanged("QuestionID");
+				this.OnQuestionIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Response", DbType="VarChar(200) NOT NULL", CanBeNull=false)]
+	public string Response
+	{
+		get
+		{
+			return this._Response;
+		}
+		set
+		{
+			if ((this._Response != value))
+			{
+				this.OnResponseChanging(value);
+				this.SendPropertyChanging();
+				this._Response = value;
+				this.SendPropertyChanged("Response");
+				this.OnResponseChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FilledBy", DbType="UniqueIdentifier NOT NULL")]
+	public System.Guid FilledBy
+	{
+		get
+		{
+			return this._FilledBy;
+		}
+		set
+		{
+			if ((this._FilledBy != value))
+			{
+				this.OnFilledByChanging(value);
+				this.SendPropertyChanging();
+				this._FilledBy = value;
+				this.SendPropertyChanged("FilledBy");
+				this.OnFilledByChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="question_surveyresponse", Storage="_question", ThisKey="QuestionID", OtherKey="Id", IsForeignKey=true)]
+	public question question
+	{
+		get
+		{
+			return this._question.Entity;
+		}
+		set
+		{
+			question previousValue = this._question.Entity;
+			if (((previousValue != value) 
+						|| (this._question.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._question.Entity = null;
+					previousValue.surveyresponses.Remove(this);
+				}
+				this._question.Entity = value;
+				if ((value != null))
+				{
+					value.surveyresponses.Add(this);
+					this._QuestionID = value.Id;
+				}
+				else
+				{
+					this._QuestionID = default(int);
+				}
+				this.SendPropertyChanged("question");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Survey_surveyresponse", Storage="_Survey", ThisKey="SurveyID", OtherKey="Id", IsForeignKey=true)]
+	public Survey Survey
+	{
+		get
+		{
+			return this._Survey.Entity;
+		}
+		set
+		{
+			Survey previousValue = this._Survey.Entity;
+			if (((previousValue != value) 
+						|| (this._Survey.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Survey.Entity = null;
+					previousValue.surveyresponses.Remove(this);
+				}
+				this._Survey.Entity = value;
+				if ((value != null))
+				{
+					value.surveyresponses.Add(this);
+					this._SurveyID = value.Id;
+				}
+				else
+				{
+					this._SurveyID = default(int);
+				}
+				this.SendPropertyChanged("Survey");
 			}
 		}
 	}
