@@ -19,7 +19,7 @@ public partial class resultSearch : System.Web.UI.Page
 
         else if ((objLinqSE.getContentBySearch(keyword).Count() == 0))
         {
-            label1.Text = "No result found of" + keyword + ", please try again";
+            label1.Text = "No result found of "+ keyword +", please try again";
         }
 
         else

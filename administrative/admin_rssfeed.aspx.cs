@@ -44,7 +44,7 @@ public partial class admin_rssfeed : System.Web.UI.Page
     {
         if (flag)
         {
-            lbl_txtMsg.Text = "Contact form has been " + str + "ed successfully";
+            lbl_txtMsg.Text = "Your RSS category has been " + str + "ed successfully";
         }
         else
         {
