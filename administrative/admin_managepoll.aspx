@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/administrative/AdminMasterPage.master" Debug="true" AutoEventWireup="true" CodeFile="admin_managepoll.aspx.cs" Inherits="administrative_managepoll" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/administrative/AdminMasterPage.master" AutoEventWireup="true" CodeFile="admin_managepoll.aspx.cs" Inherits="administrative_managepoll" %>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="cph_content" Runat="Server">
     <div>

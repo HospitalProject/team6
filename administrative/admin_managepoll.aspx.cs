@@ -36,8 +36,8 @@ public partial class administrative_managepoll : System.Web.UI.Page
            {
                surveyquestion quest = new surveyquestion();
                quest.QuestionID = int.Parse(li.Value);
-               survey.surveyresponses.AddTo(quest);
-               questions.Add(quest);
+               //survey.(quest);
+              // questions.Add(quest);
            }
 
        }
