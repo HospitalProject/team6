@@ -101,7 +101,7 @@
     <table cellpadding="0" cellspacing="0" class="style1">
         <tr>
             <td align ="center">
-                <table cellpadding="0" cellspacing="0" class="style10" style="font-family: 宋体, Arial, Helvetica, sans-serif; font-size: 13px">
+                <table cellpadding="0" cellspacing="0" class="style10" style="font-family:Times New Roman, Arial, Helvetica, sans-serif; font-size: 13px">
                     <tr>
                         <td class="style19" style="text-align:left">
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Message Board Detailed Information List&nbsp;</td>
@@ -127,6 +127,7 @@
                     </tr>
                     <tr>
                         <td>
+                        <!--Bind the tb_Sub_View using Datalist-->
                             <asp:DataList ID="DataList1" runat="server" Width="559px">
                                 <ItemTemplate>
                                     <table cellpadding="0" cellspacing="0" class="style13">
@@ -141,7 +142,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                        <!--Pictures-->
+                                        <!--user images-->
                                                 <td style =" width:145px" class=" manage_lines2">
                                                     <asp:Image ID="Image1" runat="server" Height="56px" Width="64px" 
                                                         ImageUrl="~/images/userIcon.gif" />
@@ -177,10 +178,11 @@
         </tr>
         <tr>
         <td class="style12" style="text-align: center">
+            <!--Reply to the topic-->
             <table border="1" cellpadding="0" cellspacing="0" class="style15">
                 <tr>
                     <td class ="manage_lines2">
-                        <table cellpadding="0" cellspacing="0" class="style10" style="font-family: 宋体, Arial, Helvetica, sans-serif; font-size: 13px">
+                        <table cellpadding="0" cellspacing="0" class="style10" style="font-family:Times New Roman, Arial, Helvetica, sans-serif; font-size: 13px">
                             <tr>
                                 <td class="style20" style="text-align: right">Title：</td>
                                 <td class="style21" colspan="2" >

@@ -5,10 +5,12 @@
 
 <asp:Content ID="Content5" ContentPlaceHolderID="cph_section" Runat="Server">
 <div>
+        <!--Calendar-->
         <asp:Calendar ID="Calendar1" runat="server" Width="400px" Height="300px" ondayrender="MyDayRenderer" OnSelectionChanged="Calender1_SelectionChanged" />
         <br />
         <asp:Label ID="lbl_output" runat="server" />
         <br />
+        <!--Display the event list-->
         <div id="gridview" style="float:left;width:50%">
                 <asp:GridView ID="grv_main" runat="server" BorderStyle="Solid" AllowSorting="True" DataKeyNames="event_id" AutoGenerateColumns="False">
                     <Columns>

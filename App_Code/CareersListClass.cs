@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 /// </summary>
 public class CareersListClass
 {
+    //get job list
     public IQueryable<careers_list> getCareersList()
     {
         Careers_listDataContext obj = new Careers_listDataContext();

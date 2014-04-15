@@ -11,6 +11,7 @@ public partial class job_listing : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
+            //bind the gridview using linq
             CareersListClass careers_list = new CareersListClass();
             grv_main.DataSource = careers_list.getCareersList();
             grv_main.DataBind();

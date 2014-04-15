@@ -7,24 +7,26 @@ using System.Web.Configuration;
 using System.Data.SqlClient;
 
 /// <summary>
-///CareersApplicationClass 的摘要说明
+///View_forum Class
+///this view is used to display the topics, categories, authors, publish dates, etc.
 /// </summary>
 public class forumInfosLinq
 {
+    //get forum information list
     public IQueryable<View_forum> getForumInfos()
     {
         linqForumInfosDataContext obj = new linqForumInfosDataContext();
         var list = obj.View_forum.Select(x => x);
         return list;
     }
-
+    //get forum information list by id
     public IQueryable<View_forum> getForumInfosByID(int _id)
     {
         linqForumInfosDataContext obj = new linqForumInfosDataContext();
         var list = obj.View_forum.Where(x => x.id == _id).Select(x => x);
         return list;
     }
-
+    //delete information
     public bool commitDelete(int _id)
     {
         tbforumsLinqDataContext obj = new tbforumsLinqDataContext();

@@ -71,10 +71,11 @@
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="cph_section" Runat="Server">
+
 <table cellpadding="0" cellspacing="0" class="style1">
             <tr>
                 <td class="style3" 
-                    style="font-family: 宋体, Arial, Helvetica, sans-serif; font-size: 13px">
+                    style="font-family:Times New Roman, Arial, Helvetica, sans-serif; font-size: 13px">
                     &nbsp; 
                     <asp:Label ID="Label1" runat="server" Text="Post a new topic"></asp:Label>
                 </td>
@@ -85,9 +86,9 @@
                     <table border="1" cellpadding="0" cellspacing="0" class="style15">
                         <tr>
                             <td>
-                
+                    <!--Post a new topic-->
                     <table cellpadding="0" cellspacing="0" class="style10" 
-                        style="font-family: 宋体, Arial, Helvetica, sans-serif; font-size: 13px">
+                        style="font-family:Times New Roman, Arial, Helvetica, sans-serif; font-size: 13px">
                         <tr>
                             <td class="style13" style="text-align: right">
                                 Title：</td>
@@ -98,6 +99,7 @@
                             <td class="style18" colspan="2">
                                 Category：</td>
                             <td class="style14">
+                            <!--Choose a category-->
                                 <asp:DropDownList ID="DropDownList1" runat="server" Height="16px" Width="91px" 
                                     AutoPostBack="True" 
                                     onselectedindexchanged="DropDownList1_SelectedIndexChanged">

@@ -5,7 +5,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Web;
-using System.Web.Security;//所有用到session["userId"]的地方
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -20,7 +20,7 @@ public partial class PublishForum : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            BindDatasOptionStyle(DropDownList1); //显示论坛类型信息
+            BindDatasOptionStyle(DropDownList1); //show the category
         }
     }
     protected void Button1_Click(object sender, EventArgs e)
@@ -32,7 +32,7 @@ public partial class PublishForum : System.Web.UI.Page
         }
         else
         {
-            //判断输入的验证码是否正确
+            //check the captcha
             string num = this.TextBox3.Text.Trim();
             if (Session["ValidNums"].ToString() == num.ToUpper())
             {
@@ -59,10 +59,10 @@ public partial class PublishForum : System.Web.UI.Page
         Response.Redirect("forumInfos.aspx");
     }
     /// <summary>
-    /// 获得论坛类型编号
+    /// get the category No.
     /// </summary>
-    /// <param name="instr">类型名称</param>
-    /// <returns>返回类型编号</returns>
+    /// <param name="instr">Category name</param>
+    /// <returns>return category No.</returns>
     public int GetStyleId(string instr)
     {
         int Numsid = 0;
@@ -78,9 +78,9 @@ public partial class PublishForum : System.Web.UI.Page
         return Numsid;
     }
     /// <summary>
-    /// 绑定论坛类型
+    /// Bind the categories
     /// </summary>
-    /// <param name="droplist">DropDownList控件名称</param>
+    /// <param name="droplist">DropDownList Control name</param>
     public void BindDatasOptionStyle(DropDownList droplist)
     {
         //droplist.Items.Add("");

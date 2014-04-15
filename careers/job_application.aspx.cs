@@ -21,12 +21,14 @@ public partial class job_application : System.Web.UI.Page
 
         if (!IsPostBack)
         {
+            //default item
             rbl.Items[0].Selected = true;
             rbl_1.Items[4].Selected = true;
             bindDropdownlist();
         }
 
     }
+    //bind drop down list using linq
     protected void bindDropdownlist()
     {
         Careers_listDataContext obj = new Careers_listDataContext(); 
@@ -50,18 +52,18 @@ public partial class job_application : System.Web.UI.Page
         //upload resume
         string savePath;
 
-        string str1 = this.file_upload_resume.PostedFile.FileName;//获取上传文件选择框中的文本内容
+        string str1 = this.file_upload_resume.PostedFile.FileName;//get the content(filename) from the Upload textbox field
         if (str1 == "")
         {
             Response.Write("<script language=javascript>alert('Please choose one resume file')</script>");
         }
         else
         {
-            int fileLength = this.file_upload_resume.PostedFile.ContentLength;//获取文件的大小，以字节为单位
-            string getName = str1.Substring(str1.LastIndexOf("\\") + 1);//获取文件的名称，包括后缀名
-            string exeName = str1.Substring(str1.LastIndexOf(".") + 1).ToUpper();//获取上传文件的后缀名并转换为大写形式，如得到.EXE
-            string saveName = DateTime.Now.ToString("yyyymmddhhmmssfff") + "." + exeName;//将文件保存为当前上传时间
-            savePath = Server.MapPath(@"~\careers\resumes\" + saveName);//设置保存路径（可以把这个值存在数据库中，就可以进行下载了）
+            int fileLength = this.file_upload_resume.PostedFile.ContentLength;//get the file size
+            string getName = str1.Substring(str1.LastIndexOf("\\") + 1);//get the file name
+            string exeName = str1.Substring(str1.LastIndexOf(".") + 1).ToUpper();//get the .xxx and transfer to upper words
+            string saveName = DateTime.Now.ToString("yyyymmddhhmmssfff") + "." + exeName;//name the file by uploaded time
+            savePath = Server.MapPath(@"~\careers\resumes\" + saveName);//config the save path
 
             try
             {
@@ -75,7 +77,7 @@ public partial class job_application : System.Web.UI.Page
                     {
                         this.file_upload_resume.PostedFile.SaveAs(savePath);
                         
-                        //上传的文件地址插入数据库
+                        //insert the uploaded link into database
                         CareersApplicationClass objLinq = new CareersApplicationClass();
                         objLinq.commitInsert(txt_fname.Text, txt_lname.Text, txt_email.Text, txt_phone.Text, txt_city.Text, ddl_job_type.SelectedItem.Text.ToString(), rbl_1.SelectedItem.Text.ToString(),savePath,rbl.SelectedItem.Text.ToString());
 
@@ -122,7 +124,7 @@ public partial class job_application : System.Web.UI.Page
     {
 
     }
-
+    //clear data
     protected void subClear(object sendor, EventArgs e)
     {
         output.Text = string.Empty;

@@ -12,6 +12,7 @@
                 <a href="job_application.aspx">Apply Now !</a>
             </div>
             <br />
+            <!--Display the job list-->
             <div id ="gridview_div" style="overflow:scroll;width:1000px;border:1; height:500px">  
                 <asp:GridView ID="grv_main" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" AllowSorting="true">
                     <RowStyle Font-Size="12px" Height="17px" ForeColor="#333333" BackColor="White" BorderWidth="1" BorderStyle="Solid" BorderColor="Gray"/>

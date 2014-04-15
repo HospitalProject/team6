@@ -4,9 +4,12 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="cph_content" Runat="Server">
+<script src="../scripts/external/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
 <div>
-    <asp:Label ID="lbl" runat="server" Text="Insert a record" />
-        <br />
+    <h2>Manage Events</h2>
+    <asp:Label ID="lbl" runat="server" Text="Insert an event" />
+        <br /><br />
+        <!--Insert a new event-->
         <table>
             <tr>
                 <td><asp:Label ID="lbl_event_titleI" runat="server" Text="Event Title:" /></td>
@@ -17,8 +20,8 @@
             </tr>
             <tr>
                 <td><asp:Label ID="lbl_event_contentI" runat="server" Text="Description: " /></td>
-                <td>
-                    <asp:TextBox ID="txt_event_contentI" runat="server" TextMode="MultiLine" Wrap="true" />
+                <td style="vertical-align:top">
+                    <asp:TextBox ID="txt_event_contentI" runat="server" TextMode="MultiLine" Wrap="true" Rows="3" />
                     <asp:RequiredFieldValidator ID="rfv_event_contentI" runat="server" Text="*Required" ControlToValidate="txt_event_contentI" ValidationGroup="insert" SetFocusOnError="true" />
                 </td>
             </tr>
@@ -36,7 +39,7 @@
                 <td><asp:Label ID="lbl_start_timeI" runat="server" Text="Start Time: " /></td>
                 <td>
                     <asp:TextBox ID="txt_start_timeI" runat="server" />
-                    <asp:RequiredFieldValidator ID="rfv_start_timeI" runat="server" Text="*Required" ControlToValidate="txt_start_timeI" ValidationGroup="insert" SetFocusOnError="true" />
+                    <asp:RequiredFieldValidator ID="rfv_start_timeI" runat="server" Text="*Required" ControlToValidate="txt_start_timeI" ValidationGroup="insert" SetFocusOnError="true" Display="Dynamic" />
                     <asp:RegularExpressionValidator ID="rev_start_timeI" runat="server" ErrorMessage="Not a time" ControlToValidate="txt_start_timeI" 
                     ValidationExpression="^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$ " />
                 </td>
@@ -57,9 +60,9 @@
         <asp:Label ID="lbl_message" runat="server" />
         <br />
         <br />
+        <!--Edit events-->
         <table>
             <tr>
-                <th>Event Id</th>
                 <th>Event Title</th>
                 <th>Description</th>
                 <th>Date</th>
@@ -76,8 +79,8 @@
                             <asp:HiddenField ID="hdf_idE" runat="server" Value='<%#Bind("event_id") %>' />
                             <asp:TextBox ID="txt_event_titleE" runat="server" Text='<%#Bind("event_title") %>' />
                         </td>
-                        <td>
-                            <asp:TextBox ID="txt_event_contentE" runat="server" Text='<%#Bind("event_content") %>' />
+                        <td style="vertical-align:top">
+                            <asp:TextBox ID="txt_event_contentE" runat="server" Text='<%#Bind("event_content") %>' TextMode="MultiLine" Wrap="true" Rows="4" />
                         </td>
                         <td>
                             <asp:TextBox ID="txt_dateE" runat="server" Text='<%#Bind("date") %>' />

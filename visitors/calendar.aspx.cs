@@ -14,7 +14,7 @@ public partial class visitors_calendar : System.Web.UI.Page
     {
 
     }
-    //添加日期控件的这个事件 
+    //Add the event of calendar conreol
     protected void MyDayRenderer(object sender, DayRenderEventArgs e)
     {
         calendarClassLinq objLinq = new calendarClassLinq();
@@ -33,11 +33,14 @@ public partial class visitors_calendar : System.Web.UI.Page
             {
                 if (e.Day.Date.ToString("yyyy-MM-dd").CompareTo(DateTime.Now.ToString("yyyy-MM-dd")) <= 0)
                 {
+                    //the past events show in yellow color
                     e.Cell.BackColor = System.Drawing.Color.Yellow;
+                    //when cursor moves to an event, it will show the event name
                     e.Cell.ToolTip = "Past Event:" + event_title;
                 }
                 else
                 {
+                    //the upcoming events show in red color
                     e.Cell.BackColor = System.Drawing.Color.Red;
                     e.Cell.ToolTip = "Upcoming Event:" + event_title;
                 }

@@ -22,7 +22,8 @@ public partial class administrative_admin_message_board : System.Web.UI.Page
         switch (e.CommandName)
         {
             case "del":
-                int _id = int.Parse(((TextBox)e.Item.FindControl("hdf_id")).Text);
+                int _id = int.Parse(((Label)e.Item.FindControl("hdf_id")).Text);
+                //delete data using Linq, and then call the _strMessage function to display the status
                 _strMessage(objLinq.commitDelete(_id), "delete");
                 _subRebind();
                 break;
@@ -37,7 +38,10 @@ public partial class administrative_admin_message_board : System.Web.UI.Page
         ltv_main.DataSource = objLinq.getTbForumsById(id);
         ltv_main.DataBind();
     }
-
+    
+    /*
+     * Rebind the data sourse
+     */
     private void _subRebind()
     {        
         ltv_main.DataSource = obj.getForumInfos();

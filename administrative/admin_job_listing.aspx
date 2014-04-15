@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/administrative/AdminMasterPage.master" AutoEventWireup="true" CodeFile="admin_job_listing.aspx.cs" Inherits="admin_job_listing" %>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="cph_content" Runat="Server">
-     <p>Manage Job List</p>
-        <asp:Label ID="lbl" runat="server" Text="Insert a record" />
-        <br />
+     <h2>Manage Job List</h2>
+        <asp:Label ID="lbl" runat="server" Text="Insert a new job" />
+        <br /><br />
         <table border="1">
             <tr>
                 <td><asp:Label ID="lbl_job_titleI" runat="server" Text="Job Title:" /></td>
@@ -15,21 +15,20 @@
             <tr>
                 <td><asp:Label ID="lbl_job_typeI" runat="server" Text="Job Type: " /></td>
                 <td>
-                    <asp:TextBox ID="txt_job_typeI" runat="server" />
-                    <asp:RequiredFieldValidator ID="rfv_job_typeI" runat="server" Text="*Required" ControlToValidate="txt_job_typeI" ValidationGroup="insert" SetFocusOnError="true" />
+                    <asp:DropDownList ID="ddl_job_typeI" runat="server" />
                 </td>
             </tr>
             <tr>
-                <td><asp:Label ID="lbl_job_descriptionI" runat="server" Text="Description: " /></td>
+                <td style="vertical-align:top"><asp:Label ID="lbl_job_descriptionI" runat="server" Text="Description: " /></td>
                 <td>
-                    <asp:TextBox ID="txt_job_descriptionI" runat="server" TextMode="MultiLine" Wrap="true" />
+                    <asp:TextBox ID="txt_job_descriptionI" runat="server" TextMode="MultiLine" Wrap="true" Rows="3" />
                     <asp:RequiredFieldValidator ID="rfv_job_descriptionI" runat="server" Text="*Required" ControlToValidate="txt_job_descriptionI" ValidationGroup="insert" SetFocusOnError="true" />
                 </td>
             </tr>
             <tr>
-                <td><asp:Label ID="lbl_requirementsI" runat="server" Text="Requirements: " /></td>
+                <td style="vertical-align:top"><asp:Label ID="lbl_requirementsI" runat="server" Text="Requirements: " /></td>
                 <td>
-                    <asp:TextBox ID="txt_requirementsI" runat="server" TextMode="MultiLine" Wrap="true" />
+                    <asp:TextBox ID="txt_requirementsI" runat="server" TextMode="MultiLine" Wrap="true" Rows="3" />
                     <asp:RequiredFieldValidator ID="rfv_requirementsI" runat="server" Text="*Required" ControlToValidate="txt_requirementsI" ValidationGroup="insert" SetFocusOnError="true" />
                 </td>
             </tr>
@@ -48,36 +47,38 @@
         <asp:Label ID="lbl_message" runat="server" />
         <br /><br /><br />
 
-        <table>
-            <asp:DataList ID="dtl_all" runat="server" OnItemCommand="subUpDel">
+            <asp:DataList ID="dtl_all" runat="server" OnItemCommand="subUpDel" RepeatColumns="3" RepeatDirection="Horizontal" RepeatLayout="Table">
+                <HeaderTemplate>
+                    <table border="1" style="border:1px solid #80c2a9">
+                </HeaderTemplate>
                 <ItemTemplate>
                     <tr>
-                        <td>Job Title</td>
+                        <td>Job Title: </td>
                         <td>
                             <asp:HiddenField ID="hdf_idE" runat="server" Value='<%#Bind("Id") %>' />
                             <asp:TextBox ID="txt_job_titleE" runat="server" Text='<%#Bind("job_title") %>' />
                         </td>
                     </tr>
                     <tr>
-                        <td>Job Type</td>
+                        <td>Job Type: </td>
                         <td>
                             <asp:TextBox ID="txt_job_typeE" runat="server" Text='<%#Bind("job_type") %>' />
                         </td>
                     </tr>
                     <tr>
-                        <td>Job Description</td>
+                        <td style="vertical-align:top">Job Description: </td>
                         <td>
-                            <asp:TextBox ID="txt_job_descriptionE" runat="server" Text='<%#Bind("job_description") %>' TextMode="MultiLine" Wrap="true" />
+                            <asp:TextBox ID="txt_job_descriptionE" runat="server" Text='<%#Bind("job_description") %>' TextMode="MultiLine" Wrap="true" Rows="3" style="text-align:left" />
                         </td>
                     </tr>
                     <tr>
-                        <td>Requirements/Skills</td>
+                        <td style="vertical-align:top">Requirements/Skills: </td>
                         <td>
-                            <asp:TextBox ID="txt_requirementsE" runat="server" Text='<%#Bind("requirements") %>' TextMode="MultiLine" Wrap="true" />
+                            <asp:TextBox ID="txt_requirementsE" runat="server" Text='<%#Bind("requirements") %>' TextMode="MultiLine" Wrap="true" Rows="3" style="text-align:left" />
                         </td>
                     </tr>
                     <tr>
-                        <td>Publish Date</td>
+                        <td>Publish Date: </td>
                         <td>
                             <asp:TextBox ID="txt_publish_dateE" runat="server" Text='<%#Bind("publish_date") %>' />
                         </td>
@@ -93,8 +94,11 @@
                         <td>&nbsp;</td>
                     </tr>
                 </ItemTemplate>
+                <FooterTemplate>
+                     </table>
+                </FooterTemplate>
             </asp:DataList>
-        </table>
+        
        
 
 </asp:Content>

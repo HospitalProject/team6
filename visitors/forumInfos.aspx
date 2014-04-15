@@ -55,6 +55,7 @@
                             </td>
                         </tr>
                         <tr>
+                        <!--Display the topic list-->
                             <td class="style3">
                                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" 
                                     AllowSorting="True" AutoGenerateColumns="False" Font-Size="11pt" 

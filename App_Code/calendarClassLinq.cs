@@ -7,24 +7,25 @@ using System.Web.Configuration;
 using System.Data.SqlClient;
 
 /// <summary>
-/// Summary description for CareersListClass
+/// Event Calendar Class
 /// </summary>
 public class calendarClassLinq
 {
+    //get the events list
     public IQueryable<event_calendar> getEventsList()
     {
         CalendarDataContext obj = new CalendarDataContext();
         var list = obj.event_calendar.Select(x => x);
         return list;
     }
-
+    //get the events list by event id
     public IQueryable<event_calendar> getEventsListByID(int _id)
     {
         CalendarDataContext obj = new CalendarDataContext();
         var list = obj.event_calendar.Where(x => x.event_id == _id).Select(x => x);
         return list;
     }
-
+    //get the events list by date
     public IQueryable<event_calendar> getEventsListByDate(DateTime _date)
     {
         CalendarDataContext obj = new CalendarDataContext();
@@ -33,7 +34,7 @@ public class calendarClassLinq
         return list;
     }
 
-
+    //insert new events into database
     public bool commitInsert(string _event_title, string _event_content, DateTime _date, TimeSpan _start_time, TimeSpan _end_time)
     {
         CalendarDataContext objList = new CalendarDataContext();
@@ -50,7 +51,7 @@ public class calendarClassLinq
             return true;
         }
     }
-
+    //uodate events
     public bool commitUpdate(int _id, string _event_title, string _event_content, DateTime _date, TimeSpan _start_date, TimeSpan _end_date)
     {
         CalendarDataContext objList = new CalendarDataContext();
@@ -66,6 +67,7 @@ public class calendarClassLinq
             return true;
         }
     }
+    //delete event by id
     public bool commitDelete(int _id)
     {
         CalendarDataContext objList = new CalendarDataContext();

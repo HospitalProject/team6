@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Web;
-using System.Web.Security; //所有用到session["userId"]的地方
+using System.Web.Security; 
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
@@ -20,9 +20,9 @@ public partial class ForumList : System.Web.UI.Page
     {
         if (!Page.IsPostBack)
         {
-            Label7.Text = Session["strtitle"].ToString();          //显示发帖标题信息
-            Label8.Text = Session["nums"].ToString();              //显示回复数量信息
-            //显示发帖内容及回复信息
+            Label7.Text = Session["strtitle"].ToString();          //show the topic title
+            Label8.Text = Session["nums"].ToString();              //show the replies number
+            //show the topic content and replying information
             linqViewSubForum vsf = new linqViewSubForum();
             DataList1.DataSource = vsf.getSubForumByID(Convert.ToInt32(Request["id"].ToString()));
             DataList1.DataBind();
@@ -38,21 +38,21 @@ public partial class ForumList : System.Web.UI.Page
         }
         else
         {
-            //判断输入的验证码是否正确
+            //check the captcha
             string num = this.TextBox3.Text.Trim();
             if (Session["ValidNums"].ToString() == num.ToUpper())
             {
-                //获得回复数量
+                //get the replies
                 int hfnums_tmp = 0;
                 int hfnums = 0;
                 lingTbForms tf = new lingTbForms();
                 hfnums_tmp = Convert.ToInt32(Request["id"].ToString());
                 hfnums = Convert.ToInt32(tf.getTbForumsById(hfnums_tmp).First().hf_nums) + 1;
                 
-                //更改主表中的回复数量
+                //change the replies in the main table
                 tf.commitUpdate(Convert.ToInt32(Request["id"].ToString()), hfnums);
 
-                //向子表中插入数据
+                //insert data into the child table
                 Guid _userId = (Guid)Membership.GetUser().ProviderUserKey;
                 tbSubForumsLinq tsfl = new tbSubForumsLinq();
                 tsfl.commitInsert(Convert.ToInt32(Request["id"].ToString()), Convert.ToInt32(GetStyleId(Session["forumstyle"].ToString()).ToString()), 
@@ -76,10 +76,10 @@ public partial class ForumList : System.Web.UI.Page
         TextBox4.Focus();
     }
     /// <summary>
-    /// 获得论坛类型编号
+    /// get the category No.
     /// </summary>
-    /// <param name="instr">类型名称</param>
-    /// <returns>返回类型编号</returns>
+    /// <param name="instr">category name</param>
+    /// <returns>return the category No.</returns>
     public int GetStyleId(string instr)
     {
         int Numsid = 0;

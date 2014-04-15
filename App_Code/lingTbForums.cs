@@ -7,31 +7,33 @@ using System.Web.Configuration;
 using System.Data.SqlClient;
 
 /// <summary>
-///CareersApplicationClass 的摘要说明
+///lingTbForms Class
+///tb_forums is used to store the comment information
 /// </summary>
 public class lingTbForms
 {
+    //get the comment list
     public IQueryable<tb_forums> getTbForums()
     {
         tbforumsLinqDataContext obj = new tbforumsLinqDataContext();
         var list = obj.tb_forums.Select(x => x);
         return list;
     }
-
+    //get the comment list by id
     public IQueryable<tb_forums> getTbForumsById(int _id)
     {
         tbforumsLinqDataContext obj = new tbforumsLinqDataContext();
         var list = obj.tb_forums.Where(x => x.id == _id).Select(x => x);
         return list;
     }
-
+    //get the comment list by title
     public IQueryable<tb_forums> getTbForumsByTitle(string _title)
     {
         tbforumsLinqDataContext obj = new tbforumsLinqDataContext();
         var list = obj.tb_forums.Where(x => x.title == _title).Select(x => x);
         return list;
     }
-
+    //insert comment
     public bool commitInsert(string _title, DateTime _dates, Guid _authorid, int _hf_nums)
     {
         tbforumsLinqDataContext objList = new tbforumsLinqDataContext();
@@ -47,7 +49,7 @@ public class lingTbForms
             return true;
         }
     }
-
+    //update the replies number
     public bool commitUpdate(int _id, int _hf_nums)
     {
         tbforumsLinqDataContext objList = new tbforumsLinqDataContext();
@@ -59,7 +61,7 @@ public class lingTbForms
             return true;
         }
     }
-
+    //delete the comments
     public bool commitDelete(int _id)
     {
         tbforumsLinqDataContext objList = new tbforumsLinqDataContext();
