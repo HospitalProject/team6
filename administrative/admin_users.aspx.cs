@@ -45,4 +45,17 @@ public partial class admin_users : System.Web.UI.Page
         _subRebind();
 
     }
+
+    //switch the users tab
+    protected void mnu_users_MenuItemClick(object sender, MenuEventArgs e)
+    {
+        if (e.Item.Text == "Doctors")
+        {
+            mtv_users.ActiveViewIndex = 0;
+        }
+        else
+        {
+            mtv_users.ActiveViewIndex = 1;
+        }
+    }
 }
