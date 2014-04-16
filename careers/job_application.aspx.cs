@@ -31,10 +31,12 @@ public partial class job_application : System.Web.UI.Page
     //bind drop down list using linq
     protected void bindDropdownlist()
     {
-        Careers_listDataContext obj = new Careers_listDataContext(); 
-        var list = (from c in obj.careers_list select new {c.job_title }).Distinct();
-        ddl_job_type.DataSource = list;
-        ddl_job_type.DataTextField = "job_title";
+        //Careers_listDataContext obj = new Careers_listDataContext(); 
+        //var list = (from c in obj.careers_list select new {c.job_title }).Distinct();
+        jobTitleLinq obj = new jobTitleLinq();
+
+        ddl_job_type.DataSource = obj.getApplications();
+        ddl_job_type.DataTextField = "job_title_name";
         ddl_job_type.DataBind();
     }
 

@@ -1,64 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/administrative/AdminMasterPage.master" AutoEventWireup="true" CodeFile="admin_job_application.aspx.cs" Inherits="administrative_admin_job_application" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <style type="text/css">
-    
-.Rep_tab{
-width:100%;
-margin: 0px auto;
-font: Georgia 11px;
-font-size: 12px;
-font-family: Tahoma, Arial, Helvetica, Sans-serif, Times New Roman;
-color:#333333;
-text-align:center;
-vertical-align:middle;
-border-collapse:collapse;
-}
-
-/* Repeater - Table - td style */
-.Rep_tab td {
-border:1px solid #4d9ab0;
-height:25px;
-}
-/* Repeater - Table - caption style */
-.Rep_tab caption {
-text-align:center;
-font-size:12px;
-font-weight:bold;
-margin: 0 auto;}
-
-/* Repeater - Table - TR - odd row style */
-.Rep_Tab_OddTr{
-background-color:#f8fbfc;
-color:#000000;
-height:25px;
-}
-/* Repeater - Table - TR - even row style */
-.Rep_Tab_EvenTr{
-background-color:#e5f1f4;
-color:#000000;
-height:25px;
-}
-.Rep_Tab_HeaderTr{
-background-color:#ffffee;
-color:#000000;
-}
-/*cursor move color*/
-.Rep_Tr_Move
-{
-	background-color:#ecfbd4;
-	color:#000000;
-	height:25px;}
-/* cursor click color*/
-.Rep_Tr_Click{
-background-color:#bce774;
-color:#333333;
-height:25px;}
-    </style>
+    <link rel="Stylesheet" type="text/css" href="../App_Themes/job_applications.css" />
 </asp:Content>
+
 <asp:Content ID="Content4" ContentPlaceHolderID="cph_content" Runat="Server">
-    <script src="../scripts/JSCommon.js" type="text/javascript" />
-    <h2>Manage Job Applications</h2>
+    <h2>Job Applications Management</h2>
     <div style="width:800px">   
             <asp:Repeater ID="rpt_main" runat="server">
                 <HeaderTemplate>
@@ -114,13 +61,7 @@ height:25px;}
                         </table>
                     </FooterTemplate>
                 </asp:Repeater>
-                <div style="width:80%"></div>   
         </div>
-
         <br />
-            <script type="text/javascript" language="javascript">
-                window.onload = SetTableColor("Tab");
-    </script>
-
 
 </asp:Content>

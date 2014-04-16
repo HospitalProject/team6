@@ -57,5 +57,11 @@ public partial class visitors_calendar : System.Web.UI.Page
         calendarClassLinq objLinq = new calendarClassLinq();
         grv_main.DataSource = objLinq.getEventsListByDate(Calendar1.SelectedDate);
         grv_main.DataBind();
+        
+        grv_main.Columns[0].ItemStyle.Width = 150;
+        grv_main.Columns[1].ItemStyle.Width = 300;
+        grv_main.Columns[2].ItemStyle.Width = 80;
+        grv_main.Columns[3].ItemStyle.Width = 80;
+        grv_main.Columns[4].ItemStyle.Width = 80;
     }
 }

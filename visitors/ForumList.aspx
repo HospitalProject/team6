@@ -1,100 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="ForumList.aspx.cs" Inherits="ForumList" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
-<style type="text/css">
-        .style1
-        {
-            width: 900px;
-            height: 338px;
-        }
-        .style10
-        {
-            width: 100%;
-            height: 226px;
-        }
-        
-        .manage_lines1 {
-	        border: 1px solid #7F9DB9;
-        }
-        .manage_lines3 {
-	        BORDER-RIGHT: #7F9DB9 1px solid; BORDER-TOP: #7F9DB9 1px solid; BORDER-BOTTOM: #7F9DB9 1px solid
-        }
-        .manage_lines2 {
-	        BORDER-RIGHT: #7F9DB9 1px solid; BORDER-LEFT: #7F9DB9 1px solid; BORDER-BOTTOM: #7F9DB9 1px solid;
-        }
-        .manage_lines4 {
-	        BORDER-RIGHT: #7F9DB9 1px solid; BORDER-BOTTOM: #7F9DB9 1px solid;
-        }
-        .manage_lines5{
-	        BORDER-RIGHT: #7F9DB9 1px solid; BORDER-TOP: #7F9DB9 1px solid;
-        }
-        .style12
-        {
-        }
-        .style15
-        {
-            width: 548px;
-            height: 28px;
-        }
-        .style16
-        {
-            height: 28px;
-        }
-        .style19
-        {
-            height: 30px;
-        }
-                
-        .style11
-        {
-            width: 62px;
-        }
-                
-        .style20
-        {
-            width: 62px;
-            height: 36px;
-        }
-        .style21
-        {
-            height: 36px;
-        }
-        .style30
-        {
-            width: 547px;
-        }
-        .style13
-        {
-            width: 99%;
-            height: 95px;
-        }
-        .style17
-        {
-            border: 1px solid #7F9DB9;
-            height: 29px;
-        }
-        .style29
-        {
-            width: 553px;
-            height: 29px;
-        }
-                
-        .style23
-        {
-            width: 100%;
-            height: 94px;
-        }
-                        
-        .style28
-        {
-            height: 19px;
-        }
-        .style27
-        {
-            height: 64px;
-        }
-                
-        </style>
+    <link rel="Stylesheet" type="text/css" href="../App_Themes/ForumList.css" />
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="cph_section" Runat="Server">
@@ -104,7 +11,7 @@
                 <table cellpadding="0" cellspacing="0" class="style10" style="font-family:Times New Roman, Arial, Helvetica, sans-serif; font-size: 13px">
                     <tr>
                         <td class="style19" style="text-align:left">
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Message Board Detailed Information List&nbsp;</td>
+                           Message Board Topics List</td>
                     </tr>
                     <tr>
                         <td class="style12" style="text-align:center">
@@ -143,12 +50,10 @@
                                         </tr>
                                         <tr>
                                         <!--user images-->
-                                                <td style =" width:145px" class=" manage_lines2">
-                                                    <asp:Image ID="Image1" runat="server" Height="56px" Width="64px" 
-                                                        ImageUrl="~/images/userIcon.gif" />
-                                                </td>
-
-                                            <td align ="left" valign ="top"  class="manage_lines3">&nbsp;
+                                        <td style =" width:145px; vertical-align:middle" class=" manage_lines2">
+                                                <asp:Image ID="Image1" runat="server" Height="60px" Width="60px" ImageUrl="~/images/userIcon.gif" />
+                                        </td>
+                                            <td align ="left" valign ="top" class="manage_lines3">&nbsp;
                                                 <table cellpadding="0" cellspacing="0" class="style23">
                                                     <tr>
                                                         <td valign ="top" class="style28">&nbsp;
@@ -162,7 +67,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td align="right" >
-                                                            <asp:Button ID="Button3" runat="server" Text="Reply" Width="77px" onclick="Button3_Click" />
+                                                            <asp:Button ID="Button3" runat="server" Text="Reply" Width="70px" onclick="Button3_Click" />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -183,16 +88,17 @@
                 <tr>
                     <td class ="manage_lines2">
                         <table cellpadding="0" cellspacing="0" class="style10" style="font-family:Times New Roman, Arial, Helvetica, sans-serif; font-size: 13px">
+                            <tr><td>&nbsp;</td></tr>
                             <tr>
                                 <td class="style20" style="text-align: right">Title：</td>
                                 <td class="style21" colspan="2" >
-                                    <asp:TextBox ID="TextBox4" runat="server" BorderStyle="None" Width="470px" Height="21px" />
+                                    <asp:TextBox ID="TextBox4" runat="server" Width="470px" Height="21px" />
                                 </td>
                             </tr>
                             <tr>
-                                <td class="style11" style="text-align: right">Content：</td>
+                                <td class="style11" style="text-align: right; vertical-align:top">Content：</td>
                                 <td class="" colspan="2">
-                                    <asp:TextBox ID="TextBox2" runat="server" TextMode="MultiLine" Width="471px" BorderStyle="None" Height="141px" />
+                                    <asp:TextBox ID="TextBox2" runat="server" TextMode="MultiLine" Width="471px" BorderStyle="Solid" Height="141px" />
                                 </td>
                             </tr>
                             <tr>

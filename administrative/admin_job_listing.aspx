@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/administrative/AdminMasterPage.master" AutoEventWireup="true" CodeFile="admin_job_listing.aspx.cs" Inherits="admin_job_listing" %>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="cph_content" Runat="Server">
-     <h2>Manage Job List</h2>
+     <h2>Job List Management</h2>
         <asp:Label ID="lbl" runat="server" Text="Insert a new job" />
         <br /><br />
         <table border="1">
@@ -46,7 +46,7 @@
         <br />
         <asp:Label ID="lbl_message" runat="server" />
         <br /><br /><br />
-
+        <!--Bind the job data using DataList-->
             <asp:DataList ID="dtl_all" runat="server" OnItemCommand="subUpDel" RepeatColumns="3" RepeatDirection="Horizontal" RepeatLayout="Table">
                 <HeaderTemplate>
                     <table border="1" style="border:1px solid #80c2a9">

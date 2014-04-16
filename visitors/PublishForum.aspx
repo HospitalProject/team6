@@ -1,73 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="PublishForum.aspx.cs" Inherits="PublishForum" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
-<style type="text/css">
-        .style1
-        {
-            width: 100%;
-        }
-        .style2
-        {
-            height: 130px;
-        }
-        .style3
-        {
-            height: 46px;
-        }
-                        
-.manage_lines1 {
-	border: 1px solid #7F9DB9;
-	text-align: right;
-}
-        .manage_lines3 {
-	BORDER-RIGHT: #7F9DB9 1px solid; BORDER-TOP: #7F9DB9 1px solid; BORDER-BOTTOM: #7F9DB9 1px solid
-}
-.manage_lines2 {
-	BORDER-RIGHT: #7F9DB9 1px solid; BORDER-LEFT: #7F9DB9 1px solid; BORDER-BOTTOM: #7F9DB9 1px solid;
-	text-align: right;
-}
-        .style15
-        {
-            width: 600px;
-            height: 122px;
-            border-color: #3366FF;
-        }
-        .style10
-        {
-            width: 547px;
-            height: 109px;
-        }
-        
-        .style13
-        {
-            height: 34px;
-            width: 274px;
-        }
-        .style14
-        {
-            height: 34px;
-        }
-            
-        .style11
-        {
-            width: 274px;
-        }
-                
-        .style16
-        {
-            width: 439px;
-        }
-        .style17
-        {
-            height: 34px;
-            width: 258px;
-        }
-        .style18
-        {
-            height: 34px;
-            width: 162px;
-        }
-        </style>
+    <link rel="Stylesheet" type="text/css" href="../App_Themes/publishForum.css" />
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="cph_section" Runat="Server">
@@ -75,7 +9,7 @@
 <table cellpadding="0" cellspacing="0" class="style1">
             <tr>
                 <td class="style3" 
-                    style="font-family:Times New Roman, Arial, Helvetica, sans-serif; font-size: 13px">
+                    style="font-family:Times New Roman, Arial, Helvetica, sans-serif; font-size: 20px">
                     &nbsp; 
                     <asp:Label ID="Label1" runat="server" Text="Post a new topic"></asp:Label>
                 </td>
@@ -107,7 +41,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="style11" style="text-align: right">
+                            <td class="style11" style="text-align: right; vertical-align:top">
                                 Content：</td>
                             <td class="" colspan="4">
                                 <asp:TextBox ID="TextBox2" runat="server" TextMode="MultiLine" Width="480px" 

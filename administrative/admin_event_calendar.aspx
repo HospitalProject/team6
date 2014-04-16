@@ -4,9 +4,9 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="cph_content" Runat="Server">
-<script src="../scripts/external/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+
 <div>
-    <h2>Manage Events</h2>
+    <h2>Events Management</h2>
     <asp:Label ID="lbl" runat="server" Text="Insert an event" />
         <br /><br />
         <!--Insert a new event-->
@@ -15,24 +15,22 @@
                 <td><asp:Label ID="lbl_event_titleI" runat="server" Text="Event Title:" /></td>
                 <td>
                     <asp:TextBox ID="txt_event_titleI" runat="server" />
-                    <asp:RequiredFieldValidator ID="rfv_event_titleI" runat="server" Text="*Required" ControlToValidate="txt_event_titleI" ValidationGroup="insert" SetFocusOnError="true" />
+                    <asp:RequiredFieldValidator ID="rfv_event_titleI" runat="server" Text="*Required" ControlToValidate="txt_event_titleI" ValidationGroup="insert" SetFocusOnError="true" ErrorMessage="Please complete the title" />
                 </td>
             </tr>
             <tr>
                 <td><asp:Label ID="lbl_event_contentI" runat="server" Text="Description: " /></td>
                 <td style="vertical-align:top">
                     <asp:TextBox ID="txt_event_contentI" runat="server" TextMode="MultiLine" Wrap="true" Rows="3" />
-                    <asp:RequiredFieldValidator ID="rfv_event_contentI" runat="server" Text="*Required" ControlToValidate="txt_event_contentI" ValidationGroup="insert" SetFocusOnError="true" />
+                    <asp:RequiredFieldValidator ID="rfv_event_contentI" runat="server" Text="*Required" ControlToValidate="txt_event_contentI" ValidationGroup="insert" SetFocusOnError="true" ErrorMessage="Please complete the description" />
                 </td>
             </tr>
             <tr>
                 <td><asp:Label ID="lbl_dateI" runat="server" Text="Date: " /></td>
                 <td>
                     <asp:TextBox ID="txt_dateI" runat="server" />
-                    <asp:RequiredFieldValidator ID="rfv_dateI" runat="server" Text="*Required" ControlToValidate="txt_dateI" ValidationGroup="insert" SetFocusOnError="true" />
-                    <asp:RegularExpressionValidator ID="rev_dateI" runat="server" ErrorMessage="Not a date" ControlToValidate="txt_dateI" 
-                    ValidationExpression="^((((1[6-9]|[2-9]\\d)\\d{2})-(0?[13578]|1[02])-(0?[1-9]|[12]\\d|3[01]))|(((1[6-9]|[2-9]\\d)\\d{2})-(0?[13456789]|1[012])-(0?[1-9]|[12]\\d|30))|(((1[6-9]|[2-9]\\d)\\d{2})-0?2-(0?[1-9]|1\\d|2[0-8]))|(((1[6-9]|[2-9]\\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))-0?2-29-))$"
-                    />
+                    <asp:RequiredFieldValidator ID="rfv_dateI" runat="server" Text="*Required" ControlToValidate="txt_dateI" ValidationGroup="insert" SetFocusOnError="true" ErrorMessage="Please complete the date" Display="Dynamic" />
+                    <asp:CompareValidator ID="cpv_dateI" runat="server" Text="*Not a date" ControlToValidate="txt_dateI" Operator="DataTypeCheck" Type="Date" ValidationGroup="insert" Display="Dynamic" SetFocusOnError="true" />
                 </td>
             </tr>
             <tr>
@@ -40,8 +38,7 @@
                 <td>
                     <asp:TextBox ID="txt_start_timeI" runat="server" />
                     <asp:RequiredFieldValidator ID="rfv_start_timeI" runat="server" Text="*Required" ControlToValidate="txt_start_timeI" ValidationGroup="insert" SetFocusOnError="true" Display="Dynamic" />
-                    <asp:RegularExpressionValidator ID="rev_start_timeI" runat="server" ErrorMessage="Not a time" ControlToValidate="txt_start_timeI" 
-                    ValidationExpression="^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$ " />
+                    <asp:RegularExpressionValidator ID="rev_start_timeI" runat="server" ErrorMessage="Not a time" SetFocusOnError="true" ControlToValidate="txt_start_timeI" ValidationExpression="^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$" ValidationGroup="insert" />
                 </td>
             </tr>
             <tr>
@@ -49,8 +46,7 @@
                 <td>
                     <asp:TextBox ID="txt_end_timeI" runat="server" />
                     <asp:RequiredFieldValidator ID="rfv_end_timeI" runat="server" Text="*Required" ControlToValidate="txt_end_timeI" ValidationGroup="insert" SetFocusOnError="true" Display="Dynamic" />
-                    <asp:RegularExpressionValidator ID="rev_end_time" runat="server" ErrorMessage="Not a time" ControlToValidate="txt_end_timeI" 
-                    ValidationExpression="^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$ " />
+                    <asp:RegularExpressionValidator ID="rev_end_timeI" runat="server" ErrorMessage="Not a time" SetFocusOnError="true" ControlToValidate="txt_end_timeI" ValidationExpression="^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$" ValidationGroup="insert" />
                 </td>
             </tr>
         </table>
@@ -61,18 +57,19 @@
         <br />
         <br />
         <!--Edit events-->
-        <table>
-            <tr>
-                <th>Event Title</th>
-                <th>Description</th>
-                <th>Date</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-                <th>Option</th>
-            </tr>
-        </table>
-        <table>
-            <asp:DataList ID="dtl_all" runat="server" OnItemCommand="subUpDel">
+
+            <asp:DataList ID="dtl_all" runat="server" Width="80%" OnItemCommand="subUpDel">
+                <HeaderTemplate>
+                    <table>
+                        <tr>
+                            <th>Event Title</th>
+                            <th>Description</th>
+                            <th>Date</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                            <th>Option</th>
+                        </tr>
+                </HeaderTemplate>
                 <ItemTemplate>
                     <tr>
                         <td>
@@ -83,7 +80,7 @@
                             <asp:TextBox ID="txt_event_contentE" runat="server" Text='<%#Bind("event_content") %>' TextMode="MultiLine" Wrap="true" Rows="4" />
                         </td>
                         <td>
-                            <asp:TextBox ID="txt_dateE" runat="server" Text='<%#Bind("date") %>' />
+                            <asp:TextBox ID="txt_dateE" runat="server" Text='<%#Eval("date").ToString().Substring(0,9) %>' />
                         </td>
                         <td>
                             <asp:TextBox ID="txt_start_timeE" runat="server" Text='<%#Bind("start_time") %>' />
@@ -98,8 +95,10 @@
                         </td>
                     </tr>
                 </ItemTemplate>
+                <FooterTemplate>
+                    </table>
+                </FooterTemplate>
             </asp:DataList>
-        </table>
     </div>
 </asp:Content>
 

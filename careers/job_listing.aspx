@@ -13,14 +13,17 @@
             </div>
             <br />
             <!--Display the job list-->
-            <div id ="gridview_div" style="overflow:scroll;width:1000px;border:1; height:500px">  
-                <asp:GridView ID="grv_main" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="Id" AllowSorting="true">
+            <div id ="gridview_div" style="overflow:scroll;width:780px;border:1; height:500px">  
+                <asp:GridView ID="grv_main" runat="server" AutoGenerateColumns="False" CellPadding="4">
                     <RowStyle Font-Size="12px" Height="17px" ForeColor="#333333" BackColor="White" BorderWidth="1" BorderStyle="Solid" BorderColor="Gray"/>
                     <HeaderStyle  Font-Size="12px"  Height="20px" ForeColor="White" BackColor="#787878" BorderWidth="1" BorderStyle="Solid" BorderColor="Gray" HorizontalAlign="Center"/>
                     <Columns>
                         <asp:BoundField DataField="Id" HeaderText="Id" ReadOnly="true" ItemStyle-Width="500px" ItemStyle-Wrap="false" InsertVisible="False" SortExpression="Id" Visible="false" /> 
                         <asp:BoundField DataField="job_title" HeaderText="Title" SortExpression="job_title" />
-                        <asp:BoundField DataField="job_type" HeaderText="Type" SortExpression="job_type" />
+                        <asp:BoundField DataField="job_type" HeaderText="Type" SortExpression="job_type">
+                            <HeaderStyle Wrap= "False " /> 
+                            <ItemStyle HorizontalAlign= "Center" /> 
+                        </asp:BoundField>
                         <asp:BoundField DataField="job_description" HeaderText="Description" SortExpression="job_description" />
                         <asp:BoundField DataField="requirements" HeaderText="Requirements/Skills" SortExpression="requirements" />             
                         <asp:BoundField DataField="publish_date" HeaderText="Publish Date" SortExpression="publish_date" />

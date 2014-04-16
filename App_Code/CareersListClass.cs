@@ -26,6 +26,14 @@ public class CareersListClass
         return list;
     }
 
+    public IQueryable<careers_list> getCareersListSorting()
+    {
+        Careers_listDataContext obj = new Careers_listDataContext();
+        //var list = obj.careers_list.Select(x => x);
+        var list = from o in obj.careers_list orderby o.publish_date descending select o;
+        return list;
+    }
+
     public bool commitInsert(string _job_title, string _job_type, string _desc, string _rq, DateTime _publish_date)
     {
         Careers_listDataContext objList = new Careers_listDataContext();

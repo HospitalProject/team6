@@ -1,35 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="forumInfos.aspx.cs" Inherits="forumInfos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cph_head" Runat="Server">
-<style type="text/css">
-        .style1
-        {
-            width: 800px;
-            height: 200px;
-        }
-        .style2
-        {
-            width: 94%;
-            height: 100px;
-        }
-        .style3
-        {
-            width: 624px;
-        }
-        .style4
-        {
-            width: 119%;
-        }
-        .style5
-        {
-            width: 400px;
-            height: 25px;
-        }
-        .style7
-        {
-            height: 25px;
-        }
-    </style>
+    <link rel="Stylesheet" type="text/css" href="../App_Themes/forumInfo.css" />
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="cph_section" Runat="Server">
@@ -39,11 +11,10 @@
                     <table border="1" cellpadding="0" cellspacing="0" class="style2">
                         <tr>
                             <td style=" height:100px; font-family: Times New Roman, Arial, Helvetica, sans-serif; font-size: 15px;">
-                                Message Board Manager</td>
+                                <h2>Message Board</h2></td>
                         </tr>
                         <tr>
                             <td class="style3">
-
                                 <table cellpadding="0" cellspacing="0" class="style4">
                                     <tr>
                                         <td class="style7" style="font-family:Times New Roman, Arial, Helvetica, sans-serif; font-size: 15px">

@@ -17,6 +17,7 @@ public partial class administrative_admin_job_application : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             CareersApplicationClass obj = new CareersApplicationClass();
+
             rpt_main.DataSource = obj.getApplications();
             rpt_main.DataBind();
 
@@ -86,4 +87,5 @@ public partial class administrative_admin_job_application : System.Web.UI.Page
         }
         return Dok;
     }
+
 }

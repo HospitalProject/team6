@@ -46,7 +46,6 @@ public partial class administrative_admin_message_board : System.Web.UI.Page
     {        
         ltv_main.DataSource = obj.getForumInfos();
         ltv_main.DataBind();
-
     }
 
     private void _strMessage(bool flag, string str)
@@ -56,5 +55,20 @@ public partial class administrative_admin_message_board : System.Web.UI.Page
         else
             lbl_msg.Text = "Topic deleted failed!";
     }
+
+    override protected void OnInit(EventArgs e)
+    {
+
+        this.ltv_main.PagePropertiesChanged += UserListView_PagePropertiesChanged;
+        base.OnInit(e);
+
+    }
+
+    void UserListView_PagePropertiesChanged(object sender, EventArgs e)
+    {
+        this.ContactsDataPager.SetPageProperties(ContactsDataPager.StartRowIndex, ContactsDataPager.PageSize, true);
+        //data bind
+        this._subRebind();
+    }  
 
 }

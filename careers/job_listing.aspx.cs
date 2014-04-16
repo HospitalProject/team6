@@ -12,8 +12,8 @@ public partial class job_listing : System.Web.UI.Page
         if (!Page.IsPostBack)
         {
             //bind the gridview using linq
-            CareersListClass careers_list = new CareersListClass();
-            grv_main.DataSource = careers_list.getCareersList();
+            CareersListClass obj = new CareersListClass();
+            grv_main.DataSource = obj.getCareersListSorting();
             grv_main.DataBind();
             this.grv_main.Columns[0].ItemStyle.Width = 100;
             this.grv_main.Columns[1].ItemStyle.Width = 100;
@@ -22,5 +22,4 @@ public partial class job_listing : System.Web.UI.Page
             this.grv_main.Columns[4].ItemStyle.Width = 200;
         }
     }
-
 }

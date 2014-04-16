@@ -42,7 +42,9 @@
         </tr>
         <tr>
             <td><asp:Label ID="lbl_city" runat="server" Text="City: " AssociatedControlID="txt_city" /></td>
-            <td><asp:TextBox ID="txt_city" runat="server" /></td>
+            <td><asp:TextBox ID="txt_city" runat="server" />
+                <asp:RequiredFieldValidator ID="rfv_city" runat="server" Text="*Required" ControlToValidate="txt_city" Display="Dynamic" SetFocusOnError="true" ErrorMessage="Please complete city" ValidationGroup="Group1" />
+            </td>
         </tr>
             <!--Job type-->
         <tr>
