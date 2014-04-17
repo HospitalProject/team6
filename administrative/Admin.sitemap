@@ -12,7 +12,7 @@
 	      <siteMapNode url="~/administrative/admin_job_application.aspx" title="Job Applications"  description="" />
         <siteMapNode url="~/administrative/admin_event_calendar.aspx" title="Event Calendar"  description="" />
         <siteMapNode url="~/administrative/admin_message_board.aspx" title="Message Board"  description="" />
-      <siteMapNode url="~/administrative/admin_pollquestions.aspx" title="Manage PollQuestions"  description="" />
-      <siteMapNode url="~/administrative/admin_managepoll.aspx" title="Manage Survey/Polls"  description="" />
+        <siteMapNode url="~/administrative/admin_pollquestions.aspx" title="Manage PollQuestions"  description="" />
+        <siteMapNode url="~/administrative/admin_managepoll.aspx" title="Manage Survey/Polls"  description="" />
     </siteMapNode>
 </siteMap>
