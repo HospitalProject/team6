@@ -44,7 +44,7 @@ public class CareersListClass
             obj.job_type = _job_type;
             obj.job_description = _desc;
             obj.requirements = _rq;
-            obj.publish_date = _publish_date;
+            obj.publish_date = System.DateTime.Now;
             objList.careers_list.InsertOnSubmit(obj);
             objList.SubmitChanges();
             return true;

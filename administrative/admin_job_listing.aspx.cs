@@ -35,7 +35,7 @@ public partial class admin_job_listing : System.Web.UI.Page
         //txt_job_typeI.Text = string.Empty;
         txt_job_descriptionI.Text = string.Empty;
         txt_requirementsI.Text = string.Empty;
-        txt_publish_dateI.Text = string.Empty;
+        //txt_publish_dateI.Text = string.Empty;
         dtl_all.DataSource = objLinq.getCareersList();
         dtl_all.DataBind();
 
@@ -47,7 +47,7 @@ public partial class admin_job_listing : System.Web.UI.Page
         {
             case "Insert":
                 //insert data using Linq, and then call the _strMessage function to display the status
-                _strMessage(objLinq.commitInsert(txt_job_titleI.Text, ddl_job_typeI.SelectedItem.Text, txt_job_descriptionI.Text, txt_requirementsI.Text, DateTime.Parse(txt_publish_dateI.Text.ToString())), "insert");
+                _strMessage(objLinq.commitInsert(txt_job_titleI.Text, ddl_job_typeI.SelectedItem.Text, txt_job_descriptionI.Text, txt_requirementsI.Text, System.DateTime.Now), "insert");
                 _subRebind();
                 break;
             case "Cancel":

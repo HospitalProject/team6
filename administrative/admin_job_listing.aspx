@@ -32,14 +32,6 @@
                     <asp:RequiredFieldValidator ID="rfv_requirementsI" runat="server" Text="*Required" ControlToValidate="txt_requirementsI" ValidationGroup="insert" SetFocusOnError="true" />
                 </td>
             </tr>
-            <tr>
-                <td><asp:Label ID="lbl_publish_dateI" runat="server" Text="publish_date: " /></td>
-                <td> 
-                    <asp:TextBox ID="txt_publish_dateI" runat="server" />
-                    <asp:RequiredFieldValidator ID="rfv_publish_dateI" runat="server" Text="*Required" ControlToValidate="txt_publish_dateI" ValidationGroup="insert" SetFocusOnError="true" Display="Dynamic" />
-                    <asp:CompareValidator ID="cpv_publish_dateI" runat="server" Text="*Not a date" ControlToValidate="txt_publish_dateI" Operator="DataTypeCheck" Type="Date" ValidationGroup="insert" Display="Dynamic" SetFocusOnError="true" />
-                </td>                   
-            </tr>
         </table>
         <asp:Button ID="btn_insert" runat="server" Text="Insert" OnCommand="subAdmin" CommandName="Insert" ValidationGroup="insert" />
         <asp:Button ID="btn_cancel" runat="server" Text="Cancel" OnCommand="subAdmin" CommandName="Cancel" />
