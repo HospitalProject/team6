@@ -75,7 +75,7 @@ body {
   z-index: 10000;
 }
 
-@media (min-width: 337px) {
+/*@media (min-width: 337px) {
      #container {
         width: 330px;
         height: auto;
@@ -101,59 +101,97 @@ body {
         width: 1124px;
         height: auto;
     }
-}
+}*/
 
-h1 {
-    padding: 10px;
-    letter-spacing: 3px;
-    font-family: 'Carme', sans-serif;
-    font-size: 35px;
+#container {
+    margin: 5px auto;
 }
-
-h2 {
-    padding: 10px;
-    letter-spacing: 3px;
-    font-family: 'Carme', sans-serif;
-    font-size: 30px;
-}
-
-h3 {
-    padding: 10px;
-    letter-spacing: 0px;
-    line-height: 30px;
-    font-family: 'Carme', sans-serif;
-    font-size: 25px;
-}
-
-h4 {
-    padding: 5px;
-    letter-spacing: 0px;
-    line-height: 30px;
-    font-family: 'Carme', sans-serif;
-    font-size: 20px;
-}
-
-h5 {
-    padding: 5px;
-    letter-spacing: 0px;
-    line-height: 25px;
-    font-family: 'Carme', sans-serif;
-    font-size: 15px;
-}
-
-h6 {
-    padding: 5px;
-    letter-spacing: 0px;
-    font-family: 'Carme', sans-serif;
-    font-size: 12px;
-}
-
 header {
-    display: block;
-    clear: both;
+    width: 100%;
+}
+@media (max-width: 1200px) {
+    #container {
+        width: 100%;
+        height: auto;
+    }
+}
+@media (min-width: 1200px) {
+    #container {
+        width: 1200px;
+        height: auto;
+    }
 }
 
-@media (max-width: 338px) {
+@media (max-width: 768px) {
+    .collapsMenuBtn {
+        display:block;
+    }
+    #menu nav {
+        display:none;
+    }
+}
+
+@media (min-width: 768px) {
+    .collapsMenuBtn {
+        display:none;
+    }
+    #collapsemenu {
+        display: none !important;
+    }
+    #menu nav {
+        display:block;
+    }
+}
+
+/*---------------*/
+
+/*@media (max-width: 360px) {
+    section {
+        width: 240px;
+        float: left;
+        margin-left: 8px;
+    }
+}*/
+
+
+@media (min-width: 640px) {
+    section {
+        width: 68%;
+        /*margin: auto;*/
+        float:right;
+    }
+}
+
+@media (max-width: 640px) {
+    section {
+        width: 100%;
+        /*margin: auto;*/
+        float:left;
+    }
+}
+
+/*@media (min-width: 720px) {
+    section {
+        width: 480px;
+        margin: auto;
+    }
+}
+
+@media (min-width: 960px) {
+    section {
+        width: 640px;
+        margin: 15px 10px 0px 10px;
+    }
+}
+
+@media (min-width: 1200px) {
+    section {
+        width: 800px;
+        margin: 15px 10px 0px 10px;
+    }
+}*/
+
+/*@media (max-width: 338px) {
     .collapsMenuBtn {
         display:block;
     }
@@ -221,7 +259,59 @@ header {
         display:block;
     }
 
+}*/
+
+h1 {
+    padding: 10px;
+    letter-spacing: 3px;
+    font-family: 'Carme', sans-serif;
+    font-size: 35px;
 }
+
+h2 {
+    padding: 10px;
+    letter-spacing: 3px;
+    font-family: 'Carme', sans-serif;
+    font-size: 30px;
+}
+
+h3 {
+    padding: 10px;
+    letter-spacing: 0px;
+    line-height: 30px;
+    font-family: 'Carme', sans-serif;
+    font-size: 25px;
+}
+
+h4 {
+    padding: 5px;
+    letter-spacing: 0px;
+    line-height: 30px;
+    font-family: 'Carme', sans-serif;
+    font-size: 20px;
+}
+
+h5 {
+    padding: 5px;
+    letter-spacing: 0px;
+    line-height: 25px;
+    font-family: 'Carme', sans-serif;
+    font-size: 15px;
+}
+
+h6 {
+    padding: 5px;
+    letter-spacing: 0px;
+    font-family: 'Carme', sans-serif;
+    font-size: 12px;
+}
+
+header {
+    display: block;
+    clear: both;
+}
+
+
 
  /*#loginarea, #donationLink, #collapsMenu {
     margin: 5px 0 10px 0;
@@ -322,27 +412,40 @@ aside {
     display: block;
     float: left;
     clear: both;
+    overflow: hidden;
 }
 
-@media (min-width: 280px) {
+/*@media (min-width: 280px) {
      aside {
         width: 260px;
         height: auto;
     }
-}
+}*/
 
-@media (min-width: 320px) {
+@media (min-width: 640px) {
      aside {
-        width: 270px;
+        width: 30%;
         height: auto;
-        margin: 7px 5px 5px 10px;
+        /*margin: 7px 5px 5px 10px;*/
+        float: left;
     }
 }
-
+@media (max-width: 640px) {
+     aside {
+        width: 100%;
+        height: auto;
+        /*margin: 7px 5px 5px 10px;*/
+        float: left;
+    }
+}
 
 #googleSearch {
     float: left;
 }
+
+    #googleSearch input {
+        width: 80%;
+    }
 
 #btn_googleSearch{
     margin: 2px 0px 0px 0px;
@@ -352,55 +455,22 @@ aside {
 section {
     display: block;
     height: auto;
-    float: left;
-}
-
-@media (max-width: 360px) {
-    section {
-        width: 240px;
-        float: left;
-        margin-left: 8px;
-    }
+    float: right;
+    /*padding: 5px;*/
 }
 
 
-@media (min-width: 480px) {
-    section {
-        width: 320px;
-        margin: auto;
-        float:left;
-    }
-}
-
-@media (min-width: 720px) {
-    section {
-        width: 480px;
-        margin: auto;
-    }
-}
-
-@media (min-width: 960px) {
-    section {
-        width: 640px;
-        margin: 15px 10px 0px 10px;
-    }
-}
-
-@media (min-width: 1200px) {
-    section {
-        width: 800px;
-        margin: 15px 10px 0px 10px;
-    }
-}
 
 footer {
     background-color: #82C2A9;
-    margin: 0 0 0 10px;
+    /*margin: 5px;*/
     float:left;
     clear: both;
+    width: 100%;
+    overflow: hidden;
 }
 
-@media (min-width: 280px) {
+/*@media (min-width: 280px) {
      footer {
         width: 260px;
         height: auto;
@@ -441,11 +511,49 @@ footer {
         height: 140px;
         margin: 20px 0 10px 0;
     }
+}*/
+
+#requiredNav {
+    margin: 5px;
 }
 
-#requiredNav_left {
-    color: white;
-    float: left;
+
+
+@media (min-width: 640px) {
+     #requiredNav_right {
+        font-size: 12px;
+        color: #61625B;
+        margin: auto;
+        height: auto;
+        float: right;
+    }
+    #requiredNav_left {
+        color: white;
+        float: left;
+    }
+}
+
+@media (max-width: 640px) {
+     #requiredNav_right {
+        font-size: 12px;
+        color: #61625B;
+        width: 100%;
+        margin: auto;
+        height: auto;
+        float: left;
+    }
+        #requiredNav_right table {
+            margin: 0 auto;
+        }
+    #requiredNav_left {
+        color: white;
+        float: left;
+        width: 100%;
+        margin: auto;
+    }
+        #requiredNav_left h6 {
+            margin: 0 auto;
+        }
 }
 
 /*@media (min-width: 280px) {
@@ -464,7 +572,7 @@ footer {
     }
 }*/
 
-@media (max-width: 600px) {
+/*@media (max-width: 600px) {
      #requiredNav_left {
         display: none;
     }
@@ -492,16 +600,16 @@ footer {
         width: 430px;
         height: 79px;
     }
-}
+}*/
 
 
-#requiredNav_right {
+/*#requiredNav_right {
     font-size: 12px;
     color: #61625B;
     float: right;
-}
+}*/
 
-@media (max-width: 680px) {
+/*@media (max-width: 680px) {
     #requiredNav_right {
         display: none;
     }
@@ -530,7 +638,7 @@ footer {
         height: 79px;
         line-height: 20px;
     }
-}
+}*/
 
 
 #studentTag {
@@ -584,13 +692,13 @@ footer {
 }
 
 .bottomNav a {
-    margin: 0px 10px 0px 35px;
+    margin: 0px 10px 0px 10px;
     text-decoration: none;
     color: #5B514D;
 }
 
 .bottomNav a:hover {
-    margin: 0px 10px 0px 35px;
+    margin: 0px 10px 0px 10px;
     text-decoration: none;
     color: white;
 }
@@ -608,9 +716,11 @@ height: 320px;
         font-size:80%;
     }
 .ui-accordion .ui-accordion-content {
+    text-align:left;
     font-size:80%;
 }
 .ui-accordion .ui-accordion-header {
+    text-align:left;
 	display: block;
 	cursor: pointer;
 	position: relative;
@@ -657,9 +767,10 @@ text-align: right;
 
 #mobile_footer {
     color: #000;
+    display: none;
 }
 
-@media (min-width: 300px) {
+/*@media (min-width: 300px) {
     #mobile_footer {
         margin: 10px;
         width: 270px;
@@ -690,7 +801,7 @@ text-align: right;
         height: 70px;
         display: none;
     }
-}
+}*/
 
 .dropdownmenuitem
 {

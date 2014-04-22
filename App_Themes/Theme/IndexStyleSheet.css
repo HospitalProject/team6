@@ -1,15 +1,46 @@
 ﻿@charset "utf-8";
 
 #home_slideshow {
-    padding: 4px;
+    /*padding: 4px;*/
     border: 1px solid #808080;
     clear: both;
     background-color:#658749;
-
+    overflow: hidden;
+    margin: 5px;
 }
 
+/*@media (min-width: 480px) {
+     #home_slideshow {
+        width: 100%;
+        height: auto;
+    }
+    #ticker {
+        width: 100%;
+    }
+    .tickercontainer {
+        width: 100%;
+    }
+        .tickercontainer .mask {
+            width: 100%;
+        }
+}
+@media (max-width: 480px) {
+     #home_slideshow {
+        width: 100%;
+        height: auto;
+    }
+    #ticker {
+        width: 100%;
+    }
+    .tickercontainer {
+        width: 100%;
+    }
+        .tickercontainer .mask {
+            width: 100%;
+        }
+}*/
 
-@media (min-width: 300px) {
+/*@media (min-width: 300px) {
      #home_slideshow {
         width: 250px;
         height: auto;
@@ -103,15 +134,16 @@
         .tickercontainer .mask {
             width: 780px;
         }
-}
+}*/
 
 .img_slider {
     background: none;
     width: auto;
     height: auto;
+    max-width: 100%;
 }
 
-@media (min-width: 300px) {
+/*@media (min-width: 300px) {
     .img_slider {
           width: 239px;
         height: auto;
@@ -151,7 +183,7 @@
         width: 797px;
         height: 260px;
     }
-}
+}*/
 
 .btnslider {
     padding: 5px;
@@ -169,9 +201,10 @@
 #home_welcome {
     height: auto;
     color: black;
+    margin: 5px;
 }
 
-@media (min-width: 360px) {
+/*@media (min-width: 360px) {
     #home_welcome {
         width: 240px;
         height: auto;
@@ -205,7 +238,7 @@
         margin: 32px 0px 0px 0px;
         height: auto;
     }
-}
+}*/
 
 
 /*the following css styles are used for news ticker*/
@@ -213,16 +246,20 @@
     height: 25px;
     float: left;
     clear:both;
+    margin: 5px;
+    width: 95%;
 }
 
 .tickercontainer {
 float: left; 
 overflow: hidden; 
+width: 100%;
 }
     .tickercontainer li {
         float: left;
     }
     .tickercontainer .mask {
+        width: 100%;
         position: relative;
         padding: 5px;
         overflow: hidden; 
@@ -266,7 +303,7 @@ border-right: 2px solid #96C2AA;
     }
 }
 
-@media (min-width: 600px) {
+/*@media (min-width: 600px) {
     .sld {
         width: 180px;
         height: 100px;
@@ -281,12 +318,13 @@ border-right: 2px solid #96C2AA;
         height: 132px;
         padding: 10px; 
     }
-}
+}*/
 
-@media (min-width: 960px) {
+@media (max-width: 1200px) {
     .sld {
         width: 200px;
-        height: 176px;
+        /*height: 176px;*/
+        height: 100%;
         padding: 15px; 
     }
 }
